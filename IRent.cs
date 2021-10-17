@@ -1,8 +1,10 @@
 using System;
 
-namespace Dealership{
+namespace Dealership
+{
 
-    interface IRent{
+    interface IRent
+    {
 
         void RentVehicle();
     }
