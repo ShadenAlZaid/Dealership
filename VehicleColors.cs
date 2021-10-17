@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dealership
 {
-    public enum VehicleTypes
+    public enum VehicleColors
     {
-        Car  =1,
-        MC = 2,
-        Truck = 3,
-        Bicycle = 4
+        Red  = 1,
+        Black = 2,
+        White = 3,
+        Silver = 4
     }
 }

@@ -2,9 +2,9 @@ using System;
 
 namespace Dealership
 {
-    class Motorcycle : VehicleBase,        IVehicle
+    class Motorcycle : VehicleBase, IVehicle
 {
-        public Motorcycle(string year, string make, string model, string color, string cost, string availability) : base(year, make, model, color, cost, availability){
+        public Motorcycle(string year,string model, VehicleColors color) : base(year, model, color){
 
         }
 

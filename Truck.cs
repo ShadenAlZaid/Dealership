@@ -2,10 +2,10 @@ using System;
 
 namespace Dealership
 {
-    class Truck : VehicleBase,IVehicle
+    class Truck : VehicleBase, IVehicle
     
     {
-        public Truck(string year, string make, string model, string color, string cost, string availability) : base(year, make, model, color, cost, availability){
+        public Truck(string year,string model, VehicleColors color) : base(year,model, color){
 
         }
 

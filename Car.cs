@@ -4,31 +4,37 @@ namespace Dealership
 {
     class Car : VehicleBase, IVehicle
     {
-
+        
         public Car()
         {
 
         }
-        public Car(string year, string make, string model, string color, string cost, string availability) : base(year, make, model, color, cost, availability)
+        public Car(string year, string model, VehicleColors color) : base(year, model, color)
         {
 
         }
 
         public void GetOptions()
         {
-            Console.WriteLine("Color:");
+            Console.Write("Year: ");
+            this.Year = Console.ReadLine();
 
-            this.Color = Console.ReadLine();//
+            Console.WriteLine(" 1. RED\n 2. BLACK\n 3. WHITE\n 4. SILVER");
+            Console.Write("Choose Color number: ");
 
-            Console.WriteLine("Make:");
+            //this.Color = Console.ReadLine();
+            var choice = int.Parse(Console.ReadLine());
+            this.Color = (VehicleColors) choice;
 
-            this.Make = Console.ReadLine();
+            Console.Write("Model: ");
+
+            this.Model = Console.ReadLine();
         }
 
 
         public override string ToString()
         {
-            return $"{Year} {Color} {Make} {Model} RENTED for {Cost}!";
+            return $"{Year} {Color} {Model}";
         }
     }
 
