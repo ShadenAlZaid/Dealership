@@ -18,7 +18,7 @@ namespace Dealership
         {
             Console.WriteLine("Color:");
 
-            this.Color = Console.ReadLine();
+            this.Color = Console.ReadLine();//
 
             Console.WriteLine("Make:");
 
