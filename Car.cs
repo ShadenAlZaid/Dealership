@@ -30,10 +30,10 @@ namespace Dealership
             this.Year = Console.ReadLine();
         }
 
-        public override string ToString()
-        {
-            return $"{Year} {Color} {Model}";
-        }
+        // public override string ToString()
+        // {
+        //     return $"{Year} {Color} {Model}";
+        // }
     }
 
 

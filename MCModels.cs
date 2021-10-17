@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dealership
 {
-    public enum CarModels 
+    public enum MCModels
     {
-        Taurus = 1,
-        Explorer = 2,
-        Expedition = 3,
-        Bicycle = 4
+        Valkryie = 1,
+        GoldWing = 2,
+        Hurricane = 3,
     }
 }

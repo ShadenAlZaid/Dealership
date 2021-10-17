@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dealership
 {
-    public enum CarModels 
+    class VehicleModels
     {
-        Taurus = 1,
-        Explorer = 2,
-        Expedition = 3,
-        Bicycle = 4
     }
 }

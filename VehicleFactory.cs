@@ -33,8 +33,10 @@ namespace Dealership{
                         vehicle = new Car();
                         break;
                     case VehicleTypes.MC:
+                        vehicle = new Motorcycle();
                         break;
                     case VehicleTypes.Truck:
+                        vehicle = new Truck();
                         break;
                     case VehicleTypes.Bicycle:
                         break;
