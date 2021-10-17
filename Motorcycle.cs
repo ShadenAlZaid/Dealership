@@ -4,7 +4,7 @@ namespace Dealership
 {
     class Motorcycle : VehicleBase, IVehicle
 {
-        public Motorcycle(string year,string model, VehicleColors color) : base(year, model, color){
+        public Motorcycle(string year, CarModels model, VehicleColors color) : base(year, model, color){
 
         }
 

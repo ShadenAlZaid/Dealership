@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dealership
 {
-    public enum VehicleTypes
+    public enum CarModels
     {
-        Car = 1,
-        MC = 2,
-        Truck = 3,
-        Bicycle = 4
+        Taurus = 1,
+        Explorer = 2,
+        Expedition = 3,
+        Galaxy = 4
     }
 }

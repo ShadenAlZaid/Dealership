@@ -43,7 +43,7 @@ namespace Dealership{
                 }
                 
                 vehicle.GetOptions();
-                Console.WriteLine(vehicle.ToString());
+                Console.Write(vehicle.ToString());
 
                 shoppingCart.Add(vehicle);
 
