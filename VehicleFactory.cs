@@ -38,8 +38,6 @@ namespace Dealership{
                     case VehicleTypes.Truck:
                         vehicle = new Truck();
                         break;
-                    case VehicleTypes.Bicycle:
-                        break;
                     default:
                         break;
                 }

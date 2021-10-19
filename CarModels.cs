@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dealership
-{
+namespace Dealership{
     public enum CarModels 
     {
         Taurus = 1,
         Explorer = 2,
         Expedition = 3,
-        Bicycle = 4
-    }
+        galaxy = 4
+    }    
 }

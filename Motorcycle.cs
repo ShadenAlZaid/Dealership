@@ -8,7 +8,7 @@ namespace Dealership
         {
         }
 
-        public Motorcycle(string year, CarModels model, VehicleColors color) : base(year, model, color){
+        public Motorcycle(string year, MCModels model, VehicleColors color) : base(year, model, color){
 
         }
 
@@ -22,15 +22,15 @@ namespace Dealership
             Console.WriteLine(" 1. VALKRYIE\n 2. GOLDWING\n 3. HURRICANE");
             Console.Write("Choose Model Number: ");
             var choice2 = int.Parse(Console.ReadLine());
-            this.Model = (CarModels) choice2;
+            this.MModel = (MCModels) choice2;
 
             Console.Write("Year: ");
             this.Year = Console.ReadLine();
         }
 
-        // public override string ToString()
-        // {
-        //     return $"{Year} {Color} {Model}";
-        // }
+        public override string ToString()
+        {
+            return $"{Year} {Color} {MModel}";
+        }
     }
 }

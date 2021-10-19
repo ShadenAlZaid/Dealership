@@ -11,6 +11,5 @@ namespace Dealership
         Car = 1,
         MC = 2,
         Truck = 3,
-        Bicycle = 4
     }
 }

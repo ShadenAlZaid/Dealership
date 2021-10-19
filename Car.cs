@@ -24,16 +24,16 @@ namespace Dealership
             Console.WriteLine(" 1. TAURUS\n 2. EXPLORER\n 3. EXPEDITION\n 4. GALAXY");
             Console.Write("Choose Model Number: ");
             var choice2 = int.Parse(Console.ReadLine());
-            this.Model = (CarModels) choice2;
+            this.CModel = (CarModels) choice2;
 
             Console.Write("Year: ");
             this.Year = Console.ReadLine();
         }
 
-        // public override string ToString()
-        // {
-        //     return $"{Year} {Color} {Model}";
-        // }
+        public override string ToString()
+        {
+            return $"{Year} {Color} {CModel}";
+        }
     }
 
 
