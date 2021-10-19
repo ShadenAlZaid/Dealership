@@ -13,7 +13,7 @@ namespace Dealership.Vehicle
 
         }
 
-        public void VehicleFactoryCall()
+        public void VehicleFactoryOrder()
         {
 
             var shoppingCart = new List<IVehicle>();
@@ -53,21 +53,6 @@ namespace Dealership.Vehicle
 
             shoppingCart.Add(vehicle);
 
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
 
     }

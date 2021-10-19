@@ -10,6 +10,6 @@ namespace Dealership{
         Taurus = 1,
         Explorer = 2,
         Expedition = 3,
-        galaxy = 4
+        Galaxy = 4
     }    
 }
