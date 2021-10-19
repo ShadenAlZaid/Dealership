@@ -16,6 +16,8 @@ namespace Dealership
 
         public void GetOptions()
         {
+            //How to print enum values
+
             Console.WriteLine(" 1. RED\n 2. BLACK\n 3. WHITE\n 4. SILVER");
             Console.Write("Choose Color number: ");
             var choice1 = int.Parse(Console.ReadLine());

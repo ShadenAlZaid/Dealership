@@ -7,9 +7,18 @@ namespace Dealership
     {
         static void Main(string[] args)
         {
-            //call vehicle factory
-            VehicleFactory v = new VehicleFactory();
-            v.VehicleFactoryCall();
+            //call vehicle factory   Design Patterns (factory pattern)
+            VehicleFactory vehicleFactory = new VehicleFactory();
+
+            vehicleFactory.VehicleFactoryCall();//rename 
+
+
+
+            ///TODO
+            ///Learn SO in solid
+            ///Structure enhancements
+            ///Rename 
+            ///Enums printing (Extension method)
         }
     }
 }

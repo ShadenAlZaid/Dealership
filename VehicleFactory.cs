@@ -27,7 +27,7 @@ namespace Dealership{
                 var choice = int.Parse(Console.ReadLine());
                 var type = (VehicleTypes) choice;
 
-                switch (type)  //Apply SOLID
+                switch (type)  //Apply SOLID   learn(SO) in sloid
                 {
                     case VehicleTypes.Car:
                         vehicle = new Car();

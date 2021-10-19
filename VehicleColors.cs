@@ -11,6 +11,7 @@ namespace Dealership
         Red  = 1,
         Black = 2,
         White = 3,
-        Silver = 4
+        Silver = 4,
+
     }
 }
