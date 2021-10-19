@@ -35,6 +35,14 @@ namespace Dealership
             this.Color = color;
         }
 
+        public void PrintEnum(Type x)
+        {
+            foreach(int i in Enum.GetValues(x))
+            {  
+                Console.WriteLine($"{i}. {Enum.GetName(x, i)}");  
+            }
+        }
+
         // public override string ToString()
         // {
         //     return $"{Year} {CModel} {Color}";

@@ -13,8 +13,6 @@ namespace Dealership.Vehicle
             var shoppingCart = new List<IVehicle>();
             IVehicle vehicle = null;
 
-            // VehiclesList.Add(C);
-
             Console.WriteLine("\n\n");
             Console.WriteLine("**********************************");
             Console.WriteLine("WELCOME TO OUR VEHICLE DEALERSHIP!\n\n");

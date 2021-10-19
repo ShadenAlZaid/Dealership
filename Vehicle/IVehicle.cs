@@ -9,5 +9,6 @@
         public VehicleColors Color { get; set; }
 
         void GetOptions();
+    
     }
 }
