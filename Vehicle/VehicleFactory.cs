@@ -1,17 +1,11 @@
-﻿ 
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Dealership.Vehicle
 {
     class VehicleFactory
     {
-
-        public VehicleFactory()
-        {
-
-        }
+        public VehicleFactory(){}
 
         public void VehicleFactoryOrder()
         {
@@ -25,20 +19,25 @@ namespace Dealership.Vehicle
             Console.WriteLine("**********************************");
             Console.WriteLine("WELCOME TO OUR VEHICLE DEALERSHIP!\n\n");
             Console.WriteLine("WHAT ARE YOU INTERESTED IN?");
-            Console.WriteLine("1. CARS \n2. MOTORCYCLES \n3. TRUCKS");
+            
+            foreach(int i in Enum.GetValues(typeof(VehicleTypes)))
+            {  
+                Console.WriteLine($"{i}. {Enum.GetName(typeof(VehicleTypes), i)}");  
+            }
+
             Console.WriteLine("**********************************");
             Console.WriteLine("\n\n");
-
             Console.Write("Enter you choice number: ");
             var choice = int.Parse(Console.ReadLine());
             var type = (VehicleTypes)choice;
 
-            switch (type)  //Apply SOLID   learn(SO) in sloid
+            //Apply SOLID   learn(SO) in solid
+            switch (type)
             {
                 case VehicleTypes.Car:
                     vehicle = new Car();
                     break;
-                case VehicleTypes.MC:
+                case VehicleTypes.Motorcycle:
                     vehicle = new Motorcycle();
                     break;
                 case VehicleTypes.Truck:

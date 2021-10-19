@@ -9,7 +9,7 @@ namespace Dealership
     public enum VehicleTypes
     {
         Car = 1,
-        MC = 2,
+        Motorcycle = 2,
         Truck = 3,
     }
 }
