@@ -1,4 +1,6 @@
-﻿namespace Dealership
+﻿using Dealership.Vehicle;
+
+namespace Dealership
 {
     internal interface IVehicle
     {

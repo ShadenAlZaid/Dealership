@@ -1,3 +1,4 @@
+using Dealership.Vehicle;
 using System;
 
 namespace Dealership
@@ -12,13 +13,13 @@ namespace Dealership
         }
         public void GetOptions()
         {
-            PrintEnum(typeof(VehicleColors));
+            Extensions.PrintEnum(typeof(VehicleColors));
             
             Console.Write("Choose Color number: ");
             var choice1 = int.Parse(Console.ReadLine());
             this.Color = (VehicleColors) choice1;
-            
-            PrintEnum(typeof(TModels));
+
+            Extensions.PrintEnum(typeof(TModels));
             
             Console.Write("Choose Model Number: ");
             var choice2 = int.Parse(Console.ReadLine());
