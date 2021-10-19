@@ -12,8 +12,6 @@ namespace Dealership
 
             vehicleFactory.VehicleFactoryCall();//rename 
 
-
-
             ///TODO
             ///Learn SO in solid
             ///Structure enhancements
