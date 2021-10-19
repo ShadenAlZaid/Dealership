@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dealership.Vehicle;
+using System;
 using System.Collections.Generic;
 
 namespace Dealership
