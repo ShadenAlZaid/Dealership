@@ -13,20 +13,18 @@ namespace Dealership.Vehicle
             var shoppingCart = new List<IVehicle>();
             IVehicle vehicle = null;
 
-            Console.WriteLine("\n\n");
+            Console.WriteLine("\n");
             Console.WriteLine("**********************************");
             Console.WriteLine("WELCOME TO OUR VEHICLE DEALERSHIP!\n\n");
             Console.WriteLine("WHAT ARE YOU INTERESTED IN?");
             
-            foreach(int i in Enum.GetValues(typeof(VehicleTypes)))
-            {  
-                Console.WriteLine($"{i}. {Enum.GetName(typeof(VehicleTypes), i)}");  
-            }
+            Extensions.PrintEnum(typeof(VehicleTypes));
 
             Console.WriteLine("**********************************");
-            Console.WriteLine("\n\n");
+            Console.WriteLine("\n");
             Console.Write("Enter you choice number: ");
-            var choice = int.Parse(Console.ReadLine());
+            
+            var choice = (int)(Extensions.GetSelectedOptions<VehicleTypes>());
             var type = (VehicleTypes)choice;
 
             //Apply SOLID   learn(SO) in solid

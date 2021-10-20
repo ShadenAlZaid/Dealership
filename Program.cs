@@ -10,15 +10,7 @@ namespace Dealership
             //call vehicle factory   Design Patterns (factory pattern)
             VehicleFactory vehicleFactory = new VehicleFactory();
 
-            vehicleFactory.VehicleFactoryOrder();//rename 
-
-
-
-            ///TODO
-            ///Learn SO in solid
-            ///Structure enhancements
-            ///Rename 
-            ///Enums printing (Extension method)
+            vehicleFactory.VehicleFactoryOrder();
         }
     }
 }

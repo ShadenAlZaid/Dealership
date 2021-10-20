@@ -11,21 +11,21 @@ namespace Dealership
 
         }
 
-        public void GetOptions() //EDIT FOR MOTORCYCLE
+        public void GetOptions() 
         {
            Extensions. PrintEnum(typeof(VehicleColors));
 
-            Console.Write("Choose Color number: ");
-            var choice1 = int.Parse(Console.ReadLine());
+            Console.Write("\nChoose Color number: ");
+            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
             this.Color = (VehicleColors) choice1;
 
             Extensions.PrintEnum(typeof(MCModels));
 
-            Console.Write("Choose Model Number: ");
-            var choice2 = int.Parse(Console.ReadLine());
+            Console.Write("\nChoose Model Number: ");
+            var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
             this.MModel = (MCModels) choice2;
 
-            Console.Write("Year: ");
+            Console.Write("\nEnter Year: ");
             this.Year = Console.ReadLine();
         }
 

@@ -8,7 +8,7 @@ namespace Dealership
 {
     public  class Extensions
     {
-
+        
         public static void PrintEnum(Type x)
         {
             foreach (int i in Enum.GetValues(x))
@@ -17,8 +17,7 @@ namespace Dealership
             }
         }
  
-
-        public static int GetOptions<T>()where T : System.Enum
+        public static int GetSelectedOptions<T>()where T : System.Enum
         {
             
             var options = new List<int>();
@@ -28,14 +27,22 @@ namespace Dealership
             foreach (int item in values)
                 options.Add(item);
 
+            var input = Console.ReadLine();
+            bool v = int.TryParse(input, out int x);
 
-            var input = int.Parse( Console.ReadLine());
-
-            if (options.Contains(input))
-                return input;
-            else
-                return GetOptions<T>();
+            // check if parsed input is in enum 
+            if (v == true){ //if true return parsed value
+                foreach(int z in Enumerable.Range(1,Enum.GetNames(typeof(T)).Length)){
+                    if(int.Parse(input) == z){
+                        return int.Parse(input);
+                    }  
+                }
+            }else
+                Console.Write("Please re-enter your choice! "); 
+                return GetSelectedOptions<T>();
 
         }
+        
+
     }
 }

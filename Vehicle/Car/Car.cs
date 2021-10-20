@@ -15,22 +15,22 @@ namespace Dealership.Vehicle
 
         public void GetOptions()
         {
-
+            //Prints menu options
             Extensions.PrintEnum(typeof(VehicleColors));
 
-            Console.Write("Choose Color number: ");
+            Console.Write("\nChoose Color number: ");
 
-            var choice1 = (int)(Extensions.GetOptions<VehicleColors>());
-
+            //GetSelectedOptions double checks option is in enu, list 
+            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
             this.Color = (VehicleColors)choice1;
 
             Extensions.PrintEnum(typeof(CarModels));
 
-            Console.Write("Choose Model Number: ");
-            var choice2 = int.Parse(Console.ReadLine());
+            Console.Write("\nChoose Model Number: ");
+            var choice2 = (int)(Extensions.GetSelectedOptions<CarModels>());
             this.CModel = (CarModels)choice2;
 
-            Console.Write("Year: ");
+            Console.Write("\nEnter Year: ");
             this.Year = Console.ReadLine();
         }
 

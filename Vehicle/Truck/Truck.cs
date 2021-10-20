@@ -15,17 +15,17 @@ namespace Dealership
         {
             Extensions.PrintEnum(typeof(VehicleColors));
             
-            Console.Write("Choose Color number: ");
-            var choice1 = int.Parse(Console.ReadLine());
-            this.Color = (VehicleColors) choice1;
+            Console.Write("\nChoose Color number: ");
+            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
+            this.Color = (VehicleColors)choice1;
 
             Extensions.PrintEnum(typeof(TModels));
             
-            Console.Write("Choose Model Number: ");
-            var choice2 = int.Parse(Console.ReadLine());
-            this.TModel = (TModels) choice2;
+            Console.Write("\nChoose Model Number: ");
+            var choice2 = (int)(Extensions.GetSelectedOptions<TModels>());
+            this.TModel = (TModels)choice2;
 
-            Console.Write("Year: ");
+            Console.Write("\nEnter Year: ");
             this.Year = Console.ReadLine();
         }
 
