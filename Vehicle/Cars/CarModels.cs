@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dealership{
+namespace Dealership.Vehicle.Cars{
     public enum CarModels 
     {
         Taurus = 1,

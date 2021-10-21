@@ -1,10 +1,11 @@
 using Dealership.Vehicle;
+using Dealership.Vehicle.Cars;
 using System;
 using System.Collections.Generic;
 
 namespace Dealership
 {
-    abstract class VehicleBase
+   public abstract class VehicleBase
     {
         public VehicleBase()
         {

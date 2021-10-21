@@ -1,8 +1,9 @@
 ﻿using Dealership.Vehicle;
+using Dealership.Vehicle.Cars;
 
 namespace Dealership
 {
-    internal interface IVehicle
+    public  interface IVehicle
     {
         public CarModels CModel { get; set; }
         public MCModels MModel { get; set; }
@@ -10,7 +11,6 @@ namespace Dealership
         public string Year { get; set; }
         public VehicleColors Color { get; set; }
 
-        void GetOptions();
     
     }
 }

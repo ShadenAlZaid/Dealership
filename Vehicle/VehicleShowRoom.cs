@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Dealership.Vehicle
 {
-    class VehicleFactory
+    class VehicleShowRoom
     {
-        public VehicleFactory(){}
+        public VehicleShowRoom(){}
 
         public void VehicleFactoryOrder()
         {

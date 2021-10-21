@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dealership.Vehicle;
+using Dealership.Vehicle.Cars;
 
 namespace Dealership
 {
@@ -18,7 +19,6 @@ namespace Dealership
             }
         }
  
-
         public static int GetSelectedOptions<T>()where T : System.Enum
         {
             
@@ -50,6 +50,7 @@ namespace Dealership
         public static void GetMenu(){
           var shoppingCart = new List<IVehicle>();
             IVehicle vehicle = null;
+            IVehicleFactory vehicleFactory = null;
 
             Console.WriteLine("\n");
             Console.WriteLine("**********************************");
@@ -69,19 +70,20 @@ namespace Dealership
             switch (type)
             {
                 case VehicleTypes.Car:
-                    vehicle = new Car();
+                    vehicleFactory = new CarFactory();
                     break;
                 case VehicleTypes.Motorcycle:
-                    vehicle = new Motorcycle();
+                  //  vehicle = new Motorcycle();
                     break;
                 case VehicleTypes.Truck:
-                    vehicle = new Truck();
+                   // vehicle = new Truck();
                     break;
                 default:
                     break;
             }
 
-            vehicle.GetOptions();
+            vehicle = vehicleFactory.CreateVehicle();
+
             Console.Write(vehicle.ToString());
 
             shoppingCart.Add(vehicle);
