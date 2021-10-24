@@ -8,7 +8,7 @@ namespace Dealership
         static void Main(string[] args)
         {
             //call vehicle factory   Design Patterns (factory pattern)
-            VehicleFactory vehicleFactory = new VehicleFactory();
+            VehicleShowRoom vehicleFactory = new VehicleShowRoom();
 
             vehicleFactory.VehicleFactoryOrder();
         }
