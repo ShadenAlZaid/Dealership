@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj": {}
+    "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj": {
+    "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj",
         "projectName": "DealershipLibrary",
-        "projectPath": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj",
-        "packagesPath": "C:\\Users\\salzaid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\obj\\",
+        "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj",
+        "packagesPath": "C:\\Users\\ysallam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\salzaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ysallam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

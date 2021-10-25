@@ -27,20 +27,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\salzaid\\.nuget\\packages\\": {}
+    "C:\\Users\\ysallam\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealerShip.Console\\DealerShip.Console.csproj",
+      "projectUniqueName": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealerShip.Console\\DealerShip.Console.csproj",
       "projectName": "DealerShip.Console",
-      "projectPath": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealerShip.Console\\DealerShip.Console.csproj",
-      "packagesPath": "C:\\Users\\salzaid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealerShip.Console\\obj\\",
+      "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealerShip.Console\\DealerShip.Console.csproj",
+      "packagesPath": "C:\\Users\\ysallam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealerShip.Console\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\salzaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ysallam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -53,8 +60,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj": {
-              "projectPath": "C:\\Users\\salzaid\\source\\repos\\DealershipLibrary\\DealershipLibrary\\DealershipLibrary.csproj"
+            "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
+              "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj"
             }
           }
         }
