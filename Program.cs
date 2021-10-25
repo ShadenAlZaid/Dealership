@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dealership.Vehicle;
+using DealershipLibrary.Vehicle;
+
 namespace Dealership
 {
     class Program
