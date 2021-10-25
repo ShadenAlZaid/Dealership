@@ -14,13 +14,11 @@ namespace DealershipLibrary{
             IVehicle MC = new Motorcycle();
             Extensions. PrintEnum(typeof(VehicleColors));
 
-            Console.Write("\nChoose Color number: ");
             var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
             MC.Color = (VehicleColors) choice1;
 
             Extensions.PrintEnum(typeof(MCModels));
 
-            Console.Write("\nChoose Model Number: ");
             var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
             MC.MModel = (MCModels) choice2;
 

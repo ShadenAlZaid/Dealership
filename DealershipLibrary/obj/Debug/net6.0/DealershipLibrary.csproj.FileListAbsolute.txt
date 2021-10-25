@@ -16,3 +16,4 @@ C:\Users\salzaid\source\repos\DealershipLibrary\DealershipLibrary\bin\Debug\net6
 C:\Users\salzaid\source\repos\DealershipLibrary\DealershipLibrary\obj\Debug\net6.0\DealershipLibrary.dll
 C:\Users\salzaid\source\repos\DealershipLibrary\DealershipLibrary\obj\Debug\net6.0\ref\DealershipLibrary.dll
 C:\Users\salzaid\source\repos\DealershipLibrary\DealershipLibrary\obj\Debug\net6.0\DealershipLibrary.pdb
+C:\Users\salzaid\source\repos\DealershipLibrary\DealershipLibrary\obj\Debug\net6.0\DealershipLibrary.csproj.AssemblyReference.cache

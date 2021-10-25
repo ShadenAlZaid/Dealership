@@ -9,7 +9,7 @@ namespace DealershipLibrary.Vehicle
 
         public void VehicleFactoryOrder()
         {
-                Extensions.GetMenu();
+
         }
 
     }

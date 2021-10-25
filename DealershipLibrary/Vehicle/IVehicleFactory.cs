@@ -2,7 +2,7 @@
 
     namespace DealershipLibrary.Vehicle
     {
-        internal interface IVehicleFactory
+        public interface IVehicleFactory
         {
             IVehicle CreateVehicle();
 
