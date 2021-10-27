@@ -12,7 +12,7 @@ namespace DealershipLibrary.Vehicle.Cars
         public IVehicle CreateVehicle()
         {
             IVehicle car = new Car();
-
+            // remove console
             Console.WriteLine( string.Join("\t", Extensions.GetEnumItems(typeof(VehicleColors))));
 
             //Get)SelectedOptions double checks option is in enu, list 
@@ -20,15 +20,12 @@ namespace DealershipLibrary.Vehicle.Cars
 
             car.Color = (VehicleColors)choice1;
 
-            Extensions.PrintEnum(typeof(CarModels));
+            Extensions.GetEnumItems(typeof(CarModels));
 
             var choice2 = (int)(Extensions.GetSelectedOptions<CarModels>());
 
             car.CModel = (CarModels)choice2;
-
-            Console.Write("\nEnter Year: ");
-
-            car.Year = Console.ReadLine();
+            // remove consolessxxs
 
             return car;
         }

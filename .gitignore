@@ -5,3 +5,9 @@
 /bin/Debug/net5.0
 /obj
 /.vs/Dealership/DesignTimeBuild
+DealerShip.Console/obj/project.nuget.cache
+DealerShip.Console/obj/project.nuget.cache
+DealerShip.Console/obj/project.assets.json
+DealershipLibrary/obj/Debug/net6.0/DealershipLibrary.csproj.FileListAbsolute.txt
+DealershipLibrary/obj/project.nuget.cache
+DealershipLibrary/obj/Debug/net6.0/ref/DealershipLibrary.dll

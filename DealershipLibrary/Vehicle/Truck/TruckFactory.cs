@@ -12,18 +12,15 @@ namespace DealershipLibrary{
         public IVehicle CreateVehicle()
         {
             IVehicle Truck = new Truck();
-            Extensions. PrintEnum(typeof(VehicleColors));
+            Extensions.GetEnumItems(typeof(VehicleColors));
 
             var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
             Truck.Color = (VehicleColors) choice1;
 
-            Extensions.PrintEnum(typeof(MCModels));
+            Extensions.GetEnumItems(typeof(MCModels));
 
             var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
             Truck.TModel = (TModels) choice2;
-
-            Console.Write("\nEnter Year: ");
-            Truck.Year = Console.ReadLine(); 
 
             return Truck;
        }
