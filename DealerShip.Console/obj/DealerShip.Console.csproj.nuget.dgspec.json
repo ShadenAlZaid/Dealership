@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ysallam\\source\\repos\\Dealership\\dealership.console\\DealerShip.Console.csproj": {}
+    "C:\\Users\\salzaid\\dealership\\DealerShip.Console\\DealerShip.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ysallam\\source\\repos\\Dealership\\dealership.console\\DealerShip.Console.csproj": {
+    "C:\\Users\\salzaid\\dealership\\DealerShip.Console\\DealerShip.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ysallam\\source\\repos\\Dealership\\dealership.console\\DealerShip.Console.csproj",
+        "projectUniqueName": "C:\\Users\\salzaid\\dealership\\DealerShip.Console\\DealerShip.Console.csproj",
         "projectName": "DealerShip.Console",
-        "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\dealership.console\\DealerShip.Console.csproj",
-        "packagesPath": "C:\\Users\\ysallam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\dealership.console\\obj\\",
+        "projectPath": "C:\\Users\\salzaid\\dealership\\DealerShip.Console\\DealerShip.Console.csproj",
+        "packagesPath": "C:\\Users\\salzaid\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\salzaid\\dealership\\DealerShip.Console\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ysallam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\salzaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -33,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
-                "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj"
+              "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
+                "projectPath": "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\DealershipLibrary.csproj"
               }
             }
           }
@@ -67,23 +62,18 @@
         }
       }
     },
-    "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
+    "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\DealershipLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\DealershipLibrary.csproj",
         "projectName": "DealershipLibrary",
-        "projectPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\DealershipLibrary.csproj",
-        "packagesPath": "C:\\Users\\ysallam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ysallam\\source\\repos\\Dealership\\DealershipLibrary\\obj\\",
+        "projectPath": "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\DealershipLibrary.csproj",
+        "packagesPath": "C:\\Users\\salzaid\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\salzaid\\dealership\\DealershipLibrary\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ysallam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\salzaid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"

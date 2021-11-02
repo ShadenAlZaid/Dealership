@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DealershipLibrary.Vehicle
+namespace DealershipLibrary
 {
     public class VehicleShowRoom
     {

@@ -1,9 +1,74 @@
 ﻿@page "/"
 
+@using Syncfusion.Blazor.DropDowns
+@using Newtonsoft.Json
+@using DealershipLibrary
+
 <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<div class="control-section col-lg-12">
+    <div class="col-lg-8">
+        <div class="control-wrapper">
+            <SfDropDownList TItem="GameFields" TValue="string" PopupHeight="230px"  Placeholder="Select a game" @bind-Value="@DropDownValue" DataSource="@Games">
+                <DropDownListEvents TItem="GameFields" TValue="string" ValueChange="OnChange"></DropDownListEvents>
+                <DropDownListFieldSettings Text="Text" Value="Id"></DropDownListFieldSettings>
+            </SfDropDownList>
+        </div>
+    </div>
+    <div class="col-lg-4 property-section">
+        <div class="property-panel-header">Properties</div>
+        <table id="property" title="Properties">
+            <tr>
+                <td class="property-label">Value</td>
+                <td>:<span id='value' class="property-value">@DropDownValue</span></td>
+            </tr>
+            <tr>
+                <td class="property-label">Text</td>
+                <td>:<span id='text' class="property-value">@ChangeValue</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<style>
+    .control-wrapper {
+        width: 250px;
+        margin: 0 auto;
+        padding-top: 70px;
+    }
+    .property-section .property-value {
+        padding-left: 10px;
+    }
+    .property-section .property-label {
+        padding: 5px;
+        width: 25%
+    }
+    #property {
+        width: 100%;
+        margin: 10px
+    }
+</style>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code{
+    public class VehicleFields
+    {
+        public string ID { get; set; }
+        public string Text { get; set; }
+    }
+
+    private List<VehicleFields> Games = new List<VehicleFields>()
+    {
+        new VehicleTypes(){ ID= VehicleTypes.getValue( ), Text= "Badminton" },
+        new VehicleTypes(){ ID= "Game2", Text= "Badminton" },
+        new VehicleTypes(){ ID= "Game3", Text= "Basketball" }
+    }
+
+    GetEnumItems
+
+    public void OnChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, GameFields> args)
+    {
+        this.ChangeValue = args.ItemData.Text;
+    }
+}

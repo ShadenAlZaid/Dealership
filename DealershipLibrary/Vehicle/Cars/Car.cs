@@ -2,7 +2,7 @@ using System;
 using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 
-namespace  DealershipLibrary.Vehicle.Cars
+namespace DealershipLibrary.Vehicle.Cars
 {
     public class Car : VehicleBase, IVehicle
     {
@@ -11,6 +11,7 @@ namespace  DealershipLibrary.Vehicle.Cars
         public Car(CarModels model, VehicleColors color) : base(model, color)
         {
         }
+
         public override string ToString()
         {
             return $"{Color} {CModel}";

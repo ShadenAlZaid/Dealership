@@ -5,7 +5,6 @@ namespace DealershipLibrary
 {
     public class Extensions
     {
-
         public static void PrintEnum(Type x)
         {
             foreach (int i in Enum.GetValues(x))

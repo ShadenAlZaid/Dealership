@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DealershipLibrary.Vehicle.Cars
-{
+namespace DealershipLibrary.Vehicle.Cars 
+{ 
     public class CarFactory : IVehicleFactory
     {
         public IVehicle CreateVehicle()

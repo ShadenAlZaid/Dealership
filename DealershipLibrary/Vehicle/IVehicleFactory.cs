@@ -1,6 +1,5 @@
-﻿using DealershipLibrary;
-
-    namespace DealershipLibrary.Vehicle
+﻿
+    namespace DealershipLibrary
     {
         public interface IVehicleFactory
         {

@@ -3,7 +3,8 @@ using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary;
 using DealershipLibrary.Vehicle;
 
-    var shoppingCart = new List<IVehicle>();
+// var shoppingCart = new List<IVehicle>();
+
     IVehicle vehicle = null;
     IVehicleFactory vehicleFactory = null;
 
@@ -40,4 +41,4 @@ using DealershipLibrary.Vehicle;
 
     Console.Write(vehicle.ToString());
 
-    shoppingCart.Add(vehicle);
+   // shoppingCart.Add(vehicle);

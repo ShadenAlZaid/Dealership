@@ -1,5 +1,4 @@
 ﻿using DealershipLibrary.Vehicle;
-using DealershipLibrary.Vehicle.Cars;
 
 namespace DealershipLibrary
 {
