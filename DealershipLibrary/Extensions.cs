@@ -1,6 +1,7 @@
 ﻿using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 using System.Collections.Generic;
+
 namespace DealershipLibrary
 {
     public class Extensions
@@ -41,6 +42,7 @@ namespace DealershipLibrary
             foreach (int i in Enum.GetValues(x))
             {
                 list.Add($"{i}. {Enum.GetName(x, i)}");
+             
             }
 
             return list;

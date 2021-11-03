@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "acf70425-84d4-4e22-b5dc-31a1beda0536": {
+      "ProjectGuid": "acf70425-84d4-4e22-b5dc-31a1beda0536",
+      "DisplayName": "Dealership",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
