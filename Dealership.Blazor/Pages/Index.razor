@@ -52,31 +52,29 @@
 
 
 @code{
-        public class VehicleFields
-        {
-            //public string ID { get; set; } = enumvalues[1];
-            //public string Text { get; set;}= 
-            public static string [] enumvalues { get; set;} = Enum.GetValues(typeof(VehicleTypes);
-        }
+    public class VehicleFields
+    {
+        //public string ID { get; set; }
+        //public string Text { get; set;} 
+       
+    }
 
-            private List<VehicleFields> Vehicles = new List<VehicleFields>()
-            {
-               new VehicleFields(){enumvalues[1], Enum.GetName(typeof(VehicleTypes), 1)}
-            };
+    public string ChangeValue { get; set; } = "";
+    public string DropDownValue { get; set; } = "";
 
+    public string ddList() 
+    {
 
-            public string ChangeValue { get; set; } = "";
-            public string DropDownValue { get; set; } = "";
+        List<string> VList = null;
+
+        VList = Extensions.GetEnumItems(typeof(VehicleTypes));
         
-            public void ddList() 
-            {
-
-                List<VehicleTypes> VList = null;
-
-                Extensions.GetEnumItems(typeof(VehicleTypes));
-
-                var c = Enum.GetNames(typeof(VehicleTypes)).Length;
-            }
+        foreach(int i in Enum.GetValues(typeof(VehicleTypes)))
+        {
+            return VList[i];
+        }
+        return "Empty List";
+    }
 
             public void OnChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, VehicleFields> args)
             {
