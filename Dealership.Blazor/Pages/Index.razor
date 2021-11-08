@@ -1,18 +1,16 @@
 ﻿@page "/"
-@using Syncfusion.Blazor.DropDowns
-@using Newtonsoft.Json
-@using DealershipLibrary
+@*@using Newtonsoft.Json
+@using DealershipLibrary*@
 
-<PageTitle>Index</PageTitle>
-
+ 
 <div class="control-section col-lg-12">
     <div class="col-lg-8">
         <div class="control-wrapper">
-            <SfDropDownList TItem="VehicleFields" TValue="string" PopupHeight="230px" Placeholder="Select a 
+            @*<SfDropDownList TItem="VehicleFields" TValue="string" PopupHeight="230px" Placeholder="Select a 
                 Vehicle" @bind-Value = "@SelectedValue" DataSource = "@VList">
                 <DropDownListEvents TItem = "VehicleFields" TValue = "string" ValueChange="OnChange"></DropDownListEvents>
                 <DropDownListFieldSettings Text = "ChangeValue" Value = "Id"></DropDownListFieldSettings>
-            </SfDropDownList>
+            </SfDropDownList>*@
         </div>
     </div>
     <div class="col-lg-4 property-section">
@@ -20,11 +18,11 @@
         <table id="property" title="Properties">
             <tr>
                 <td class="property-label">Value</td>
-                <td>:<span id='value' class="property-value">@SelectedValue</span></td>
+                @*<td>:<span id='value' class="property-value">@SelectedValue</span></td>*@
             </tr>
             <tr>
                 <td class="property-label">Text</td>
-                <td>:<span id='text' class="property-value">@ChangeValue</span></td>
+@*                <td>:<span id='text' class="property-value">@ChangeValue</span></td>*@
             </tr>
         </table> 
     </div>
@@ -49,7 +47,7 @@
 </style>
 
 
-@code{
+@*@code{
     public class VehicleFields
     {
         public string ID { get; set; }
@@ -76,4 +74,4 @@
     {
         this.ChangeValue = args.ItemData.Text;
     }
-}
+}*@

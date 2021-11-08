@@ -1,0 +1,28 @@
+﻿@page "/"
+@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+@{
+    var types =
+    Extensions.GetEnumItems(typeof(VehicleTypes));
+}
+<label>@car</label>
+<select @onchange="(e)=>SelectCar(e.Value.ToString())">
+
+    @foreach (var item in types)
+    {
+        <option value="@item">@item</option>
+    }
+
+</select>
+
+@code
+{
+    string car;
+    void SelectCar(string value)
+    {
+        this.car = value;
+    }
+}
