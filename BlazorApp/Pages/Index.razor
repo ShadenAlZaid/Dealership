@@ -12,7 +12,7 @@
     var TModels = Extensions.GetEnumItems(typeof(TModels));
 }
 
-<section>
+<span>
     
     <select @onchange="(e)=>SelectVehicle(e.Value.ToString())">
         @foreach (var item in VehicleTypes)
@@ -56,9 +56,8 @@
         </select>        
     }
 
-  @{ Options(); }
-
-</section>
+    <p>Your vehicle: @color @vehicle @model</p>
+</span>
 
 
 @code
@@ -79,10 +78,5 @@
     void SelectModel(string value)
     {
         this.model = value;
-    }
-
-    string Options()
-    {
-        return this.vehicle + this.color + this.model;
     }
 }

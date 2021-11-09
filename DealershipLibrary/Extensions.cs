@@ -43,7 +43,7 @@ namespace DealershipLibrary
 
             foreach (int i in Enum.GetValues(x))
             {
-                list.Add($"{i}. {Enum.GetName(x, i)}");
+                list.Add($"{Enum.GetName(x, i)}");
              
             }
 
