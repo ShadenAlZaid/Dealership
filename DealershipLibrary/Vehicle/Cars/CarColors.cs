@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DealershipLibrary
 {
-    public enum VehicleColors
+    public enum CarColors
     {
         Red  = 1,
         Black = 2,

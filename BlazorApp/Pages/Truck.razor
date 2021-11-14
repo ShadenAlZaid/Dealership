@@ -1,0 +1,39 @@
+@page "/truck"
+@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary
+
+<h1>Truck</h1>
+@{
+    var tModelsList = Extensions.GetEnumItems(typeof(TModels));
+    var tColorsList = Extensions.GetEnumItems(typeof(TColors));
+
+}    
+    <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+        @foreach (var item in tColorsList)
+        {
+            <option value = "@item">@item</option>
+        }
+    </select>
+
+    <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+        @foreach (var item in tModelsList)            
+        {
+            <option value = "@item">@item</option>
+        }
+    </select>
+
+@*<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>*@
+
+@code {
+    TColors color;
+    void SelectColor(string value)
+    {
+        this.color = (TColors)System.Enum.Parse(typeof(TColors), value);
+    }
+
+    TModels model;
+    void SelectModel(string value)
+    {
+        this.model = (TModels)System.Enum.Parse(typeof(TModels), value);
+    }
+}

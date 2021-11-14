@@ -198,3 +198,10 @@ BlazorApp/obj/Debug/net5.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
 BlazorApp/obj/Debug/net5.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
 .vs/Dealership/v17/.suo
 .vs/Dealership/v17/.suo
+BlazorApp/obj/Debug/net5.0/apphost
+BlazorApp/obj/Debug/net5.0/Razor/Pages/Car.razor.g.cs
+BlazorApp/obj/Debug/net5.0/Razor/Pages/Motorcycle.razor.g.cs
+BlazorApp/obj/Debug/net5.0/Razor/Pages/Truck.razor.g.cs
+BlazorApp/obj/Debug/net5.0/RazorDeclaration/Pages/Car.razor.g.cs
+BlazorApp/obj/Debug/net5.0/RazorDeclaration/Pages/Motorcycle.razor.g.cs
+BlazorApp/obj/Debug/net5.0/RazorDeclaration/Pages/Truck.razor.g.cs

@@ -8,15 +8,7 @@ using DealershipLibrary.Vehicle;
     IVehicle vehicle = null;
     IVehicleFactory vehicleFactory = null;
 
-    //Console.WriteLine("\n");
-    //Console.WriteLine("**********************************");
-    //Console.WriteLine("WELCOME TO OUR VEHICLE DEALERSHIP!\n\n");
-    //Console.WriteLine("WHAT ARE YOU INTERESTED IN?");
-
     Extensions.PrintEnum(typeof(VehicleTypes));
-
-    //Console.WriteLine("**********************************");
-    //Console.WriteLine("\n");
 
     var choice = (int)(Extensions.GetSelectedOptions<VehicleTypes>());
     var type = (VehicleTypes)choice;
@@ -38,7 +30,3 @@ using DealershipLibrary.Vehicle;
     }
 
     vehicle = vehicleFactory.CreateVehicle();
-
-  //  Console.Write(vehicle.ToString());
-
-   // shoppingCart.Add(vehicle);
