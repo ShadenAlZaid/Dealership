@@ -5,17 +5,16 @@
 <h1>Shaden's Dealership</h1>
 
 @{
-    var VehicleTypes = Extensions.GetEnumItems(typeof(VehicleTypes));
+    var vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
     var VehicleColors = Extensions.GetEnumItems(typeof(VehicleColors));
     var CarModels = Extensions.GetEnumItems(typeof(CarModels));
     var MCModels = Extensions.GetEnumItems(typeof(MCModels));
     var TModels = Extensions.GetEnumItems(typeof(TModels));
 }
 
-<span>
-    
+<span>  
     <select @onchange="(e)=>SelectVehicle(e.Value.ToString())">
-        @foreach (var item in VehicleTypes)
+        @foreach (var item in vehicleTypesList)
         {
             <option value = "@item">@item</option>
         }
@@ -28,7 +27,7 @@
         }
     </select>
     
-    @if (value == VehicleTypes[1]) 
+    @if (vehicle == VehicleTypes.Car) 
     {
         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             @foreach (var item in CarModels)
@@ -37,7 +36,7 @@
             }
         </select>
     }
-    else if (value == VehicleTypes[2])
+    else if (vehicle == VehicleTypes.Motorcycle)
     {
         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             @foreach (var item in MCModels)
@@ -46,7 +45,7 @@
             }
         </select>
     }
-    else
+    else if(vehicle == VehicleTypes.Truck)
     {
         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             @foreach (var item in TModels)
@@ -62,10 +61,10 @@
 
 @code
 {
-    string vehicle;
+    VehicleTypes vehicle;
     void SelectVehicle(string value)
     {
-        this.vehicle = value;
+        this.vehicle = (VehicleTypes)System.Enum.Parse(typeof(VehicleTypes), value);
     }
 
     string color;
