@@ -14,7 +14,7 @@ namespace DealershipLibrary.Vehicle.Cars
 
         public override string ToString()
         {
-            return $"{Color} {CModel}";
+            return $"{carColor} {carModel}";
         }
     }
 

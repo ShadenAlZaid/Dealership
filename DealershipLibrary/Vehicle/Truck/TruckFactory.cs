@@ -15,12 +15,12 @@ namespace DealershipLibrary{
             Extensions.GetEnumItems(typeof(VehicleColors));
 
             var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
-            Truck.Color = (VehicleColors) choice1;
+            Truck.tColor = (TColors) choice1;
 
             Extensions.GetEnumItems(typeof(MCModels));
 
             var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
-            Truck.TModel = (TModels) choice2;
+            Truck.tModel = (TModels) choice2;
 
             return Truck;
        }

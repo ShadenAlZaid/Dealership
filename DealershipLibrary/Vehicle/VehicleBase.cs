@@ -9,26 +9,29 @@ namespace DealershipLibrary
         {
                 
         }
-        public CarModels CModel {get; set;}
-        public VehicleColors Color {get; set;}
-        public MCModels MModel {get; set;}
-        public TModels TModel {get; set;}
+         public CarModels carModel {get; set;}
+        public MCModels mcModel {get; set;}
+        public TModels tModel {get; set;}
+        public CarColors carColor {get; set;}
+        public MCColors mcColor {get; set;}
+        public TColors tColor {get; set;}
+
 
 
         public List<VehicleBase> VehiclesList {get; set;}
         
-        public VehicleBase(CarModels model, VehicleColors color){
-            this.CModel = model;
-            this.Color = color;
+        public VehicleBase(CarModels model, CarColors color){
+            this.carModel = model;
+            this.carColor = color;
         }
 
-        public VehicleBase(MCModels model, VehicleColors color){
-            this.MModel = model;
-            this.Color = color;
+        public VehicleBase(MCModels model, MCColors color){
+            this.mcModel = model;
+            this.mcColor = color;
         }
-        public VehicleBase(TModels model, VehicleColors color){
-            this.TModel = model;
-            this.Color = color;
+        public VehicleBase(TModels model, TColors color){
+            this.tModel = model;
+            this.tColor = color;
         }
 
       
