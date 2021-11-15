@@ -1,0 +1,53 @@
+﻿@page "/car"
+@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary
+@using System.Collections.Generic;
+
+<h1>Car</h1>
+
+
+<select @onchange="(e)=>SelectColor(e.Value.ToString())">
+    @foreach (var item in carColorsList)
+    {
+        <option value="@item">@item</option>
+    }
+</select>
+
+<select @onchange="(e)=>SelectModel(e.Value.ToString())">
+    @foreach (var item in carModelsList)
+    {
+        <option value="@item">@item</option>
+    }
+</select>
+
+<button @onclick="@(() => add())">Click me</button>
+
+
+@code {
+
+    [Parameter] public EventCallback<string> OnClick { get; set; }
+
+
+    List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModels));
+    List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColors));
+    List<IVehicle> list;
+    CarColors color;
+    void SelectColor(string value)
+    {
+        this.color = (CarColors)System.Enum.Parse(typeof(CarColors), value);
+    }
+
+    CarModels model;
+    void SelectModel(string value)
+    {
+        this.model = (CarModels)System.Enum.Parse(typeof(CarModels), value);
+    }
+
+    public  void add(     )
+    {
+
+        OnClick.InvokeAsync("Hello from ChildComponent");
+        //list.Add(new Car(color: color, model: model));
+        //return list;
+    }
+}

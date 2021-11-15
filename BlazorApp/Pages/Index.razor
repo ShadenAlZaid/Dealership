@@ -5,30 +5,38 @@
 <h1>Shaden's Dealership</h1>
 
 @{
-    var vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
 }
 
-<span>  
-    @* <span @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+<span>
+    <span @onchange="(e)=>SelectVehicle(e.Value.ToString())">
         @foreach (var item in vehicleTypesList)
         {
-            <option value = "@item">@item</option>
+            <option value="@item">@item</option>
         }
     </span>
+    <span>@message</span>
+    @if (true)
+    {
+        <CarPage OnClick="vehicleAdded"></CarPage>
+    }
 
-    <a href="Car" class="button-css">Car</a>
-    <a href="motorcycle" class="button-css">Motorcycle</a>
-    <a href="truck" class="button-css">Truck</a>
-    *@
 
 </span>
 
 
 @code
 {
+    List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
+
+    string message;
     VehicleTypes vehicle;
     void SelectVehicle(string value)
     {
         this.vehicle = (VehicleTypes)System.Enum.Parse(typeof(VehicleTypes), value);
+    }
+
+    void vehicleAdded(string value)
+    {
+        this.message = value;
     }
 }
