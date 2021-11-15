@@ -4,22 +4,28 @@
 
 <h1>Shaden's Dealership</h1>
 
-@{
-}
-
 <span>
-    <span @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+    <select @onchange="(e)=>SelectVehicle(e.Value.ToString())">
         @foreach (var item in vehicleTypesList)
         {
             <option value="@item">@item</option>
         }
-    </span>
-    <span>@message</span>
-    @if (true)
-    {
-        <CarPage OnClick="vehicleAdded"></CarPage>
-    }
+    </select>
 
+    <span>@message</span>
+
+    @if (vehicle == VehicleTypes.Car)
+    {
+        <CarComponent OnClick="vehicleAdded"></CarComponent> //car component 
+    }
+    else if(vehicle == VehicleTypes.Motorcycle)
+    {
+        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+    }
+    else if(vehicle == VehicleTypes.Truck)
+    {
+        <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
+    }
 
 </span>
 

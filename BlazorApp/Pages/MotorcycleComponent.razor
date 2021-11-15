@@ -2,12 +2,8 @@
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
 
-<h1>Motorcycle</h1>
-@{
-    var mcModelsList = Extensions.GetEnumItems(typeof(MCModels));
-    var mcColorsList = Extensions.GetEnumItems(typeof(MCColors));
-
-}    
+<h3>Motorcycle</h3>
+ 
     <select @onchange="(e)=>SelectColor(e.Value.ToString())">
         @foreach (var item in mcColorsList)
         {
@@ -21,10 +17,13 @@
             }
     </select>
 
-
-@*<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>*@
+<button @onclick="@(() => add())">Add</button>
 
 @code {
+    [Parameter] public EventCallback<string> OnClick { get; set; }
+    List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModels));
+    List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColors));
+    List<IVehicle> list;
     MCColors color;
     void SelectColor(string value)
     {
@@ -35,5 +34,10 @@
     void SelectModel(string value)
     {
         this.model = (MCModels)System.Enum.Parse(typeof(MCModels), value);
+    }
+
+    public  void add()
+    {
+        OnClick.InvokeAsync("Motorcycle Added");
     }
 }
