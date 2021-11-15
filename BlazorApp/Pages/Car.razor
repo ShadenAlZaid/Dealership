@@ -1,13 +1,15 @@
 ﻿@page "/car"
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
+@using System.Collections.Generic;
 
 <h1>Car</h1>
 @{
     var carModelsList = Extensions.GetEnumItems(typeof(CarModels));
     var carColorsList = Extensions.GetEnumItems(typeof(CarColors));
+    List<IVehicle> list = new List<Car>();
+}
 
-}    
     <select @onchange="(e)=>SelectColor(e.Value.ToString())">
         @foreach (var item in carColorsList)
         {
@@ -16,9 +18,10 @@
     </select>
 
     <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-        @foreach (var item in carModelsList)            {
+        @foreach (var item in carModelsList)            
+        {
                 <option value = "@item">@item</option>
-            }
+        }
     </select>
 
 
@@ -35,5 +38,11 @@
     void SelectModel(string value)
     {
         this.model = (CarModels)System.Enum.Parse(typeof(CarModels), value);
+    }
+
+    public List<string> add(CarColors color, CarModels model)
+    {
+        list.Add(new Car(color, model));
+        return list;
     }
 }

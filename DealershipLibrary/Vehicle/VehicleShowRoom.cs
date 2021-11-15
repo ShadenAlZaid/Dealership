@@ -7,10 +7,6 @@ namespace DealershipLibrary
     {
         public VehicleShowRoom(){}
 
-        public void VehicleFactoryOrder()
-        {
-
-        }
-
+        public void VehicleFactoryOrder(){}
     }
 }

@@ -25,7 +25,7 @@ namespace DealershipLibrary.Vehicle.Cars
             var choice2 = (int)(Extensions.GetSelectedOptions<CarModels>());
 
             car.CModel = (CarModels)choice2;
-            // remove consolessxxs
+            // remove console
 
             return car;
         }
