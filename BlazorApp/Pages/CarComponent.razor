@@ -24,6 +24,7 @@
 
 @code {
     [Parameter] public EventCallback<string> OnClick { get; set; }
+
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModels));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColors));
     List<IVehicle> list;
@@ -39,8 +40,9 @@
         this.model = (CarModels)System.Enum.Parse(typeof(CarModels), value);
     }
 
-    public  void add()
+    void add()
     {
-        OnClick.InvokeAsync("Car Added");
+        list.Add( new Car(model, color));
+        OnClick.InvokeAsync();
     }
 }
