@@ -2,8 +2,6 @@
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
 @using System.Collections.Generic;
-@using System;
-@using System.Linq;
 
 <h3>Car</h3>
 
@@ -27,12 +25,10 @@
 @code {
     [Parameter] 
     public EventCallback<string> OnClick { get; set; }
-    public List<IVehicle> carlist { get; set; }
-
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModels));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColors));
-    
+
 
     CarColors color;
     void SelectColor(string value)
@@ -50,6 +46,8 @@
     void add()
     {
         //carlist.Add(new Car(model, color));
-        OnClick.InvokeAsync("Car Added");
+        Car c = new Car(model, color);
+        //VehiclesList.Add(c);
+        OnClick.InvokeAsync($"{c}");
     }
 }
