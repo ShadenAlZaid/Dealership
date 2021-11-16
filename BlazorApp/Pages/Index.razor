@@ -16,7 +16,7 @@
 
     @if (vehicle == VehicleTypes.Car)
     {
-        <CarComponent OnClick="vehicleAdded"></CarComponent> //Car component 
+        <CarComponent OnClick="@vehicleAdded"></CarComponent> //Car component 
     }
     else if(vehicle == VehicleTypes.Motorcycle)
     {
@@ -40,6 +40,7 @@
 @code
 {
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
+    //private Car list { get; set; } = new Car();
 
     string message;
     VehicleTypes vehicle;
