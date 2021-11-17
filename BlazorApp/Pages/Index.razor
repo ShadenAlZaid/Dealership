@@ -16,36 +16,38 @@
 
     @if (vehicle == VehicleTypes.Car)
     {
-        <CarComponent OnClick="@vehicleAdded"></CarComponent> //Car component 
+        <CarComponent OnClick="@vehicleAdded"></CarComponent> //Car component
+
+         @foreach (var v in VehiclesList)
+         {
+          <p>@v.carColor @v.carModel</p>
+         }
     }
     else if(vehicle == VehicleTypes.Motorcycle)
     {
-@*        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
-*@  
+        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+
+        @foreach (var v in VehiclesList)
+         {
+          <p>@v.mcColor @v.mcModel</p>
+         }
     }
     else if(vehicle == VehicleTypes.Truck)
     {
-@*        <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
-*@  
+       <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
+         
+         @foreach (var v in VehiclesList)
+         {
+          <p>@v.tColor @v.tModel</p>
+         }
     }
      
-       
- 
-
 </span>
-
- @foreach (var v in VehiclesList)
-        {
-            <p>@v.carColor @v.carModel</p>
-        }
-
 
 @code
 {
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
-    public List<IVehicle> VehiclesList { get; set; } = new     List<IVehicle>();
-
-    //private Car list { get; set; } = new Car();
+    public List<IVehicle> VehiclesList { get; set; } = new List<IVehicle>();
 
     string message;
     VehicleTypes vehicle;
@@ -60,5 +62,19 @@
             this.VehiclesList = new List<IVehicle>();
 
         this.VehiclesList.Add(vehicle);
+    }
+
+    string SuccessMessage = string.Empty;
+    async void HandleValidSubmit()
+    {
+        SuccessMessage = "Form Submitted Successfully!";
+        await Task.Delay(2000);
+        SuccessMessage = string.Empty;
+        StateHasChanged();
+    }
+
+    void HandleInvalidSubmit()
+    {
+        SuccessMessage = string.Empty;
     }
 }

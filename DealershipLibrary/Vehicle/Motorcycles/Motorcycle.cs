@@ -1,10 +1,10 @@
 using DealershipLibrary.Vehicle;
 using System;
 
-namespace DealershipLibrary
+namespace DealershipLibrary.Vehicle.Motorcycles
 {
-    class Motorcycle : VehicleBase, IVehicle
-{
+    public class Motorcycle : VehicleBase, IVehicle
+    {
         public Motorcycle(){}
 
         public Motorcycle(MCModels model, MCColors color) : base(model, color){
