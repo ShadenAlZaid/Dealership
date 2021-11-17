@@ -11,8 +11,7 @@
             <option value="@item">@item</option>
         }
     </select>
-
-    <span>@message</span>
+   
 
     @if (vehicle == VehicleTypes.Car)
     {
@@ -22,7 +21,8 @@
          {
           <p>@v.carColor @v.carModel</p>
          }
-    }
+    }  
+
     else if(vehicle == VehicleTypes.Motorcycle)
     {
         <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
@@ -40,9 +40,9 @@
          {
           <p>@v.tColor @v.tModel</p>
          }
-    }
-     
+    }       
 </span>
+ 
 
 @code
 {
@@ -64,17 +64,18 @@
         this.VehiclesList.Add(vehicle);
     }
 
-    string SuccessMessage = string.Empty;
-    async void HandleValidSubmit()
-    {
-        SuccessMessage = "Form Submitted Successfully!";
-        await Task.Delay(2000);
-        SuccessMessage = string.Empty;
-        StateHasChanged();
-    }
+    //// validation
+    //string SuccessMessage = string.Empty;
+    //async void HandleValidSubmit()
+    //{
+    //    SuccessMessage = "Form Submitted Successfully!";
+    //    await Task.Delay(2000);
+    //    SuccessMessage = string.Empty;
+    //    StateHasChanged();
+    //}
 
-    void HandleInvalidSubmit()
-    {
-        SuccessMessage = string.Empty;
-    }
+    //void HandleInvalidSubmit()
+    //{
+    //    SuccessMessage = string.Empty;
+    //}
 }
