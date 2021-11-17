@@ -42,15 +42,14 @@
             <p>@v.tColor @v.tModel</p>
         }
     } 
-          
-        @* @foreach (var v in VehiclesList)
-        {
-            this.message = v.ToString();
-        }       *@
+
+    @foreach(var v in VehiclesList)
+    {
+        this.message = v.ToString();
+    }
+
 </span>
- @* <span>
-     @message
- </span> *@
+
 
 @code
 {
