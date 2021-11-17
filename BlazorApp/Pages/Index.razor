@@ -26,6 +26,15 @@
     {
         <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
     }
+    <div>
+        <CarComponent @bind-IVehicle="@VehiclesList"></CarComponent> 
+    
+        @foreach (var v in VehiclesList)
+        {
+            <p>@v.carColor @v.carModel</p>
+        }
+
+    </div>
 
 </span>
 
