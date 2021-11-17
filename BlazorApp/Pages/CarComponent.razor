@@ -21,7 +21,7 @@
 <div>
         @foreach (var v in VehiclesList)
     {
-        <p><input type="text" value="@v.carColor" @onchange="@((ChangeEventArgs args) => OnClick(args, v))"/></p> @*@onchange= "OnClick"*@
+        <p><input type="text" value="@v.carColor" @onchange="@((ChangeEventArgs args) => OnChange(args, v))"/></p> @*@OnChange= "OnChange"*@
 
      }
 </div>
@@ -60,7 +60,7 @@
         OnClick.InvokeAsync($"{c}");
     }
     
-    private void OnClick(ChangeEventArgs args, Car v)
+    private void OnChange(ChangeEventArgs args, Car v)
     {
         v.carColor = args.Value.ToString();
         OnClick.InvokeAsync(VehiclesList);
