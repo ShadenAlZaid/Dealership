@@ -6,6 +6,8 @@
 
 <span>
     <select @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+        <option value="">Choose Vehicle</option>
+
         @foreach (var item in vehicleTypesList)
         {
             <option value="@item">@item</option>
@@ -17,32 +19,38 @@
     {
         <CarComponent OnClick="@vehicleAdded"></CarComponent> //Car component
 
-         @foreach (var v in VehiclesList)
-         {
-          <p>@v.carColor @v.carModel</p>
-         }
+        @foreach (var v in VehiclesList)
+        {
+            <p>@v.carColor @v.carModel</p>
+        }
     }  
-
     else if(vehicle == VehicleTypes.Motorcycle)
     {
         <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
 
         @foreach (var v in VehiclesList)
-         {
-          <p>@v.mcColor @v.mcModel</p>
-         }
+        {
+            <p>@v.mcColor @v.mcModel</p>
+        }
     }
     else if(vehicle == VehicleTypes.Truck)
     {
        <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
          
-         @foreach (var v in VehiclesList)
-         {
-          <p>@v.tColor @v.tModel</p>
-         }
-    }       
+        @foreach (var v in VehiclesList)
+        {
+            <p>@v.tColor @v.tModel</p>
+        }
+    } 
+          
+        @* @foreach (var v in VehiclesList)
+        {
+            this.message = v.ToString();
+        }       *@
 </span>
- 
+ @* <span>
+     @message
+ </span> *@
 
 @code
 {
@@ -58,8 +66,8 @@
 
     void vehicleAdded(IVehicle vehicle)
     {
-        if (this.VehiclesList == null || !this.VehiclesList.Any())
-            this.VehiclesList = new List<IVehicle>();
+        @* if (this.VehiclesList == null || !this.VehiclesList.Any())
+            this.VehiclesList = new List<IVehicle>(); *@
 
         this.VehiclesList.Add(vehicle);
     }
