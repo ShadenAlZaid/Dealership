@@ -20,36 +20,30 @@
     }
     else if(vehicle == VehicleTypes.Motorcycle)
     {
-        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+@*        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+*@  
     }
     else if(vehicle == VehicleTypes.Truck)
     {
-        <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
+@*        <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component  
+*@  
     }
-    <div>
-        <CarComponent @bind-IVehicle="@VehiclesList"></CarComponent> 
-    
-        @foreach (var v in VehiclesList)
+     
+       
+ 
+
+</span>
+
+ @foreach (var v in VehiclesList)
         {
             <p>@v.carColor @v.carModel</p>
         }
 
-    </div>
-
-</span>
-
-@*<span>
-    @foreach(var v in list)
-    {
-        
-    }
-</span>
-*@
 
 @code
 {
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
-    public List<IVehicle> VehiclesList { get; set; }
+    public List<IVehicle> VehiclesList { get; set; } = new     List<IVehicle>();
 
     //private Car list { get; set; } = new Car();
 
@@ -60,8 +54,11 @@
         this.vehicle = (VehicleTypes)System.Enum.Parse(typeof(VehicleTypes), value);
     }
 
-    void vehicleAdded(string value)
+    void vehicleAdded(IVehicle vehicle)
     {
-        this.message = value;
+        if (this.VehiclesList == null || !this.VehiclesList.Any())
+            this.VehiclesList = new List<IVehicle>();
+
+        this.VehiclesList.Add(vehicle);
     }
 }

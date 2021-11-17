@@ -6,6 +6,8 @@
 <h3>Car</h3>
 
 <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+    <option value="">Choose Color</option>
+
     @foreach (var item in carColorsList)
     {
         <option value="@item">@item</option>
@@ -13,28 +15,22 @@
 </select>
 
 <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+    <option value="">Choose Model</option>
+
     @foreach (var item in carModelsList)
     {
         <option value="@item">@item</option>
     }
 </select>
-<div>
-        @foreach (var v in VehiclesList)
-    {
-        <p><input type="text" value="@v.carColor" @onchange="@((ChangeEventArgs args) => OnChange(args, v))"/></p> @*@OnChange= "OnChange"*@
 
-     }
-</div>
 
 <button @onclick="@(() => add())">Add</button>
 
 
 @code {
-    [Parameter] 
-    public EventCallback<string> OnClick { get; set; }
-    
     [Parameter]
-    public List<IVehicle> VehiclesList { get; set; }
+    public EventCallback<IVehicle> OnClick { get; set; }
+
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModels));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColors));
@@ -43,7 +39,7 @@
     CarColors color;
     void SelectColor(string value)
     {
-        this.color = (CarColors)System.Enum.Parse(typeof(CarColors), value);
+            this.color = (CarColors)System.Enum.Parse(typeof(CarColors), value);
     }
 
     CarModels model;
@@ -54,15 +50,11 @@
 
     void add()
     {
-        //carlist.Add(new Car(model, color));
+        
+         //carlist.Add(new Car(model, color));
         Car c = new Car(model, color);
-        VehiclesList.Add(c);
-        OnClick.InvokeAsync($"{c}");
+        OnClick.InvokeAsync(c);
     }
-    
-    private void OnChange(ChangeEventArgs args, Car v)
-    {
-        v.carColor = args.Value.ToString();
-        OnClick.InvokeAsync(VehiclesList);
-    }
+
+
 }
