@@ -31,7 +31,7 @@
 
 @code {
     [Parameter] 
-    public EventCallback<string> c { get; set; }
+    public EventCallback<string> OnClick { get; set; }
     
     [Parameter]
     public List<IVehicle> VehiclesList { get; set; }
@@ -63,6 +63,6 @@
     private void OnClick(ChangeEventArgs args, Car v)
     {
         v.carColor = args.Value.ToString();
-        VehiclesList.InvokeAsync(VehiclesList);
+        OnClick.InvokeAsync(VehiclesList);
     }
 }
