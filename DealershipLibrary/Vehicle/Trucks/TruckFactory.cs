@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DealershipLibrary{
+namespace DealershipLibrary.Vehicle.Trucks{
 
     public class TruckFactory : IVehicleFactory
     {

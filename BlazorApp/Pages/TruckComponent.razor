@@ -1,29 +1,35 @@
 @page "/truck"
-@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary.Vehicle.Trucks
 @using DealershipLibrary
 
 <h3>Truck</h3>
  
-    <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-        @foreach (var item in tColorsList)
-        {
-            <option value = "@item">@item</option>
-        }
-    </select>
+<select @onchange="(e)=>SelectColor(e.Value.ToString())">
+    <option value="">Choose Color</option>
+        
+    @foreach (var item in tColorsList)
+    {
+        <option value = "@item">@item</option>
+    }
+ </select>
 
-    <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-        @foreach (var item in tModelsList)            
-        {
-            <option value = "@item">@item</option>
-        }
-    </select>
+ <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+    <option value="">Choose Model</option>
+
+    @foreach (var item in tModelsList)            
+    {
+        <option value = "@item">@item</option>
+    }
+</select>
 
 <button @onclick="@(() => add())">Add</button>
 
 @code {
-    [Parameter] public EventCallback<string> OnClick { get; set; }
+    [Parameter] public EventCallback<IVehicle> OnClick { get; set; }
+
     List<string> tModelsList = Extensions.GetEnumItems(typeof(TModels));
     List<string> tColorsList = Extensions.GetEnumItems(typeof(TColors));
+
     TColors color;
     void SelectColor(string value)
     {
@@ -36,8 +42,9 @@
         this.model = (TModels)System.Enum.Parse(typeof(TModels), value);
     }
 
-        public  void add()
+    void add()
     {
-        OnClick.InvokeAsync("Truck Added");
+        Truck t = new Truck(model, color);
+        OnClick.InvokeAsync(t);
     }
 }

@@ -1,9 +1,9 @@
 using DealershipLibrary.Vehicle;
 using System;
 
-namespace DealershipLibrary
+namespace DealershipLibrary.Vehicle.Trucks
 {
-    class Truck : VehicleBase, IVehicle
+    public class Truck : VehicleBase, IVehicle
     
     {
         public Truck(){}
