@@ -14,7 +14,7 @@ namespace DealershipLibrary.Vehicle.Trucks
         
         public override string ToString()
         {
-            return $"{color} {modelName}";
+            return $"{color} {Model}";
         }
     }
 } 

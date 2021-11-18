@@ -11,6 +11,6 @@ namespace DealershipLibrary
         // public MCColors mcColor {get; set;}
         // public TColors tColor {get; set;}
         public VehicleColors color { get; set; }
-        public VehicleModels modelName {get; set;}
+        public VehicleModels Model {get; set;}
     }
 }

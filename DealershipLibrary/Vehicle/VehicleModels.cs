@@ -6,6 +6,6 @@ using System;
     {
         public interface VehicleModels
         {
-            public string modelName {get; set;}
+            public string Name {get; set;}
         }
     }

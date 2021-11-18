@@ -13,12 +13,12 @@ namespace DealershipLibrary
         //public MCColors mcColor {get; set;}
         //public TColors tColor {get; set;}
         public VehicleColors color {get; set;}
-        public VehicleModels modelName {get; set;}
+        public VehicleModels Model {get; set;}
         public List<VehicleBase> VehiclesList {get; set;}
 
         
         public VehicleBase(VehicleModels modelName, VehicleColors color){
-            this.modelName = modelName;
+            this.Model = modelName;
             this.color = color;
         }
         // public VehicleBase(VehicleModels modelName, VehicleColors color){

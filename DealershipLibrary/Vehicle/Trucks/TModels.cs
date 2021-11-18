@@ -9,7 +9,7 @@ namespace DealershipLibrary{
     public class TModels : VehicleModels
     {
         List<string> truckModels = new List<string>();
-        public string modelName { get; set; }
+        public string Name { get; set; }
 
 
     void list(){
@@ -19,7 +19,7 @@ namespace DealershipLibrary{
     
         foreach(var m in truckModels)
         {
-            this.modelName = m;
+            this.Name = m;
         } 
     }
 

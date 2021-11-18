@@ -10,7 +10,7 @@ namespace DealershipLibrary
     public class MCModels : VehicleModels
     {
         List<string> motorcycleModels = new List<string>();
-        public string modelName { get; set; }
+        public string Name { get; set; }
 
         void list(){
             this.motorcycleModels.Add("Valkryie");
@@ -19,7 +19,7 @@ namespace DealershipLibrary
             
             foreach(var m in motorcycleModels)
             {
-                this.modelName = m;
+                this.Name = m;
             }
         }
     }    

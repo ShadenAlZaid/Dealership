@@ -12,7 +12,7 @@ namespace DealershipLibrary.Vehicle.Motorcycles
 
         public override string ToString()
         {
-            return $"{color} {modelName}";
+            return $"{color} {Model}";
         }
     }
 }

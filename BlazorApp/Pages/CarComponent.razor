@@ -30,7 +30,7 @@
     [Parameter]
     public EventCallback<IVehicle> OnClick { get; set; }
 
-    List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModels));
+    List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
 
     VehicleColors color;
@@ -39,10 +39,10 @@
         this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
     }
 
-    CarModels model;
+    CarModel model;
     void SelectModel(string value)
     {
-        this.model = (CarModels)System.Enum.Parse(typeof(CarModels), value);
+        this.model = new CarModel { Name = value};
     }
 
     void add()
