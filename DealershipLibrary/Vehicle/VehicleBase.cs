@@ -5,40 +5,29 @@ namespace DealershipLibrary
 {
     public abstract class VehicleBase
     {
-        public VehicleBase()
-        {
-                
-        }
-         public CarModels carModel {get; set;}
+        public VehicleBase(){}
+        public CarModels carModel {get; set;}
         public MCModels mcModel {get; set;}
         public TModels tModel {get; set;}
-        public CarColors carColor {get; set;}
-        public MCColors mcColor {get; set;}
-        public TColors tColor {get; set;}
-
-
+        //public CarColors carColor {get; set;}
+        //public MCColors mcColor {get; set;}
+        //public TColors tColor {get; set;}
+        public VehicleColors color {get; set;}
 
         public List<VehicleBase> VehiclesList {get; set;}
+
         
-        public VehicleBase(CarModels model, CarColors color){
+        public VehicleBase(CarModels model, VehicleColors color){
             this.carModel = model;
-            this.carColor = color;
+            this.color = color;
         }
-
-        public VehicleBase(MCModels model, MCColors color){
+        public VehicleBase(MCModels model, VehicleColors color){
             this.mcModel = model;
-            this.mcColor = color;
+            this.color = color;
         }
-        public VehicleBase(TModels model, TColors color){
+        public VehicleBase(TModels model, VehicleColors color){
             this.tModel = model;
-            this.tColor = color;
+            this.color = color;
         }
-
-      
-
-        // public override string ToString()
-        // {
-        //     return $"{CModel} {Color}";
-        // }
     }
 }

@@ -5,10 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DealershipLibrary{
-    public enum TModels 
+    public class TModels : VehicleModels
     {
-        Silverado = 1,
-        Tornado = 2,
-        Ranger = 3,
+        List<string> truckModels = new List<string>();
+
+    void list(){
+        this.truckModels.Add("Silverado");
+        this.truckModels.Add("Tornado");
+        this.truckModels.Add("Ranger");
+    }
+
     }    
 }

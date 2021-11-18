@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace DealershipLibrary
 {
-    public enum MCModels
+    public class MCModels : VehicleModels
     {
-        Valkryie = 1,
-        GoldWing = 2,
-        Hurricane = 3,
-    }
+        List<string> motorcycleModels = new List<string>();
+
+        void list(){
+            this.motorcycleModels.Add("Valkryie");
+            this.motorcycleModels.Add("GoldWing");
+            this.motorcycleModels.Add("Hurricane");
+        }
+
+    }    
+
 }
+    

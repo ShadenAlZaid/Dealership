@@ -7,7 +7,7 @@
 <select @onchange="(e)=>SelectColor(e.Value.ToString())">
     <option value="">Choose Color</option>
         
-    @foreach (var item in tColorsList)
+    @foreach (var item in ColorsList)
     {
         <option value = "@item">@item</option>
     }
@@ -16,7 +16,7 @@
  <select @onchange="(e)=>SelectModel(e.Value.ToString())">
     <option value="">Choose Model</option>
 
-    @foreach (var item in tModelsList)            
+    @foreach (var item in ModelsList)            
     {
         <option value = "@item">@item</option>
     }
@@ -27,13 +27,13 @@
 @code {
     [Parameter] public EventCallback<IVehicle> OnClick { get; set; }
 
-    List<string> tModelsList = Extensions.GetEnumItems(typeof(TModels));
-    List<string> tColorsList = Extensions.GetEnumItems(typeof(TColors));
+    List<string> ModelsList = Extensions.GetEnumItems(typeof(TModels));
+    List<string> ColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
 
-    TColors color;
+    VehicleColors color;
     void SelectColor(string value)
     {
-        this.color = (TColors)System.Enum.Parse(typeof(TColors), value);
+        this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
     }
 
     TModels model;

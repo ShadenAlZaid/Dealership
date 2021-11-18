@@ -8,13 +8,13 @@ namespace DealershipLibrary.Vehicle.Trucks
     {
         public Truck(){}
 
-        public Truck(TModels model, TColors color) : base(model, color){
+        public Truck(TModels model, VehicleColors color) : base(model, color){
 
         }
         
         public override string ToString()
         {
-            return $"{tColor} {tModel}";
+            return $"{color} {tModel}";
         }
     }
 } 

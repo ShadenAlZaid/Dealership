@@ -28,5 +28,4 @@
 //         default:
 //             break;
 //     }
-
 //     vehicle = vehicleFactory.CreateVehicle();

@@ -13,12 +13,12 @@ namespace DealershipLibrary.Vehicle.Cars
         {
             IVehicle car = new Car();
             // remove console
-            Console.WriteLine( string.Join("\t", Extensions.GetEnumItems(typeof(CarColors))));
+            Console.WriteLine(string.Join("\t", Extensions.GetEnumItems(typeof(VehicleColors))));
 
             //Get)SelectedOptions double checks option is in enu, list 
-            var choice1 = (int)(Extensions.GetSelectedOptions<CarColors>());
+            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
 
-            car.carColor = (CarColors)choice1;
+            car.color = (VehicleColors)choice1;
 
             Extensions.GetEnumItems(typeof(CarModels));
 

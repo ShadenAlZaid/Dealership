@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace DealershipLibrary
 {
-    public enum CarModels 
+    public class CarModels : VehicleModels
     {
-        Taurus = 1,
-        Explorer = 2,
-        Expedition = 3,
-        Galaxy = 4
+        List<string> carModels = new List<string>();
+
+        void list(){
+            this.carModels.Add("Taurus");
+            this.carModels.Add("Explorer");
+            this.carModels.Add("Expedition");
+            this.carModels.Add("Galaxy");
+
+        }
     }    
 }
