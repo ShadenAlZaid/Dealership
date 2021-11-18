@@ -12,15 +12,16 @@ namespace DealershipLibrary.Vehicle.Motorcycles{
         public IVehicle CreateVehicle()
         {
             IVehicle MC = new Motorcycle();
-            Extensions.GetEnumItems(typeof(VehicleColors));
+            // Extensions.GetEnumItems(typeof(VehicleColors));
 
-            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
-            MC.color = (VehicleColors) choice1;
+            // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
+            // MC.color = (VehicleColors) choice1;
 
-            Extensions.GetEnumItems(typeof(MCModels));
 
-            var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
-            MC.mcModel = (MCModels) choice2;
+            // var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
+            // MC.mcModel = (MCModels) choice2;
+            
+            Extensions.GetEnumItems(typeof(VehicleModels));
 
             return MC;
        }

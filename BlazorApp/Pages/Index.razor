@@ -30,9 +30,8 @@
 
     @foreach (var v in VehiclesList)
     {
-        <p>@v.color @v.carModel</p>
+        <p>@v.color @v.modelName</p>
     }
-
 </span>
 
 
@@ -40,7 +39,6 @@
 {
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
     public List<IVehicle> VehiclesList { get; set; } = new List<IVehicle>();
-
     string message;
     VehicleTypes vehicle;
     void SelectVehicle(string value)

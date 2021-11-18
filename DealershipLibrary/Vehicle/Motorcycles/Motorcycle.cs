@@ -7,12 +7,12 @@ namespace DealershipLibrary.Vehicle.Motorcycles
     {
         public Motorcycle(){}
 
-        public Motorcycle(MCModels model, VehicleColors color) : base(model, color){
+        public Motorcycle(VehicleModels modelName, VehicleColors color) : base(modelName, color){
         }
 
         public override string ToString()
         {
-            return $"{color} {mcModel}";
+            return $"{color} {modelName}";
         }
     }
 }

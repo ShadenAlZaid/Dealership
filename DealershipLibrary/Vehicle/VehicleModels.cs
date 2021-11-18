@@ -2,10 +2,10 @@ using DealershipLibrary;
 using DealershipLibrary.Vehicle;
 using System;
 
-    namespace DealershipLibrary
+    namespace DealershipLibrary.Vehicle
     {
         public interface VehicleModels
         {
-            public string name {get; set;}
+            public string modelName {get; set;}
         }
     }

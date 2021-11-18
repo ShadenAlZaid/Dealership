@@ -12,15 +12,15 @@ namespace DealershipLibrary.Vehicle.Trucks{
         public IVehicle CreateVehicle()
         {
             IVehicle Truck = new Truck();
-            Extensions.GetEnumItems(typeof(VehicleColors));
+            // Extensions.GetEnumItems(typeof(VehicleColors));
 
-            var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
-            Truck.color = (VehicleColors) choice1;
+            // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
+            // Truck.color = (VehicleColors) choice1;
 
+
+            // var choice2 = VehicleModels.name;
+            // Truck.tModel = (VehicleModels) choice2;
             Extensions.GetEnumItems(typeof(VehicleModels));
-
-            var choice2 = VehicleModels.name;
-            Truck.tModel = (VehicleModels) choice2;
 
             return Truck;
        }

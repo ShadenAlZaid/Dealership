@@ -8,13 +8,13 @@ namespace DealershipLibrary.Vehicle.Cars
     {
         public Car(){}
 
-        public Car(CarModels model, VehicleColors color) : base(model, color)
+        public Car(VehicleModels modelName, VehicleColors color) : base(modelName, color)
         {
         }
 
         public override string ToString()
         {
-            return $"{color} {carModel}";
+            return $"{color} {modelName}";
         }
     }
 
