@@ -12,20 +12,18 @@ namespace DealershipLibrary.Vehicle.Cars
         public IVehicle CreateVehicle()
         {
             IVehicle car = new Car();
-            // remove console
-            Console.WriteLine( string.Join("\t", Extensions.GetEnumItems(typeof(CarColors))));
+       
+            //GetSelectedOptions double checks option is in enum list 
+            // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
 
-            //Get)SelectedOptions double checks option is in enu, list 
-            var choice1 = (int)(Extensions.GetSelectedOptions<CarColors>());
+            // car.color = (VehicleColors)choice1;
 
-            car.carColor = (CarColors)choice1;
+            // var choice2 = (int)(Extensions.GetSelectedOptions<CarModels>());
+
+
+            // car.carModel = (CarModels)choice2;
 
             Extensions.GetEnumItems(typeof(CarModels));
-
-            var choice2 = (int)(Extensions.GetSelectedOptions<CarModels>());
-
-            car.carModel = (CarModels)choice2;
-            // remove console
 
             return car;
         }

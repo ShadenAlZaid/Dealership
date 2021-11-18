@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary{
-    public enum TModels 
+    public class TModels : VehicleModels
     {
-        Silverado = 1,
-        Tornado = 2,
-        Ranger = 3,
+        List<string> truckModels = new List<string>();
+        public string modelName { get; set; }
+
+
+    void list(){
+        this.truckModels.Add("Silverado");
+        this.truckModels.Add("Tornado");
+        this.truckModels.Add("Ranger");
+    
+        foreach(var m in truckModels)
+        {
+            this.modelName = m;
+        } 
+    }
+
     }    
 }
