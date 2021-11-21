@@ -8,6 +8,7 @@ namespace DealershipLibrary
 {
     public enum VehicleTypes
     {
+        
         Car = 1,
         Motorcycle = 2,
         Truck = 3,

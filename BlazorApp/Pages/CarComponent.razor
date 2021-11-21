@@ -1,53 +1,71 @@
 ﻿@page "/car"
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
-@using System.Collections.Generic;
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
+@inject ILogger<Car> Logger
 
-<h3>Car</h3>
+<div>
+    <h3>Car</h3>
 
-<select @onchange="(e)=>SelectColor(e.Value.ToString())">
-    <option value="">Choose Color</option>
+    <EditForm Model = "@c" OnValidSubmit="@ValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />   
+    
 
-    @foreach (var item in carColorsList)
-    {
-        <option value="@item">@item</option>
-    }
-</select>
+    <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+        <option value="">Choose Color</option>
 
-<select @onchange="(e)=>SelectModel(e.Value.ToString())">
-    <option value="">Choose Model</option>
+        @foreach (var item in carColorsList)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
 
-    @foreach (var item in carModelsList)
-    {
-        <option value="@item">@item</option>
-    }
-</select>
+    <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+        <option value="">Choose Model</option>
 
-<button @onclick="@(() => add())">Add</button>
+        @foreach (var item in carModelsList)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
 
+    <button @onclick="@(() => add())">Add</button>
+    </EditForm>
+</div>
 
 @code {
     [Parameter]
-    public EventCallback<IVehicle> OnClick { get; set; }
+    public EventCallback<IVehicle> OnAdd { get; set; }
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
-
+    
+    private Car c = new ();
     VehicleColors color;
+    CarModel model;
+    
     void SelectColor(string value)
     {
         this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
     }
 
-    CarModel model;
     void SelectModel(string value)
     {
-        this.model = new CarModel { Name = value};
+        this.model = new CarModel {Name = value};
     }
 
     void add()
     {
         Car c = new Car(model, color);
-        OnClick.InvokeAsync(c);
+        OnAdd.InvokeAsync(c);
+    }
+
+    void ValidSubmit()
+    {
+        add();
+        Logger.LogInformation("ValidSubmit called");
     }
 }

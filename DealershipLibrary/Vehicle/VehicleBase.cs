@@ -1,5 +1,6 @@
 using DealershipLibrary.Vehicle;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealershipLibrary
 {
@@ -12,8 +13,13 @@ namespace DealershipLibrary
         //public CarColors carColor {get; set;}
         //public MCColors mcColor {get; set;}
         //public TColors tColor {get; set;}
+        
+        [Required (ErrorMessage = "Select a Color")]
         public VehicleColors color {get; set;}
+        
+        [Required (ErrorMessage = "Select a Model")]
         public VehicleModels Model {get; set;}
+
         public List<VehicleBase> VehiclesList {get; set;}
 
         

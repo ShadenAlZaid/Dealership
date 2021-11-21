@@ -17,6 +17,4 @@ namespace DealershipLibrary.Vehicle.Cars
             return $"{color} {Model}";
         }
     }
-
-
 }

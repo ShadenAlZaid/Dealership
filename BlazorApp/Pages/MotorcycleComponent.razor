@@ -25,7 +25,7 @@
 <button @onclick="@(() => add())">Add</button>
 
 @code {
-    [Parameter] public EventCallback<IVehicle> OnClick { get; set; }
+    [Parameter] public EventCallback<IVehicle> OnAdd { get; set; }
 
     List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
     List<string> mcColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
@@ -45,6 +45,6 @@
     void add()
     {
         Motorcycle m = new Motorcycle(model, color);
-        OnClick.InvokeAsync(m);    
+        OnAdd.InvokeAsync(m);    
     }
 }

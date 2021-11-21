@@ -25,7 +25,7 @@
 <button @onclick="@(() => add())">Add</button>
 
 @code {
-    [Parameter] public EventCallback<IVehicle> OnClick { get; set; }
+    [Parameter] public EventCallback<IVehicle> OnAdd { get; set; }
 
     List<string> ModelsList = Extensions.GetEnumItems(typeof(TModelsEnum));
     List<string> ColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
@@ -36,6 +36,7 @@
         this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
     }
 
+    
     TModel model;
     void SelectModel(string value)
     {
@@ -45,6 +46,6 @@
     void add()
     {
         Truck t = new Truck(model, color);
-        OnClick.InvokeAsync(t);
+        OnAdd.InvokeAsync(t);
     }
 }

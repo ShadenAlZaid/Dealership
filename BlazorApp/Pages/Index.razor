@@ -1,56 +1,59 @@
 ﻿@page "/"
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
 
 <h3>Shaden's Dealership</h3>
 
-<span>
-    <select @onchange="(e)=>SelectVehicle(e.Value.ToString())">
-        <option value="">Choose Vehicle</option>
+@* <EditForm Model = "@vehicle" OnInvalidSubmit = "SubmitForm"></EditForm> *@
+<div>
+    <span>
+        <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+            <option value="">Choose Vehicle</option>
 
-        @foreach (var item in vehicleTypesList)
+            @foreach (var item in vehicleTypesList)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    
+
+        @if (vehicleType == VehicleTypes.Car)
         {
-            <option value="@item">@item</option>
+            <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
+        }  
+        else if(vehicleType == VehicleTypes.Motorcycle)
+        {
+            <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
         }
-    </select>
-   
+        else if(vehicleType == VehicleTypes.Truck)
+        {
+        <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
+        } 
 
-    @if (vehicle == VehicleTypes.Car)
-    {
-        <CarComponent OnClick="@vehicleAdded"></CarComponent> //Car component
-    }  
-    else if(vehicle == VehicleTypes.Motorcycle)
-    {
-        <MotorcycleComponent OnClick="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
-    }
-    else if(vehicle == VehicleTypes.Truck)
-    {
-       <TruckComponent OnClick="vehicleAdded"></TruckComponent> //Truck component        
-    } 
-
-    @foreach (var v in VehiclesList)
-    {
-        <p>@v.color @v.Model.Name</p>
-    }
-</span>
-
+        @foreach (var v in VehiclesList)
+        {
+            <p>@v.color @v.Model.Name</p>
+        }
+    </span>
+</div>
 
 @code
 {
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypes));
     public List<IVehicle> VehiclesList { get; set; } = new List<IVehicle>();
     string message;
-    VehicleTypes vehicle;
+
+    [Required(ErrorMessage = "Select a Vehicle Type")]    
+    VehicleTypes vehicleType;
     void SelectVehicle(string value)
     {
-        this.vehicle = (VehicleTypes)System.Enum.Parse(typeof(VehicleTypes), value);
+        this.vehicleType = (VehicleTypes)System.Enum.Parse(typeof(VehicleTypes), value);
     }
 
     void vehicleAdded(IVehicle vehicle)
     {
-        @* if (this.VehiclesList == null || !this.VehiclesList.Any())
-            this.VehiclesList = new List<IVehicle>(); *@
-
         this.VehiclesList.Add(vehicle);
     }
 }
