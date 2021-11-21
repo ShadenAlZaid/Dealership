@@ -216,3 +216,12 @@ BlazorApp/obj/Debug/net5.0/RazorDeclaration/Pages/Truck.razor.g.cs
 *.config
 .vs/Dealership/config/applicationhost.config
 .vs/Dealership/v17/.suo
+*.v1
+*.json
+*.config
+.vs/Dealership/config/applicationhost.config
+.vs/Dealership/project-colors.json
+.vs/Dealership/v16/.suo
+.vs/Dealership/v17/.futdcache.v1
+.vs/Dealership/v17/.suo
+.vs/DealershipLibrary/v16/.suo
