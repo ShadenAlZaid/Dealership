@@ -213,3 +213,6 @@ BlazorApp/obj/Debug/net5.0/RazorDeclaration/Pages/Truck.razor.g.cs
 .vs/Dealership/v17/.suo
 .vs/Dealership/v17/.suo
 *.v1
+*.config
+.vs/Dealership/config/applicationhost.config
+.vs/Dealership/v17/.suo
