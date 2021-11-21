@@ -23,7 +23,7 @@ namespace DealershipLibrary.Vehicle.Cars
 
             // car.carModel = (CarModels)choice2;
 
-            Extensions.GetEnumItems(typeof(CarModelsEnum ));
+            Extensions.GetEnumItems(typeof(CarModelsEnum));
 
             return car;
         }

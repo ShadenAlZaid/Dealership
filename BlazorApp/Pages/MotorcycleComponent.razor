@@ -27,7 +27,7 @@
 @code {
     [Parameter] public EventCallback<IVehicle> OnClick { get; set; }
 
-    List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModels));
+    List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
     List<string> mcColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
 
     VehicleColors color;
@@ -36,10 +36,10 @@
         this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
     }
 
-    MCModels model;
+    MCModel model;
     void SelectModel(string value)
     {
-        this.model = (MCModels)System.Enum.Parse(typeof(MCModels), value);
+        this.model = new MCModel { Name = value};
     }
 
     void add()

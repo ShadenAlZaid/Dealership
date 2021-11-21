@@ -16,7 +16,8 @@ namespace DealershipLibrary
 
     public enum CarModelsEnum
     {
-        Taurus = 1
-
+        Taurus = 1,
+        Explorer = 2,
+        Expedition = 3
     }
 }
