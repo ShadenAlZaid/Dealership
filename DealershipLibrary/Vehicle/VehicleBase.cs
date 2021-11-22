@@ -7,7 +7,6 @@ namespace DealershipLibrary
     {
         public VehicleBase(string modelName, string colorName)
         {
-
             if (modelName != null)
                 this.VehicleModel = new VehicleModel(modelName);
             if(colorName != null)
@@ -17,7 +16,7 @@ namespace DealershipLibrary
         [Required(ErrorMessage = "Select a Color")]
         public VehicleColor VehicleColor { get; set; }
 
-        [Required(ErrorMessage = "Please Select a Model")]
+        [Required(ErrorMessage = "Select a Model")]
         public VehicleModel VehicleModel { get; set; }
 
         public void SetModel(string name)
@@ -29,7 +28,5 @@ namespace DealershipLibrary
         {
             this.VehicleColor = new VehicleColor(name);
         }
-
-
     }
 }

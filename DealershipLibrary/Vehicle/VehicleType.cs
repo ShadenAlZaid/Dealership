@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace DealershipLibrary
 {
     public class VehicleType
@@ -15,9 +14,6 @@ namespace DealershipLibrary
             Name = name;
         }
         public string Name { get; set; }
-
-    
- 
     }
     public enum VehicleTypesEnum
     {

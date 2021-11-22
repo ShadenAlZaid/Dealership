@@ -7,38 +7,32 @@
 
 <h3>Shaden's Dealership</h3> 
 <div>
-     <EditForm Model="@type" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator/>
+        <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+            <option value="">Choose Vehicle</option>
 
-            <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
-                <option value="">Choose Vehicle</option>
-
-                @foreach (var item in vehicleTypesList)
-                {
-                    <option value="@item">@item</option>
-                }
-            </select>
-
-            @if (type.Name == VehicleTypesEnum.Car.ToString())
+            @foreach (var item in vehicleTypesList)
             {
-                <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
-            }  
-            else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
-            {
-                <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+                <option value="@item">@item</option>
             }
-            else if(type.Name == VehicleTypesEnum.Truck.ToString())
-            {
+        </select>
+
+        @if (type.Name == VehicleTypesEnum.Car.ToString())
+        {
+            <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
+        }  
+        else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
+        {
+            <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+        }
+        else if(type.Name == VehicleTypesEnum.Truck.ToString())
+        {
             <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
-            } 
+        } 
 
-            @foreach (var v in VehiclesList)
-            {
-                <p>@v.VehicleColor.ToString() @v.VehicleModel.ToString()</p>
-            }
-
-    <ValidationMessage For="@(()=>type)" ></ValidationMessage>
-    </EditForm>
+        @foreach (var v in VehiclesList)
+        {
+            @*<p>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</p>*@
+        }
 </div>
 
 
