@@ -16,13 +16,8 @@ namespace DealershipLibrary
         }
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please Select a Type")]
-        public VehicleType vehicleType { get; set; }
-
-        public void SetVehicleType(string name)
-        {
-            this.vehicleType = new VehicleType(name);
-        }
+    
+ 
     }
     public enum VehicleTypesEnum
     {

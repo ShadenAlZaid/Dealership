@@ -19,15 +19,15 @@
                 }
             </select>
 
-            @if (VehicleType == VehicleTypesEnum.Car)
+            @if (type.Name == VehicleTypesEnum.Car.ToString())
             {
                 <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
             }  
-            else if(VehicleType == VehicleTypesEnum.Motorcycle)
+            else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
             {
                 <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
             }
-            else if(VehicleType == VehicleTypesEnum.Truck)
+            else if(type.Name == VehicleTypesEnum.Truck.ToString())
             {
             <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
             } 
@@ -51,7 +51,7 @@
 
     void SelectVehicle(string value)
     {
-        this.type.SetVehicleType(value);
+        this.type= new VehicleType(value);
     }
 
     void vehicleAdded(IVehicle vehicle)

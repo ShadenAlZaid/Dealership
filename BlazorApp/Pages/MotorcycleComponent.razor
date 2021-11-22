@@ -31,7 +31,7 @@
              }
          </select>
 
-        <button @onclick="@(() => add())">Add</button>
+        <button type="submit">Add</button>
 
     <ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>
     </EditForm>
@@ -57,14 +57,11 @@
         this.motorcycle.SetModel(value);
     }
 
-    void add()
-    {
-        OnAdd.InvokeAsync(motorcycle);    
-    }
+   
 
     void ValidSubmit()
     {
-        add();
+       OnAdd.InvokeAsync(motorcycle);    
         Logger.LogInformation("ValidSubmit called");
     }
 }
