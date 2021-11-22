@@ -34,7 +34,10 @@
             <h3>Shopping Cart</h3>
             @foreach (var v in VehiclesList)
             {
-                <p>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</p>
+                <span>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</span>
+                <button @onclick="@(() => Remove())">Remove Item</button>
+                <br/>
+                <br/>
             }
         </div>
 </div>
@@ -42,6 +45,8 @@
 
 @code
 {
+    [Parameter]
+    public EventCallback<IVehicle> OnRemove {get; set;}
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
     public List<IVehicle> VehiclesList { get; set; } = new List<IVehicle>();
 
@@ -55,6 +60,11 @@
     void vehicleAdded(IVehicle vehicle)
     {
         this.VehiclesList.Add(vehicle);
+    }
+
+    void Remove()
+    {
+        VehiclesList.Remove(VehiclesList[0]);
     }
 
     void ValidSubmit()

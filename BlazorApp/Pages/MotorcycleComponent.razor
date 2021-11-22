@@ -63,7 +63,9 @@
 
     void ValidSubmit()
     {
-        OnAdd.InvokeAsync(motorcycle);    
+        var newMotorcycle= new Motorcycle(null, null);
+        newMotorcycle.Clone(motorcycle);
+        OnAdd.InvokeAsync(newMotorcycle);    
         msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");
     }

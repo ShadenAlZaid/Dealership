@@ -13,5 +13,11 @@ namespace DealershipLibrary.Vehicle.Trucks
         {
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";
         }
+
+        public void Clone(Truck truck)
+        {
+            this.VehicleModel = new VehicleModel(truck.VehicleModel.Name);
+            this.VehicleColor = new VehicleColor(truck.VehicleColor.Name);
+        }
     }
 } 
