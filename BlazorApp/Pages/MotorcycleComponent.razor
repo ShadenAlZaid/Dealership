@@ -12,7 +12,8 @@
 
     <EditForm Model="@motorcycle" OnValidSubmit="@ValidSubmit">
     <DataAnnotationsValidator />
- 
+    <ValidationSummary/>
+
          <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
 
@@ -33,7 +34,9 @@
 
         <button type="submit">Add</button>
 
-    <ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>
+        <p>@msg</p>
+
+    @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@   
     </EditForm>
 </div>
 
@@ -46,6 +49,7 @@
     List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColorsEnum));
 
     private Motorcycle motorcycle  = new Motorcycle(null,null);
+    string msg;
 
     void SelectColor(string value)
     {
@@ -57,11 +61,10 @@
         this.motorcycle.SetModel(value);
     }
 
-   
-
     void ValidSubmit()
     {
-       OnAdd.InvokeAsync(motorcycle);    
+        OnAdd.InvokeAsync(motorcycle);    
+        msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");
     }
 }

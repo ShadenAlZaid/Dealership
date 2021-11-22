@@ -8,7 +8,6 @@ namespace DealershipLibrary.Vehicle.Motorcycles
         public Motorcycle(string name, string color) : base(name, color)
         {
         }
-
         public override string ToString()
         {
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";

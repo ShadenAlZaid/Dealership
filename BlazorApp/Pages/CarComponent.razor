@@ -12,6 +12,7 @@
 
     <EditForm Model="@car" OnValidSubmit="@ValidSubmit">
         <DataAnnotationsValidator/>
+        <ValidationSummary/>
 
         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
@@ -29,9 +30,13 @@
                 <option value="@item">@item</option>
             }
         </select>        
-        <button @onclick="@(() => add())">Add</button>
+        <button type="submit">Add</button>
+`       @*<p>@car.GetType().Name Added!</p>*@
 
-    <ValidationMessage For="@(()=>car.VehicleModel)" ></ValidationMessage>
+        <p>@msg</p>
+
+    @*<ValidationMessage For="@(()=>car.VehicleModel)"></ValidationMessage>
+     <ValidationMessage For="@(()=>car.VehicleColor)"></ValidationMessage>*@
     </EditForm>
 </div>
 
@@ -44,6 +49,7 @@
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
 
     private Car car  = new Car(null,null);
+    string msg;
 
     void SelectColor(string value)
     {
@@ -55,14 +61,10 @@
         this.car.SetModel(value);
     }
 
-    void add()
-    {
-        OnAdd.InvokeAsync(car);
-    }
-
     void ValidSubmit()
     {
-        add();
+        OnAdd.InvokeAsync(car);
+        msg = "Car Added!";
         Logger.LogInformation("ValidSubmit called");
     }
 }
