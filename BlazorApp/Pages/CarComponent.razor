@@ -1,4 +1,5 @@
 ﻿@page "/car"
+@using DealershipLibrary.Vehicle
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
 @using System.Collections.Generic
@@ -9,30 +10,30 @@
 <div>
     <h3>Car</h3>
 
-    <EditForm Model = "@c" OnValidSubmit="@ValidSubmit">
+    <EditForm Model="@car" OnValidSubmit="@ValidSubmit">
         <DataAnnotationsValidator />
-        <ValidationSummary />   
-    
+  
 
-    <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-        <option value="">Choose Color</option>
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+            <option value="">Choose Color</option>
 
-        @foreach (var item in carColorsList)
-        {
-            <option value="@item">@item</option>
-        }
-    </select>
+            @foreach (var item in carColorsList)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <br/>
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            <option value="">Choose Model</option>
 
-    <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-        <option value="">Choose Model</option>
-
-        @foreach (var item in carModelsList)
-        {
-            <option value="@item">@item</option>
-        }
-    </select>
-
-    <button @onclick="@(() => add())">Add</button>
+            @foreach (var item in carModelsList)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+        <ValidationMessage  For="@(()=>car.VehicleModel)" ></ValidationMessage>
+  
+        <button @onclick="@(() => add())">Add</button>
     </EditForm>
 </div>
 
@@ -42,11 +43,14 @@
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
-    
-    private Car c = new ();
+
+    private Car car  = new Car(null,VehicleColors.Black) ;
+
     VehicleColors color;
-    CarModel model;
-    
+
+    [Required]
+    int colorId;
+
     void SelectColor(string value)
     {
         this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
@@ -54,13 +58,12 @@
 
     void SelectModel(string value)
     {
-        this.model = new CarModel {Name = value};
+        this.car.SetModel(value);
     }
 
     void add()
     {
-        Car c = new Car(model, color);
-        OnAdd.InvokeAsync(c);
+        OnAdd.InvokeAsync(car);
     }
 
     void ValidSubmit()

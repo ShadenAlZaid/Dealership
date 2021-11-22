@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary{
-    public class TModel : VehicleModels
+    public class TModel : IVehicleModel
     {
         List<string> truckModels = new List<string>();
         public string Name { get; set; }

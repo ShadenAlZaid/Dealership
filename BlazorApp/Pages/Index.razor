@@ -4,9 +4,7 @@
 @using System.ComponentModel.DataAnnotations;
 @using Microsoft.Extensions.Logging
 
-<h3>Shaden's Dealership</h3>
-
-@* <EditForm Model = "@vehicle" OnInvalidSubmit = "SubmitForm"></EditForm> *@
+<h3>Shaden's Dealership</h3> 
 <div>
     <span>
         <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
@@ -34,10 +32,11 @@
 
         @foreach (var v in VehiclesList)
         {
-            <p>@v.color @v.Model.Name</p>
+            @*<p>@v.color @v.Model.Name</p>*@
         }
     </span>
 </div>
+
 
 @code
 {

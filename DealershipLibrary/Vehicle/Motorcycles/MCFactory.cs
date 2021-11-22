@@ -11,7 +11,7 @@ namespace DealershipLibrary.Vehicle.Motorcycles{
     {
         public IVehicle CreateVehicle()
         {
-            IVehicle MC = new Motorcycle();
+            IVehicle MC = new Motorcycle(null, VehicleColors.White);
             // Extensions.GetEnumItems(typeof(VehicleColors));
 
             // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
@@ -21,7 +21,7 @@ namespace DealershipLibrary.Vehicle.Motorcycles{
             // var choice2 = (int)(Extensions.GetSelectedOptions<MCModels>());
             // MC.mcModel = (MCModels) choice2;
             
-            Extensions.GetEnumItems(typeof(VehicleModels));
+            Extensions.GetEnumItems(typeof(IVehicleModel));
 
             return MC;
        }

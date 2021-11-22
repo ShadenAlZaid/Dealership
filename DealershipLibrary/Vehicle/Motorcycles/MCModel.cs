@@ -7,7 +7,7 @@ using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary
 {
-    public class MCModel : VehicleModels
+    public class MCModel : IVehicleModel
     {
         List<string> motorcycleModels = new List<string>();
         public string Name { get; set; }

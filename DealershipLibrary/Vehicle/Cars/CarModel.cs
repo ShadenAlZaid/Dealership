@@ -7,12 +7,7 @@ using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary
 {
-    public class CarModel : VehicleModels
-    {
-        List<string> carModels = new List<string>();
-        public string Name { get; set; }
 
-    }
 
     public enum CarModelsEnum
     {

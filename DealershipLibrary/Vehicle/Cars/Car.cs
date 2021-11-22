@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 
@@ -6,15 +7,16 @@ namespace DealershipLibrary.Vehicle.Cars
 {
     public class Car : VehicleBase, IVehicle
     {
-        public Car(){}
+       
 
-        public Car(VehicleModels modelName, VehicleColors color) : base(modelName, color)
+        public Car(string name, VehicleColors color) : base( name, color)
         {
         }
+ 
 
         public override string ToString()
         {
-            return $"{color} {Model}";
+            return $"{color} {VehicleModel?.Name}";
         }
     }
 }

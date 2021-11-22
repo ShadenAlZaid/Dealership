@@ -11,7 +11,7 @@ namespace DealershipLibrary.Vehicle.Cars
     {
         public IVehicle CreateVehicle()
         {
-            IVehicle car = new Car();
+            IVehicle car = new Car(null, VehicleColors.White);
        
             //GetSelectedOptions double checks option is in enum list 
             // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
