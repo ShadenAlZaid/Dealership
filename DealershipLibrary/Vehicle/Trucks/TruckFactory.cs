@@ -11,16 +11,9 @@ namespace DealershipLibrary.Vehicle.Trucks{
     {
         public IVehicle CreateVehicle()
         {
-            IVehicle Truck = new Truck(null, VehicleColors.White);
-            // Extensions.GetEnumItems(typeof(VehicleColors));
+            IVehicle Truck = new Truck(null, null);
 
-            // var choice1 = (int)(Extensions.GetSelectedOptions<VehicleColors>());
-            // Truck.color = (VehicleColors) choice1;
-
-
-            // var choice2 = VehicleModels.name;
-            // Truck.tModel = (VehicleModels) choice2;
-            Extensions.GetEnumItems(typeof(IVehicleModel));
+            Extensions.GetEnumItems(typeof(TruckModelsEnum));
 
             return Truck;
        }

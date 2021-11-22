@@ -4,16 +4,14 @@ using System;
 namespace DealershipLibrary.Vehicle.Trucks
 {
     public class Truck : VehicleBase, IVehicle
-    
     {
-     
-        public Truck(IVehicleModel modelName, VehicleColors color) : base(modelName.ToString(), color){
-
+        public Truck(string name, string color) : base(name, color)
+        {
         }
         
         public override string ToString()
         {
-            return $"{color} {VehicleModel?.Name}";
+            return $"{VehicleColors?.Name} {VehicleModel?.Name}";
         }
     }
 } 

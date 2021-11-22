@@ -7,12 +7,6 @@ using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary
 {
-    public class MCModel : IVehicleModel
-    {
-        List<string> motorcycleModels = new List<string>();
-        public string Name { get; set; }
-    }
-
     public enum MCModelsEnum
     {
         Valkryie = 1,

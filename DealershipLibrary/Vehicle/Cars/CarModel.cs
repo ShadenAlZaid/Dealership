@@ -7,8 +7,6 @@ using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary
 {
-
-
     public enum CarModelsEnum
     {
         Taurus = 1,

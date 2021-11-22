@@ -1,50 +1,70 @@
 ﻿@page "/motorcycle"
 @using DealershipLibrary.Vehicle.Motorcycles
+@using DealershipLibrary.Vehicle
 @using DealershipLibrary
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
+@inject ILogger<Motorcycle> Logger
 
-<h3>Motorcycle</h3>
+<div>
+    <h3>Motorcycle</h3>
+
+    <EditForm Model="@motorcycle" OnValidSubmit="@ValidSubmit">
+    <DataAnnotationsValidator />
  
- <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-    <option value="">Choose Color</option>
+         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+            <option value="">Choose Color</option>
 
-    @foreach (var item in mcColorsList)
-    {
-        <option value = "@item">@item</option>
-    }
-  </select>
+            @foreach (var item in mcColorsList)
+            {
+                <option value = "@item">@item</option>
+            }
+          </select>
 
- <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-     <option value="">Choose Model</option>
+         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+             <option value="">Choose Model</option>
 
-     @foreach (var item in mcModelsList)            
-     {
-        <option value = "@item">@item</option>
-     }
- </select>
+             @foreach (var item in mcModelsList)            
+             {
+                <option value = "@item">@item</option>
+             }
+         </select>
 
-<button @onclick="@(() => add())">Add</button>
+        <button @onclick="@(() => add())">Add</button>
+
+    <ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>
+    </EditForm>
+</div>
+
 
 @code {
-    [Parameter] public EventCallback<IVehicle> OnAdd { get; set; }
+    [Parameter] 
+    public EventCallback<IVehicle> OnAdd { get; set; }
 
     List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
-    List<string> mcColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
+    List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColorsEnum));
 
-    VehicleColors color;
+    private Motorcycle motorcycle  = new Motorcycle(null,null);
+
     void SelectColor(string value)
     {
-        this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
+        this.motorcycle.SetColor(value);
     }
 
-    MCModel model;
     void SelectModel(string value)
     {
-        this.model = new MCModel { Name = value};
+        this.motorcycle.SetModel(value);
     }
 
     void add()
     {
-        Motorcycle m = new Motorcycle(model, color);
-        OnAdd.InvokeAsync(m);    
+        OnAdd.InvokeAsync(motorcycle);    
+    }
+
+    void ValidSubmit()
+    {
+        add();
+        Logger.LogInformation("ValidSubmit called");
     }
 }

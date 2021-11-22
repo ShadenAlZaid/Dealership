@@ -5,27 +5,29 @@ namespace DealershipLibrary
 {
     public abstract class VehicleBase
     {
-
-
-        public VehicleBase(string modelName, VehicleColors color)
+        public VehicleBase(string modelName, string colorName)
         {
 
             if (modelName != null)
                 this.VehicleModel = new VehicleModel(modelName);
-            this.color = color;
+            if(colorName != null)
+                this.VehicleColor = new VehicleColor(colorName);
         }
 
         [Required(ErrorMessage = "Select a Color")]
-        public VehicleColors color { get; set; }
+        public VehicleColor VehicleColor { get; set; }
 
         [Required(ErrorMessage = "Please Select a Model")]
-
         public VehicleModel VehicleModel { get; set; }
-
 
         public void SetModel(string name)
         {
             this.VehicleModel = new VehicleModel(name);
+        }
+
+        public void SetColor(string name)
+        {
+            this.VehicleColor = new VehicleColor(name);
         }
 
 

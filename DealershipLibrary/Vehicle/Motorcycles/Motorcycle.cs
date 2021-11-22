@@ -5,13 +5,13 @@ namespace DealershipLibrary.Vehicle.Motorcycles
 {
     public class Motorcycle : VehicleBase, IVehicle
     {
-    
-        public Motorcycle(IVehicleModel modelName, VehicleColors color) : base(modelName.ToString(), color){
+        public Motorcycle(string name, string color) : base(name, color)
+        {
         }
 
         public override string ToString()
         {
-            return $"{color} {VehicleModel?.Name}";
+            return $"{VehicleColors?.Name} {VehicleModel?.Name}";
         }
     }
 }

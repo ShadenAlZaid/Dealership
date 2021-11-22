@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DealershipLibrary
 {
-    public enum VehicleColors
+    public class VehicleColor
     {
-        Red  = 1,
-        Black = 2,
-        White = 3,
-        Silver = 4
+        public VehicleColor(string name)
+        {
+            Name = name;
+        }
+        public string Name { get; set; }
     }
 }

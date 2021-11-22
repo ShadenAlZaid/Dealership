@@ -11,8 +11,7 @@
     <h3>Car</h3>
 
     <EditForm Model="@car" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator />
-  
+        <DataAnnotationsValidator/>
 
         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
@@ -22,7 +21,6 @@
                 <option value="@item">@item</option>
             }
         </select>
-        <br/>
         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             <option value="">Choose Model</option>
 
@@ -30,30 +28,26 @@
             {
                 <option value="@item">@item</option>
             }
-        </select>
-        <ValidationMessage  For="@(()=>car.VehicleModel)" ></ValidationMessage>
-  
+        </select>        
         <button @onclick="@(() => add())">Add</button>
+
+    <ValidationMessage For="@(()=>car.VehicleModel)" ></ValidationMessage>
     </EditForm>
 </div>
 
+
 @code {
     [Parameter]
-    public EventCallback<IVehicle> OnAdd { get; set; }
+    public EventCallback<IVehicle> OnAdd {get; set;}
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
-    List<string> carColorsList = Extensions.GetEnumItems(typeof(VehicleColors));
+    List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
 
-    private Car car  = new Car(null,VehicleColors.Black) ;
-
-    VehicleColors color;
-
-    [Required]
-    int colorId;
+    private Car car  = new Car(null,null);
 
     void SelectColor(string value)
     {
-        this.color = (VehicleColors)System.Enum.Parse(typeof(VehicleColors), value);
+        this.car.SetColor(value);
     }
 
     void SelectModel(string value)
