@@ -29,10 +29,14 @@
             <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
         } 
 
-        @foreach (var v in VehiclesList)
-        {
-            @*<p>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</p>*@
-        }
+        <div>
+            <br/>
+            <h3>Shopping Cart</h3>
+            @foreach (var v in VehiclesList)
+            {
+                <p>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</p>
+            }
+        </div>
 </div>
 
 
