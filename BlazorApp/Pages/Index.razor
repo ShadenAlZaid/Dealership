@@ -19,19 +19,39 @@
             </select>
         </div>
         <div>
-            @if (type.Name == VehicleTypesEnum.Car.ToString()&& 
-            ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) <= 3)
+            @switch (type.Name)
             {
-                <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
-            }  
-            else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
-            {
-                <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+                case "Car":            
+                    @if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) <= 2)
+                    {
+                        <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
+                    }else
+                    {
+                        <span>Max amount of Cars!</span>
+                    }  
+                    break;
+
+                case "Motorcycle":      
+                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Motorcycle.ToString()) <= 2)
+                    {
+                        <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
+                    }else
+                    {
+                        <span>Max amount of Motorcycle!</span>
+                    }  
+                    break;
+
+                case "Truck":            
+                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Truck.ToString()) <= 2)
+                    {
+                    <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
+                    }else
+                    {
+                        <span>Max amount of Truck!</span>
+                    }   
+                    break;
             }
-            else if(type.Name == VehicleTypesEnum.Truck.ToString())
-            {
-                <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
-            } 
+
         </div>
         <div>
             <br/>
@@ -63,7 +83,6 @@
     public List<IVehicle> ShoppingCart { get; set; } = new List<IVehicle>();
 
     VehicleType type = new VehicleType(null);
-
 
     string purchaseMsg;
 
