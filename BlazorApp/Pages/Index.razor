@@ -5,8 +5,9 @@
 @using Microsoft.Extensions.Logging
 @inject ILogger<Car> Logger
 
-<h3>Shaden's Dealership</h3> 
+<h4>Shaden's Dealership</h4> 
 <div>
+    <div>
         <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
             <option value="">Choose Vehicle</option>
 
@@ -15,6 +16,7 @@
                 <option value="@item">@item</option>
             }
         </select>
+    </div>
 
         @if (type.Name == VehicleTypesEnum.Car.ToString())
         {
@@ -31,13 +33,11 @@
 
         <div>
             <br/>
-            <h3>Shopping Cart</h3>
+            <h6><b>Shopping Cart</b></h6>
             @foreach (var v in VehiclesList)
             {
-                <span>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()</span>
-                <button @onclick="@(() => Remove())">Remove Item</button>
-                <br/>
-                <br/>
+                <ul>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()
+                <button @onclick="@(() => Remove())">🗙</button></ul>
             }
         </div>
 </div>

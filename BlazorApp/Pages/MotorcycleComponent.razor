@@ -8,7 +8,7 @@
 @inject ILogger<Motorcycle> Logger
 
 <div>
-    <h3>Motorcycle</h3>
+    <h5>Motorcycle</h5>
 
     <EditForm Model="@motorcycle" OnValidSubmit="@ValidSubmit">
     <DataAnnotationsValidator />
@@ -34,7 +34,7 @@
 
         <button type="submit">Add</button>
 
-        <p>@msg</p>
+        <span>  @msg</span>
 
     @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@   
     </EditForm>

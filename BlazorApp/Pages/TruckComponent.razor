@@ -8,7 +8,7 @@
 @inject ILogger<Truck> Logger
 
 <div>
-    <h3>Truck</h3>
+    <h5>Truck</h5>
 
     <EditForm Model="@truck" OnValidSubmit="@ValidSubmit">
     <DataAnnotationsValidator/> 
@@ -33,6 +33,8 @@
         </select>
 
         <button type="submit">Add</button>
+
+        <span>  @msg</span>
 
     @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
     </EditForm>
