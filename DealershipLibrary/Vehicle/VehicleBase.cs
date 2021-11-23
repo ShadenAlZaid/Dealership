@@ -12,6 +12,7 @@ namespace DealershipLibrary
             if(colorName != null)
                 this.VehicleColor = new VehicleColor(colorName);
         }
+        public VehicleType VehicleType { get; set; }
 
         [Required(ErrorMessage = "Select a Color")]
         public VehicleColor VehicleColor { get; set; }

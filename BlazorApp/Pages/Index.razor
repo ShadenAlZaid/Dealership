@@ -19,7 +19,8 @@
             </select>
         </div>
         <div>
-            @if (type.Name == VehicleTypesEnum.Car.ToString())
+            @if (type.Name == VehicleTypesEnum.Car.ToString()&& 
+            ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) <= 3)
             {
                 <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
             }  
@@ -54,7 +55,7 @@
 {
     //[Parameter]
     //public EventCallback<IVehicle> OnRemove {get; set;}
-   
+
     //[Parameter]
     //public EventCallback<IVehicle> OnCheckOut {get; set;}
 
@@ -73,6 +74,7 @@
 
     void vehicleAdded(IVehicle vehicle)
     {
+        vehicle.VehicleType = type;
         this.ShoppingCart.Add(vehicle);
     }
 
