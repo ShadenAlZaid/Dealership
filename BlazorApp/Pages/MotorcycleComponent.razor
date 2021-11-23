@@ -65,6 +65,7 @@
     {
         var newMotorcycle= new Motorcycle(null, null);
         newMotorcycle.Clone(motorcycle);
+        motorcycle = new Motorcycle(null, null);
         OnAdd.InvokeAsync(newMotorcycle);    
         msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");

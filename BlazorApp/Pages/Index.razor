@@ -5,52 +5,66 @@
 @using Microsoft.Extensions.Logging
 @inject ILogger<Car> Logger
 
-<h4>Shaden's Dealership</h4> 
-<div>
+<body>
+    <h4>Shaden's Dealership</h4> 
     <div>
-        <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
-            <option value="">Choose Vehicle</option>
+        <div>
+            <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+                <option value="">Choose Vehicle</option>
 
-            @foreach (var item in vehicleTypesList)
+                @foreach (var item in vehicleTypesList)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+        </div>
+        <div>
+            @if (type.Name == VehicleTypesEnum.Car.ToString())
             {
-                <option value="@item">@item</option>
+                <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
+            }  
+            else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
+            {
+                <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
             }
-        </select>
-    </div>
-
-        @if (type.Name == VehicleTypesEnum.Car.ToString())
-        {
-            <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
-        }  
-        else if(type.Name == VehicleTypesEnum.Motorcycle.ToString())
-        {
-            <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
-        }
-        else if(type.Name == VehicleTypesEnum.Truck.ToString())
-        {
-            <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
-        } 
-
+            else if(type.Name == VehicleTypesEnum.Truck.ToString())
+            {
+                <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
+            } 
+        </div>
         <div>
             <br/>
             <h6><b>Shopping Cart</b></h6>
-            @foreach (var v in VehiclesList)
+            @foreach (var v in ShoppingCart)
             {
                 <ul>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()
-                <button @onclick="@(() => Remove())">🗙</button></ul>
+                <button @onclick="@(() => Remove(v))">🗙</button></ul>
+                }
+            @if (ShoppingCart.Count != 0)
+            {
+                <button @onclick="@(() => CheckOut())">Checkout</button>
+                <br/>
+                <span>  @purchaseMsg</span>
             }
-        </div>
-</div>
-
+        </div>   
+    </div>
+</body>
 
 @code
 {
-    [Parameter]
-    public EventCallback<IVehicle> OnRemove {get; set;}
+    //[Parameter]
+    //public EventCallback<IVehicle> OnRemove {get; set;}
+   
+    //[Parameter]
+    //public EventCallback<IVehicle> OnCheckOut {get; set;}
+
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
-    public List<IVehicle> VehiclesList { get; set; } = new List<IVehicle>();
+    public List<IVehicle> ShoppingCart { get; set; } = new List<IVehicle>();
 
     VehicleType type = new VehicleType(null);
+
+
+    string purchaseMsg;
 
     void SelectVehicle(string value)
     {
@@ -59,12 +73,17 @@
 
     void vehicleAdded(IVehicle vehicle)
     {
-        this.VehiclesList.Add(vehicle);
+        this.ShoppingCart.Add(vehicle);
     }
 
-    void Remove()
+    void Remove(IVehicle v)
     {
-        VehiclesList.Remove(VehiclesList[0]);
+       ShoppingCart.Remove(v);
+    }
+
+    void CheckOut()
+    {
+        purchaseMsg = "Purchase Successful!";
     }
 
     void ValidSubmit()

@@ -65,6 +65,7 @@
     {
         var newCar = new Car(null, null);
         newCar.Clone(car);
+        car = new Car(null, null);
         OnAdd.InvokeAsync(newCar);
         msg = "Car Added!";
         Logger.LogInformation("ValidSubmit called");
