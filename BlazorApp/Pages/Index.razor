@@ -22,7 +22,7 @@
             @switch (type.Name)
             {
                 case "Car":            
-                    @if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) <= 2)
+                    @if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) < 3)
                     {
                         <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
                     }else
@@ -32,7 +32,7 @@
                     break;
 
                 case "Motorcycle":      
-                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Motorcycle.ToString()) <= 2)
+                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Motorcycle.ToString()) < 3)
                     {
                         <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
                     }else
@@ -42,7 +42,7 @@
                     break;
 
                 case "Truck":            
-                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Truck.ToString()) <= 2)
+                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Truck.ToString()) < 3)
                     {
                     <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
                     }else
