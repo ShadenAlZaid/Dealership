@@ -1,8 +1,3 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using DealershipLibrary.Vehicle;
-using DealershipLibrary.Vehicle.Cars;
-
 namespace DealershipLibrary.Vehicle.Cars
 {
     public class Car : VehicleBase, IVehicle

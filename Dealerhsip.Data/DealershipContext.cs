@@ -15,11 +15,11 @@ namespace Dealerhsip.Data
         public DbSet<Truck> Trucks { get; set; }
         public DbSet<VehicleColor> VehicleColors { get; set; }
         public DbSet<VehicleModel> VehicleModels { get; set; }
-
+        public DbSet<VehicleType> VehicleTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog=SamuraiAppData",
+            optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog=DealershipData",
                 options => options.MaxBatchSize(100));
             //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
             //.EnableSensitiveDataLogging();
@@ -32,6 +32,7 @@ namespace Dealerhsip.Data
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
             modelBuilder.Entity<VehicleModel>();
+            modelBuilder.Entity<VehicleType>();
         }
 
     }

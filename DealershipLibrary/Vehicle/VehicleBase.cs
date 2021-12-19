@@ -1,4 +1,3 @@
-using DealershipLibrary.Vehicle;
 using System.ComponentModel.DataAnnotations;
 
 namespace DealershipLibrary

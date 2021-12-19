@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-
-namespace DealershipLibrary
+﻿namespace DealershipLibrary
 {
     public class VehicleType
     {
-        //public int VehicleTypeId { get; set; } 
+        public int VehicleTypeId { get; set; } 
 
         public VehicleType(string name)
         {
