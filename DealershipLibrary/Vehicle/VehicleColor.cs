@@ -8,6 +8,7 @@ namespace DealershipLibrary
 {
     public class VehicleColor
     {
+        public int VehicleColorId { get; set; }
         public VehicleColor(string name)
         {
             Name = name;

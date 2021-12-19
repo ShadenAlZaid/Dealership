@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DealershipLibrary", "Dealer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{BA13B2E4-F967-4AC1-BFDB-4727A0FE1317}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dealerhsip.Data", "Dealerhsip.Data\Dealerhsip.Data.csproj", "{1D684AE2-BDE3-4053-933A-4AE47855290B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BA13B2E4-F967-4AC1-BFDB-4727A0FE1317}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA13B2E4-F967-4AC1-BFDB-4727A0FE1317}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA13B2E4-F967-4AC1-BFDB-4727A0FE1317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D684AE2-BDE3-4053-933A-4AE47855290B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D684AE2-BDE3-4053-933A-4AE47855290B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D684AE2-BDE3-4053-933A-4AE47855290B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D684AE2-BDE3-4053-933A-4AE47855290B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

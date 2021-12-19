@@ -5,6 +5,8 @@ namespace DealershipLibrary.Vehicle.Motorcycles
 {
     public class Motorcycle : VehicleBase, IVehicle
     {
+        public int MotorcycleId { get; set; }
+
         public Motorcycle(string name, string color) : base(name, color)
         {
         }

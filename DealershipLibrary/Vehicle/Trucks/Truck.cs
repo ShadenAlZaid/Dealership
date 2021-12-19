@@ -5,6 +5,7 @@ namespace DealershipLibrary.Vehicle.Trucks
 {
     public class Truck : VehicleBase, IVehicle
     {
+        public int TruckId { get; set; }
         public Truck(string name, string color) : base(name, color)
         {
         }
