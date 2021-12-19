@@ -6,10 +6,12 @@ namespace DealershipLibrary.Vehicle.Trucks
     public class Truck : VehicleBase, IVehicle
     {
         public int TruckId { get; set; }
+
+        public Truck() { }
         public Truck(string name, string color) : base(name, color)
         {
         }
-        
+
         public override string ToString()
         {
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";
@@ -21,4 +23,4 @@ namespace DealershipLibrary.Vehicle.Trucks
             this.VehicleColor = new VehicleColor(truck.VehicleColor.Name);
         }
     }
-} 
+}

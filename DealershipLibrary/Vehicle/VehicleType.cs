@@ -9,6 +9,8 @@ namespace DealershipLibrary
 {
     public class VehicleType
     {
+        //public int VehicleTypeId { get; set; } 
+
         public VehicleType(string name)
         {
             Name = name;

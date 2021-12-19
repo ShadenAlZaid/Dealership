@@ -5,6 +5,7 @@ namespace DealershipLibrary
 {
     public abstract class VehicleBase
     {
+        public VehicleBase() { }
         public VehicleBase(string modelName, string colorName)
         {
             if (modelName != null)

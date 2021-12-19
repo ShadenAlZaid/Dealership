@@ -1,7 +1,7 @@
-﻿    namespace DealershipLibrary
+﻿namespace DealershipLibrary
+{
+    public interface IVehicleFactory
     {
-        public interface IVehicleFactory
-        {
-            IVehicle CreateVehicle();
-        }
+        IVehicle CreateVehicle();
     }
+}

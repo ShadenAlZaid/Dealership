@@ -11,7 +11,7 @@ namespace DealershipLibrary.Vehicle.Cars
     {
         public IVehicle CreateVehicle()
         {
-            IVehicle car = new Car(null, null);
+            IVehicle car = new Car( null, null);
 
             Extensions.GetEnumItems(typeof(CarModelsEnum));
 

@@ -9,6 +9,7 @@ namespace DealershipLibrary.Vehicle.Cars
     {
         public int CarId { get; set; } 
 
+        public Car() { }
         public Car(string name, string color) : base(name, color)
         {
         }

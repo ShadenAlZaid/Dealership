@@ -25,5 +25,14 @@ namespace Dealerhsip.Data
             //.EnableSensitiveDataLogging();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>();
+            modelBuilder.Entity<Motorcycle>();
+            modelBuilder.Entity<Truck>();
+            modelBuilder.Entity<VehicleColor>();
+            modelBuilder.Entity<VehicleModel>();
+        }
+
     }
 }
