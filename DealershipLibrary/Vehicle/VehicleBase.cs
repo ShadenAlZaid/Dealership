@@ -9,7 +9,7 @@ namespace DealershipLibrary
         {
             if (modelName != null)
                 this.VehicleModel = new VehicleModel(modelName);
-            if(colorName != null)
+            if (colorName != null)
                 this.VehicleColor = new VehicleColor(colorName);
         }
         public VehicleType VehicleType { get; set; }

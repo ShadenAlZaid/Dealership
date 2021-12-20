@@ -1,12 +1,15 @@
 ﻿@page "/"
+@using Dealerhsip.Data
 @using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary.Vehicle.Motorcycles
+@using DealershipLibrary.Vehicle.Trucks
 @using DealershipLibrary
 @using System.ComponentModel.DataAnnotations;
 @using Microsoft.Extensions.Logging
 @inject ILogger<Car> Logger
 
 <body>
-    <h4>Shaden's Dealership</h4> 
+    <h4>Shaden's Dealership</h4>
     <div>
         <div>
             <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
@@ -21,53 +24,61 @@
         <div>
             @switch (type.Name)
             {
-                case "Car":            
-                    @if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Car.ToString()) < 3)
+                case "Car":
+                    @if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Car.ToString()) < 3)
                     {
-                        <CarComponent OnAdd="@vehicleAdded"></CarComponent> //Car component
-                    }else
+                        <CarComponent OnAdd="@vehicleAdded"></CarComponent>
+                        //Car component
+                    }
+                    else
                     {
                         <span>Max amount of Cars!</span>
-                    }  
+                    }
                     break;
 
-                case "Motorcycle":      
-                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Motorcycle.ToString()) < 3)
+                case "Motorcycle":
+                    if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString()) < 3)
                     {
-                        <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent> //Motorcycle component 
-                    }else
+                        <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent>
+                        //Motorcycle component
+                    }
+                    else
                     {
                         <span>Max amount of Motorcycle!</span>
-                    }  
+                    }
                     break;
 
-                case "Truck":            
-                    if (ShoppingCart.Count(v=>v.VehicleType.Name==VehicleTypesEnum.Truck.ToString()) < 3)
+                case "Truck":
+                    if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Truck.ToString()) < 3)
                     {
-                    <TruckComponent OnAdd="vehicleAdded"></TruckComponent> //Truck component        
-                    }else
+                        <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
+                        //Truck component
+                    }
+                    else
                     {
                         <span>Max amount of Truck!</span>
-                    }   
+                    }
                     break;
             }
 
         </div>
         <div>
-            <br/>
+            <br />
             <h6><b>Shopping Cart</b></h6>
             @foreach (var v in ShoppingCart)
             {
-                <ul>@v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()
-                <button @onclick="@(() => Remove(v))">🗙</button></ul>
-                }
+                <ul>
+                    @v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()
+                    <button @onclick="@(() => Remove(v))">🗙</button>
+                </ul>
+            }
             @if (ShoppingCart.Count != 0)
             {
-                <button @onclick="@(() => CheckOut())">Checkout</button>
-                <br/>
+                <button @onclick="@(() => CheckOut(ShoppingCart))">Checkout</button>
+                <br />
                 <span>  @purchaseMsg</span>
             }
-        </div>   
+        </div>
     </div>
 </body>
 
@@ -79,6 +90,8 @@
     //[Parameter]
     //public EventCallback<IVehicle> OnCheckOut {get; set;}
 
+    private static DealershipContext _context = new DealershipContext();
+
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
     public List<IVehicle> ShoppingCart { get; set; } = new List<IVehicle>();
 
@@ -88,7 +101,7 @@
 
     void SelectVehicle(string value)
     {
-        this.type= new VehicleType(value);
+        this.type = new VehicleType(value);
     }
 
     void vehicleAdded(IVehicle vehicle)
@@ -99,11 +112,31 @@
 
     void Remove(IVehicle v)
     {
-       ShoppingCart.Remove(v);
+        ShoppingCart.Remove(v);
     }
 
-    void CheckOut()
+    void CheckOut(List<IVehicle> ShoppingCart)
     {
+        _context.Database.EnsureCreated();
+
+        foreach (var v in ShoppingCart)
+        {
+            if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
+            {
+                _context.Cars.Add((Car)v);
+            }
+            else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
+            {
+                _context.Motorcycles.Add((Motorcycle)v);
+
+            }
+            else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
+            {
+                _context.Trucks.Add((Truck)v);
+
+            }
+        }
+        _context.SaveChanges();
         purchaseMsg = "Purchase Successful!";
     }
 

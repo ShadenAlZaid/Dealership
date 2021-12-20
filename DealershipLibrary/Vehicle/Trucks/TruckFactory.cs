@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DealershipLibrary.Vehicle.Trucks{
+namespace DealershipLibrary.Vehicle.Trucks
+{
 
     public class TruckFactory : IVehicleFactory
     {
@@ -16,6 +17,6 @@ namespace DealershipLibrary.Vehicle.Trucks{
             Extensions.GetEnumItems(typeof(TruckModelsEnum));
 
             return Truck;
-       }
+        }
     }
 }

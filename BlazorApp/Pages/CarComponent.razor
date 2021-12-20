@@ -1,4 +1,5 @@
 ﻿@page "/car"
+@using Dealerhsip.Data
 @using DealershipLibrary.Vehicle
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
@@ -11,8 +12,8 @@
     <h5>Car</h5>
 
     <EditForm Model="@car" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator/>
-        <ValidationSummary/>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
@@ -22,6 +23,7 @@
                 <option value="@item">@item</option>
             }
         </select>
+
         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             <option value="">Choose Model</option>
 
@@ -29,26 +31,27 @@
             {
                 <option value="@item">@item</option>
             }
-        </select>        
+        </select>
         <button type="submit">Add</button>
         @*<p>@car.GetType().Name Added!</p>*@
 
         <span>  @msg</span>
 
-    @*<ValidationMessage For="@(()=>car.VehicleModel)"></ValidationMessage>
-     <ValidationMessage For="@(()=>car.VehicleColor)"></ValidationMessage>*@
+        @*<ValidationMessage For="@(()=>car.VehicleModel)"></ValidationMessage>
+            <ValidationMessage For="@(()=>car.VehicleColor)"></ValidationMessage>*@
     </EditForm>
 </div>
 
 
 @code {
+
     [Parameter]
-    public EventCallback<IVehicle> OnAdd {get; set;}
+    public EventCallback<IVehicle> OnAdd { get; set; }
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
 
-    private Car car  = new Car(null,null);
+    private Car car = new Car(null, null);
     string msg;
 
     void SelectColor(string value)
@@ -65,6 +68,7 @@
     {
         var newCar = new Car(null, null);
         newCar.Clone(car);
+        //reset car to null
         car = new Car(null, null);
         OnAdd.InvokeAsync(newCar);
         msg = "Car Added!";

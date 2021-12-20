@@ -6,6 +6,6 @@ namespace DealershipLibrary
     {
         public VehicleType VehicleType { get; set; }
         public VehicleColor VehicleColor { get; set; }
-        public VehicleModel VehicleModel { get; set;}
+        public VehicleModel VehicleModel { get; set; }
     }
 }

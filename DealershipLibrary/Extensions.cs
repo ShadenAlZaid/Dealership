@@ -8,7 +8,7 @@ namespace DealershipLibrary
 {
     public class Extensions
     {
-        public static void PrintEnum(Type x)
+        public static void ConsolePrintEnum(Type x)
         {
             foreach (int i in Enum.GetValues(x))
             {
@@ -16,7 +16,7 @@ namespace DealershipLibrary
             }
         }
 
-        public static int GetSelectedOptions<T>() where T : System.Enum
+        public static int ConsoleGetSelectedOptions<T>() where T : System.Enum
         {
 
             Console.Write("Enter you choice number: ");
@@ -34,7 +34,7 @@ namespace DealershipLibrary
                 }
             }
             Console.Write("Please re-enter your choice! \n");
-            return GetSelectedOptions<T>();
+            return ConsoleGetSelectedOptions<T>();
         }
 
         public static List<string> GetEnumItems(Type x)
@@ -44,7 +44,7 @@ namespace DealershipLibrary
             foreach (int i in Enum.GetValues(x))
             {
                 list.Add($"{Enum.GetName(x, i)}");
-             
+
             }
 
             return list;
@@ -52,11 +52,3 @@ namespace DealershipLibrary
 
     }
 }
-
-//var options = new List<int>();
-
-//var values = Enum.GetValues(typeof(T));
-
-//foreach (int item in values)
-//    options.Add(item);
-

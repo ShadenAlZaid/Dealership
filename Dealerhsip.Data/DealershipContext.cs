@@ -10,6 +10,7 @@ namespace Dealerhsip.Data
 {
     public class DealershipContext : DbContext
     {
+
         public DbSet<Car> Cars { get; set; }
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Truck> Trucks { get; set; }
@@ -28,12 +29,31 @@ namespace Dealerhsip.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Car>();
+              //  .HasMany(s => s.Car)
+              //  .HasMany(s => s.VehicleColor)
+              //  .WithMany(b => b.Car)
+              //  .UsingEntity<CarVehicleColor>
+              //(bs => bs.HasOne<Car>().WithMany(),
+              // bs => bs.HasOne<VehicleColor>().WithMany());
+
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
             modelBuilder.Entity<VehicleModel>();
             modelBuilder.Entity<VehicleType>();
         }
+
+        //private static void InsertVehicleIntoDB()
+        //{
+        //    IVehicle car = new Car(null, null);
+        //    IVehicle motorcycle = new Motorcycle(null, null);
+        //    IVehicle truck = new Truck(null, null);
+
+        //    _context.Trucks.Add((Truck)truck);
+        //    _context.Cars.Add((Car)car);
+        //    _context.Motorcycles.Add((Motorcycle)motorcycle);
+        //    _context.SaveChanges();
+        //}
 
     }
 }
