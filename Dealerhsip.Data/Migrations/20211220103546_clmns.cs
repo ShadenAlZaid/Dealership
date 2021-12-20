@@ -2,7 +2,7 @@
 
 namespace Dealerhsip.Data.Migrations
 {
-    public partial class tables : Migration
+    public partial class clmns : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,6 +51,8 @@ namespace Dealerhsip.Data.Migrations
                 {
                     CarId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VehicleTypeId = table.Column<int>(type: "int", nullable: true),
                     VehicleColorId = table.Column<int>(type: "int", nullable: true),
                     VehicleModelId = table.Column<int>(type: "int", nullable: true)
@@ -84,6 +86,8 @@ namespace Dealerhsip.Data.Migrations
                 {
                     MotorcycleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VehicleTypeId = table.Column<int>(type: "int", nullable: true),
                     VehicleColorId = table.Column<int>(type: "int", nullable: true),
                     VehicleModelId = table.Column<int>(type: "int", nullable: true)
@@ -117,6 +121,8 @@ namespace Dealerhsip.Data.Migrations
                 {
                     TruckId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VehicleTypeId = table.Column<int>(type: "int", nullable: true),
                     VehicleColorId = table.Column<int>(type: "int", nullable: true),
                     VehicleModelId = table.Column<int>(type: "int", nullable: true)

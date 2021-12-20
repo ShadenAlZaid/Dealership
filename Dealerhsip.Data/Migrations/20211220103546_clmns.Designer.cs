@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dealerhsip.Data.Migrations
 {
     [DbContext(typeof(DealershipContext))]
-    [Migration("20211219125735_tables")]
-    partial class tables
+    [Migration("20211220103546_clmns")]
+    partial class clmns
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

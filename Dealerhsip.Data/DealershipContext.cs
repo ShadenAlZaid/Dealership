@@ -29,13 +29,6 @@ namespace Dealerhsip.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Car>();
-              //  .HasMany(s => s.Car)
-              //  .HasMany(s => s.VehicleColor)
-              //  .WithMany(b => b.Car)
-              //  .UsingEntity<CarVehicleColor>
-              //(bs => bs.HasOne<Car>().WithMany(),
-              // bs => bs.HasOne<VehicleColor>().WithMany());
-
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
