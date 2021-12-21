@@ -20,7 +20,7 @@ namespace Dealerhsip.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSSQLLocalDB; Initial Catalog=DealershipData",
+            optionsBuilder.UseSqlServer("Data Source= .; Initial Catalog=DealershipData;integrated security=true;",
                 options => options.MaxBatchSize(100));
             //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
             //.EnableSensitiveDataLogging();

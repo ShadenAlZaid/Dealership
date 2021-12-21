@@ -16,8 +16,8 @@ namespace DealershipLibrary.Vehicle.Cars
 
         public void Clone(Car car)
         {
-            this.VehicleModel = new VehicleModel(car.VehicleModel.Name);
-            this.VehicleColor = new VehicleColor(car.VehicleColor.Name);
+            this.VehicleModelId = car.VehicleModelId;
+            this.VehicleColorId = car.VehicleColorId;
         }
     }
 }

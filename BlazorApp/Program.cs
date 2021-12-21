@@ -10,7 +10,7 @@ namespace BlazorApp
 
         public static void Main(string[] args)
         {
-            _context.Database.EnsureCreated();
+            //_context.Database.EnsureCreated();
 
             CreateHostBuilder(args).Build().Run();
         }
