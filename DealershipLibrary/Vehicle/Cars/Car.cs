@@ -1,6 +1,6 @@
 namespace DealershipLibrary.Vehicle.Cars
 {
-    public class Car : VehicleBase, IVehicle
+    public class Car : VehicleBase
     {
         public int CarId { get; set; }
 
@@ -18,6 +18,8 @@ namespace DealershipLibrary.Vehicle.Cars
         {
             this.VehicleModelId = car.VehicleModelId;
             this.VehicleColorId = car.VehicleColorId;
+            this.VehicleModel = new VehicleModel(car.VehicleModel.Name);
+            this.VehicleColor = new VehicleColor(car.VehicleColor.Name);
         }
     }
 }

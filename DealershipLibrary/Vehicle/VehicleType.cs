@@ -1,14 +1,14 @@
-﻿namespace DealershipLibrary
+﻿namespace DealershipLibrary.Vehicle
 {
     public class VehicleType
     {
-        public int VehicleTypeId { get; set; } 
+        public int VehicleTypeId { get; set; }
+        public string Name { get; set; }
 
         public VehicleType(string name)
         {
             Name = name;
         }
-        public string Name { get; set; }
     }
     public enum VehicleTypesEnum
     {

@@ -46,7 +46,7 @@
 @code {
 
     [Parameter]
-    public EventCallback<IVehicle> OnAdd { get; set; }
+    public EventCallback<VehicleDTO> OnAdd { get; set; }
 
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
@@ -70,7 +70,7 @@
         newCar.Clone(car);
         //reset car to null
         car = new Car(null, null);
-        OnAdd.InvokeAsync(newCar);
+        //OnAdd.InvokeAsync(newCar);
         msg = "Car Added!";
         Logger.LogInformation("ValidSubmit called");
     }

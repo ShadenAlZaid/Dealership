@@ -1,10 +1,11 @@
-﻿@page "/"
+﻿@*@page "/"
 @using Dealerhsip.Data
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary.Vehicle.Motorcycles
 @using DealershipLibrary.Vehicle.Trucks
+@using DealershipLibrary.Vehicle
 @using DealershipLibrary
-@using System.ComponentModel.DataAnnotations;
+@using System.ComponentModel.DataAnnotations
 @using Microsoft.Extensions.Logging
 @inject ILogger<Car> Logger
 
@@ -68,7 +69,7 @@
             @foreach (var v in ShoppingCart)
             {
                 <ul>
-                    @v.VehicleColor.Name.ToString() @v.VehicleModel.Name.ToString()
+                    @v.ColorName.ToString() @v.ModelName.ToString()
                     <button @onclick="@(() => Remove(v))">🗙</button>
                 </ul>
             }
@@ -93,7 +94,7 @@
     private static DealershipContext _context = new DealershipContext();
 
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
-    public List<IVehicle> ShoppingCart { get; set; } = new List<IVehicle>();
+    public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
 
     VehicleType type = new VehicleType(null);
 
@@ -104,40 +105,40 @@
         this.type = new VehicleType(value);
     }
 
-    void vehicleAdded(IVehicle vehicle)
+    void vehicleAdded(VehicleDTO vehicle)
     {
         vehicle.VehicleType = type;
         this.ShoppingCart.Add(vehicle);
     }
 
-    void Remove(IVehicle v)
+    void Remove(VehicleDTO v)
     {
         ShoppingCart.Remove(v);
     }
 
-    void CheckOut(List<IVehicle> ShoppingCart)
+    void CheckOut(List<VehicleDTO> ShoppingCart)
     {
-        _context.Database.EnsureCreated();
+        //_context.Database.EnsureCreated();
 
-        foreach (var v in ShoppingCart)
-        {
-            if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
-            {
-                _context.Cars.Add((Car)v);
-            }
+        //foreach (var v in ShoppingCart)
+        //{
+        //    if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
+        //    {
+        //        _context.VehicleDTO.Add(v);
+        //    }
 
-            else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
-            {
-                _context.Motorcycles.Add((Motorcycle)v);
+        //    else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
+        //    {
+        //        _context.VehicleDTO.Add(v);
 
-            }
-            else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
-            {
-                _context.Trucks.Add((Truck)v);
+        //    }
+        //    else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
+        //    {
+        //        _context.VehicleDTO.Add(v);
 
-            }
-        }
-        _context.SaveChanges();
+        //    }
+        //}
+        //_context.SaveChanges();
         purchaseMsg = "Purchase Successful!";
     }
 
@@ -145,4 +146,4 @@
     {
         Logger.LogInformation("ValidSubmit called");
     }
-}
+}*@

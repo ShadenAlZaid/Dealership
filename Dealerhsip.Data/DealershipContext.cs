@@ -1,5 +1,6 @@
 ﻿using System;
 using DealershipLibrary;
+using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary.Vehicle.Motorcycles;
 using DealershipLibrary.Vehicle.Trucks;
@@ -20,7 +21,7 @@ namespace Dealerhsip.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source= .; Initial Catalog=DealershipData;integrated security=true;",
+            optionsBuilder.UseSqlServer("(localdb)\\MSSQLLocalDB; Initial Catalog=DealershipData;",
                 options => options.MaxBatchSize(100));
             //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
             //.EnableSensitiveDataLogging();
@@ -31,6 +32,7 @@ namespace Dealerhsip.Data
             modelBuilder.Entity<Car>();
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
+            modelBuilder.Entity<VehicleDTO>();
             modelBuilder.Entity<VehicleColor>();
             modelBuilder.Entity<VehicleModel>();
             modelBuilder.Entity<VehicleType>();

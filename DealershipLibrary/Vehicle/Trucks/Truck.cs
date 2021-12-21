@@ -3,7 +3,7 @@ using System;
 
 namespace DealershipLibrary.Vehicle.Trucks
 {
-    public class Truck : VehicleBase, IVehicle
+    public class Truck : VehicleBase
     {
         public int TruckId { get; set; }
 

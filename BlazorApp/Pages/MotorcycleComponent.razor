@@ -43,7 +43,7 @@
 
 @code {
     [Parameter] 
-    public EventCallback<IVehicle> OnAdd { get; set; }
+    public EventCallback<VehicleDTO> OnAdd { get; set; }
 
     List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
     List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColorsEnum));
@@ -66,7 +66,7 @@
         var newMotorcycle= new Motorcycle(null, null);
         newMotorcycle.Clone(motorcycle);
         motorcycle = new Motorcycle(null, null);
-        OnAdd.InvokeAsync(newMotorcycle);    
+       // OnAdd.InvokeAsync(newMotorcycle);    
         msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");
     }
