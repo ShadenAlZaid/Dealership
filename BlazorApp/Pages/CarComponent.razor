@@ -51,7 +51,7 @@
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
     List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
 
-    private Car car = new Car(null, null);
+    private VehicleDTO car = new VehicleDTO(null, null);
     string msg;
 
     void SelectColor(string value)
@@ -66,10 +66,10 @@
 
     void ValidSubmit()
     {
-        var newCar = new Car(null, null);
+        var newCar = new VehicleDTO(null, null);
         newCar.Clone(car);
         //reset car to null
-        car = new Car(null, null);
+        car = new VehicleDTO();
         //OnAdd.InvokeAsync(newCar);
         msg = "Car Added!";
         Logger.LogInformation("ValidSubmit called");

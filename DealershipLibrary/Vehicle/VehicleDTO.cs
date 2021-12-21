@@ -9,6 +9,15 @@ namespace DealershipLibrary
 {
     public class VehicleDTO
     {
+        public VehicleDTO()
+        {
+
+        }
+        public VehicleDTO(string modelName, string colorName)
+        {
+            this.ModelName = modelName;
+            this.ColorName = colorName;
+        }
         public VehicleType VehicleType { get; set; }
         public VehicleColor VehicleColor { get; set; }
         public VehicleModel VehicleModel { get; set; }
@@ -19,12 +28,21 @@ namespace DealershipLibrary
         public int ColorId { get; set; }
         public string ColorName { get; set; }
 
-        public VehicleDTO() { }
 
-        public VehicleDTO(string modelName, string colorName)
+        public void SetColor(string c)
         {
-            this.ModelName = modelName;
-            this.ColorName = colorName;
+            this.ColorId = int.Parse(c);
+        }
+
+        public void SetModel(string m)
+        {
+            this.ModelId = int.Parse(m);
+        }
+
+        public void Clone(VehicleDTO vehicle)
+        {
+            this.ColorId = vehicle.ColorId;
+            this.ModelId = vehicle.ModelId;
         }
 
     }
