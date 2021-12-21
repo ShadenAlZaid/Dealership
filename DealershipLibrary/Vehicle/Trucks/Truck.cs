@@ -8,6 +8,11 @@ namespace DealershipLibrary.Vehicle.Trucks
         public int TruckId { get; set; }
 
         public Truck() { }
+        public Truck(VehicleDTO truckDto)
+        {
+
+        }
+
         public Truck(string name, string color) : base(name, color)
         {
         }

@@ -85,12 +85,6 @@
 
 @code
 {
-    //[Parameter]
-    //public EventCallback<IVehicle> OnRemove {get; set;}
-
-    //[Parameter]
-    //public EventCallback<IVehicle> OnCheckOut {get; set;}
-
     private static DealershipContext _context = new DealershipContext();
 
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
@@ -118,27 +112,28 @@
 
     void CheckOut(List<VehicleDTO> ShoppingCart)
     {
-        //_context.Database.EnsureCreated();
+        _context.Database.EnsureCreated();
 
-        //foreach (var v in ShoppingCart)
-        //{
-        //    if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
-        //    {
-        //        _context.VehicleDTO.Add(v);
-        //    }
+        foreach (var v in ShoppingCart)
+        {
+            if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
+            {
+                Car x = new Car(v);
+                _context.Cars.Add(x);
+            }
 
-        //    else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
-        //    {
-        //        _context.VehicleDTO.Add(v);
-
-        //    }
-        //    else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
-        //    {
-        //        _context.VehicleDTO.Add(v);
-
-        //    }
-        //}
-        //_context.SaveChanges();
+            else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
+            {
+                Motorcycle x = new Motorcycle(v);
+                _context.Motorcycles.Add(x);
+            }
+            else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
+            {
+                Truck x = new Truck(v);
+                _context.Trucks.Add(x);
+            }
+        }
+        _context.SaveChanges();
         purchaseMsg = "Purchase Successful!";
     }
 

@@ -8,6 +8,11 @@ namespace DealershipLibrary.Vehicle.Motorcycles
         public int MotorcycleId { get; set; }
 
         public Motorcycle() { }
+
+        public Motorcycle(VehicleDTO motorycyleDto)
+        {
+
+        }
         public Motorcycle(string name, string color) : base(name, color)
         {
         }

@@ -23,6 +23,7 @@ namespace DealershipLibrary
         public VehicleModel VehicleModel { get; set; }
         public int VehicleModelId { get; set; }
 
+
         public void SetModel(string name)
         {
             this.VehicleModel = new VehicleModel(name);

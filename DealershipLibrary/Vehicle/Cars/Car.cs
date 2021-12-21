@@ -5,6 +5,16 @@ namespace DealershipLibrary.Vehicle.Cars
         public int CarId { get; set; }
 
         public Car() { }
+        public Car(VehicleDTO carDto)
+        {
+            Car c = new Car();
+            c.VehicleModel = carDto.VehicleModel;
+            c.VehicleColor = carDto.VehicleColor;
+            c.CarId = carDto.VehicleDTOId;
+            c.VehicleType = carDto.VehicleType;
+            c.VehicleColorId = carDto.ColorId;
+            c.VehicleModelId = carDto.ModelId;
+        }
         public Car(string name, string color) : base(name, color)
         {
         }
@@ -14,12 +24,12 @@ namespace DealershipLibrary.Vehicle.Cars
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";
         }
 
-        public void Clone(Car car)
-        {
-            this.VehicleModelId = car.VehicleModelId;
-            this.VehicleColorId = car.VehicleColorId;
-            this.VehicleModel = new VehicleModel(car.VehicleModel.Name);
-            this.VehicleColor = new VehicleColor(car.VehicleColor.Name);
-        }
+        //public void Clone(Car car)
+        //{
+        //    this.VehicleModelId = car.VehicleModelId;
+        //    this.VehicleColorId = car.VehicleColorId;
+        //    this.VehicleModel = new VehicleModel(car.VehicleModel.Name);
+        //    this.VehicleColor = new VehicleColor(car.VehicleColor.Name);
+        //}
     }
 }
