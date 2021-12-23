@@ -7,10 +7,8 @@ namespace DealershipLibrary.Vehicle.Cars
         public Car() { }
         public Car(VehicleDTO carDto)
         {
-            Car c = new Car();
-            c.VehicleModel = carDto.VehicleModel;
-            c.VehicleModelId = carDto.VehicleModelId;
-            c.VehicleColor = carDto.VehicleColor;
+            Car c = new Car(); 
+            c.VehicleModelId = carDto.VehicleModelId; 
             c.CarId = carDto.VehicleDTOId;
             c.VehicleType = carDto.VehicleType;
             c.VehicleColorId = carDto.VehicleColorId;

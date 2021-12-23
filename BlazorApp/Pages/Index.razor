@@ -40,7 +40,7 @@
                 case "Motorcycle":
                     if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString()) < 3)
                     {
-                        <MotorcycleComponent OnAdd="vehicleAdded"></MotorcycleComponent>
+                        <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
                         //Motorcycle component
                     }
                     else
@@ -85,6 +85,7 @@
 
 @code
 {
+    VehicleService vehicleService;
     private static DealershipContext _context = new DealershipContext();
 
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
@@ -112,29 +113,33 @@
 
     void CheckOut(List<VehicleDTO> ShoppingCart)
     {
-        _context.Database.EnsureCreated();
+      var result=  vehicleService.CheckOut(ShoppingCart);
+       
+        purchaseMsg = result;
+        
+        
+        //_context.Database.EnsureCreated();
 
-        foreach (var v in ShoppingCart)
-        {
-            if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
-            {
-                Car x = new Car(v);
-                _context.Cars.Add(x);
-            }
+        //foreach (var v in ShoppingCart)
+        //{
+        //    if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
+        //    {
+        //        Car x = new Car(v);
+        //        _context.Cars.Add(x);
+        //    }
 
-            else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
-            {
-                Motorcycle x = new Motorcycle(v);
-                _context.Motorcycles.Add(x);
-            }
-            else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
-            {
-                Truck x = new Truck(v);
-                _context.Trucks.Add(x);
-            }
-        }
-        _context.SaveChanges();
-        purchaseMsg = "Purchase Successful!";
+        //    else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
+        //    {
+        //        Motorcycle x = new Motorcycle(v);
+        //        _context.Motorcycles.Add(x);
+        //    }
+        //    else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
+        //    {
+        //        Truck x = new Truck(v);
+        //        _context.Trucks.Add(x);
+        //    }
+        //}
+        //_context.SaveChanges();
     }
 
     void ValidSubmit()

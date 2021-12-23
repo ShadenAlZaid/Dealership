@@ -1,3 +1,5 @@
+using Dealership.Data;
+using DealershipLibrary;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +28,7 @@ namespace BlazorApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddServerSideBlazor();
         }
 

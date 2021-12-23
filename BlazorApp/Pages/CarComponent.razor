@@ -15,7 +15,7 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+        <select @onchange="(e)=>SelectColor(e.Value?.ToString())">
             <option value="">Choose Color</option>
 
             @foreach (var item in carColorsList)

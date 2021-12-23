@@ -6,8 +6,7 @@ namespace BlazorApp
 {
     public class Program
     {
-        private static DealershipContext _context = new DealershipContext();
-
+ 
         public static void Main(string[] args)
         {
             //_context.Database.EnsureCreated();

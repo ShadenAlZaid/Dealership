@@ -7,7 +7,7 @@ using DealershipLibrary.Vehicle;
 
 namespace Dealership.Data
 {
-    public class VehicleServices
+    public class VehicleRepository : IVehicleRepository
     {
         private static DealershipContext _context = new DealershipContext();
 
