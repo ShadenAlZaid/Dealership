@@ -11,9 +11,7 @@ namespace DealershipLibrary.Vehicle.Trucks
         public Truck(VehicleDTO truckDto)
         {
             Truck t = new Truck();
-            t.VehicleModel = truckDto.VehicleModel;
             t.VehicleModelId = truckDto.VehicleModelId;
-            t.VehicleColor = truckDto.VehicleColor;
             t.TruckId = truckDto.VehicleDTOId;
             t.VehicleType = truckDto.VehicleType;
             t.VehicleColorId = truckDto.VehicleColorId;

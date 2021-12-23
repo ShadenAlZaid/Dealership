@@ -12,9 +12,7 @@ namespace DealershipLibrary.Vehicle.Motorcycles
         public Motorcycle(VehicleDTO motorcycleDto)
         {
             Motorcycle m = new Motorcycle();
-            m.VehicleModel = motorcycleDto.VehicleModel;
             m.VehicleModelId = motorcycleDto.VehicleModelId;
-            m.VehicleColor = motorcycleDto.VehicleColor;
             m.MotorcycleId = motorcycleDto.VehicleDTOId;
             m.VehicleType = motorcycleDto.VehicleType;
             m.VehicleColorId = motorcycleDto.VehicleColorId;
