@@ -25,7 +25,12 @@
       "ProjectGuid": "ba13b2e4-f967-4ac1-bfdb-4727a0fe1317",
       "DisplayName": "BlazorApp",
       "ColorIndex": 3
+    },
+    "1d684ae2-bde3-4053-933a-4ae47855290b": {
+      "ProjectGuid": "1d684ae2-bde3-4053-933a-4ae47855290b",
+      "DisplayName": "Dealerhsip.Data",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

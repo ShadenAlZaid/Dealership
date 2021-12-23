@@ -10,7 +10,13 @@ namespace DealershipLibrary.Vehicle.Trucks
         public Truck() { }
         public Truck(VehicleDTO truckDto)
         {
-
+            Truck t = new Truck();
+            t.VehicleModel = truckDto.VehicleModel;
+            t.VehicleModelId = truckDto.VehicleModelId;
+            t.VehicleColor = truckDto.VehicleColor;
+            t.TruckId = truckDto.VehicleDTOId;
+            t.VehicleType = truckDto.VehicleType;
+            t.VehicleColorId = truckDto.VehicleColorId;
         }
 
         public Truck(string name, string color) : base(name, color)
@@ -22,10 +28,10 @@ namespace DealershipLibrary.Vehicle.Trucks
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";
         }
 
-        public void Clone(Truck truck)
-        {
-            this.VehicleModel = new VehicleModel(truck.VehicleModel.Name);
-            this.VehicleColor = new VehicleColor(truck.VehicleColor.Name);
-        }
+        //public void Clone(Truck truck)
+        //{
+        //    this.VehicleModel = new VehicleModel(truck.VehicleModel.Name);
+        //    this.VehicleColor = new VehicleColor(truck.VehicleColor.Name);
+        //}
     }
 }

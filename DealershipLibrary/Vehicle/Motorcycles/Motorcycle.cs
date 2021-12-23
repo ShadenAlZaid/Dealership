@@ -1,4 +1,4 @@
-using DealershipLibrary.Vehicle;
+using DealershipLibrary.Vehicle.Motorcycles;
 using System;
 
 namespace DealershipLibrary.Vehicle.Motorcycles
@@ -9,9 +9,15 @@ namespace DealershipLibrary.Vehicle.Motorcycles
 
         public Motorcycle() { }
 
-        public Motorcycle(VehicleDTO motorycyleDto)
+        public Motorcycle(VehicleDTO motorcycleDto)
         {
-
+            Motorcycle m = new Motorcycle();
+            m.VehicleModel = motorcycleDto.VehicleModel;
+            m.VehicleModelId = motorcycleDto.VehicleModelId;
+            m.VehicleColor = motorcycleDto.VehicleColor;
+            m.MotorcycleId = motorcycleDto.VehicleDTOId;
+            m.VehicleType = motorcycleDto.VehicleType;
+            m.VehicleColorId = motorcycleDto.VehicleColorId;
         }
         public Motorcycle(string name, string color) : base(name, color)
         {
@@ -21,10 +27,10 @@ namespace DealershipLibrary.Vehicle.Motorcycles
             return $"{VehicleColor?.Name} {VehicleModel?.Name}";
         }
 
-        public void Clone(Motorcycle motorcycle)
-        {
-            this.VehicleModel = new VehicleModel(motorcycle.VehicleModel.Name);
-            this.VehicleColor = new VehicleColor(motorcycle.VehicleColor.Name);
-        }
+        //public void Clone(Motorcycle motorcycle)
+        //{
+        //    this.VehicleModel = new VehicleModel(motorcycle.VehicleModel.Name);
+        //    this.VehicleColor = new VehicleColor(motorcycle.VehicleColor.Name);
+        //}
     }
 }

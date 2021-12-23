@@ -47,7 +47,7 @@
     List<string> ModelsList = Extensions.GetEnumItems(typeof(TruckModelsEnum));
     List<string> ColorsList = Extensions.GetEnumItems(typeof(TruckColorsEnum));
 
-    private Truck truck  = new Truck(null,null);
+    private VehicleDTO truck  = new VehicleDTO(null,null);
     string msg;
 
     void SelectColor(string value)
@@ -62,9 +62,9 @@
 
     void ValidSubmit()
     {
-        var newTruck = new Truck(null, null);
+        var newTruck = new VehicleDTO(null, null);
         newTruck.Clone(truck);
-        truck = new Truck(null, null);
+        truck = new VehicleDTO(null, null);
         //OnAdd.InvokeAsync(newTruck);
         msg = "Truck Added!";
         Logger.LogInformation("ValidSubmit called");

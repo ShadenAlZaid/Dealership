@@ -7,7 +7,7 @@ using DealershipLibrary.Vehicle.Trucks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Dealerhsip.Data
+namespace Dealership.Data
 {
     public class DealershipContext : DbContext
     {
@@ -32,7 +32,6 @@ namespace Dealerhsip.Data
             modelBuilder.Entity<Car>();
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
-            modelBuilder.Entity<VehicleDTO>();
             modelBuilder.Entity<VehicleColor>();
             modelBuilder.Entity<VehicleModel>();
             modelBuilder.Entity<VehicleType>();
@@ -43,7 +42,6 @@ namespace Dealerhsip.Data
         //    IVehicle car = new Car(null, null);
         //    IVehicle motorcycle = new Motorcycle(null, null);
         //    IVehicle truck = new Truck(null, null);
-
         //    _context.Trucks.Add((Truck)truck);
         //    _context.Cars.Add((Car)car);
         //    _context.Motorcycles.Add((Motorcycle)motorcycle);

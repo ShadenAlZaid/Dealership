@@ -9,11 +9,12 @@ namespace DealershipLibrary.Vehicle.Cars
         {
             Car c = new Car();
             c.VehicleModel = carDto.VehicleModel;
+            c.VehicleModelId = carDto.VehicleModelId;
             c.VehicleColor = carDto.VehicleColor;
             c.CarId = carDto.VehicleDTOId;
             c.VehicleType = carDto.VehicleType;
-            c.VehicleColorId = carDto.ColorId;
-            c.VehicleModelId = carDto.ModelId;
+            c.VehicleColorId = carDto.VehicleColorId;
+          
         }
         public Car(string name, string color) : base(name, color)
         {

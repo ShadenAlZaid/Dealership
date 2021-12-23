@@ -15,34 +15,41 @@ namespace DealershipLibrary
         }
         public VehicleDTO(string modelName, string colorName)
         {
-            this.ModelName = modelName;
-            this.ColorName = colorName;
+            if (modelName != null)
+                this.ModelName = modelName;
+            if (colorName != null)
+                this.ColorName = colorName;
         }
         public VehicleType VehicleType { get; set; }
         public VehicleColor VehicleColor { get; set; }
         public VehicleModel VehicleModel { get; set; }
 
         public int VehicleDTOId { get; set; }
-        public int ModelId { get; set; }
+        public int VehicleModelId { get; set; }
         public string ModelName { get; set; }
-        public int ColorId { get; set; }
+        public int VehicleColorId { get; set; }
         public string ColorName { get; set; }
 
 
         public void SetColor(string c)
         {
-            this.ColorId = int.Parse(c);
+            this.VehicleColorId = int.Parse(c);
         }
 
         public void SetModel(string m)
         {
-            this.ModelId = int.Parse(m);
+            this.VehicleModelId = int.Parse(m);
         }
 
         public void Clone(VehicleDTO vehicle)
         {
-            this.ColorId = vehicle.ColorId;
-            this.ModelId = vehicle.ModelId;
+            this.VehicleColorId = vehicle.VehicleColorId;
+            this.VehicleModelId = vehicle.VehicleModelId;
+        }
+
+        public override string ToString()
+        {
+            return $"{VehicleColor?.Name} {VehicleModel?.Name}";
         }
 
     }

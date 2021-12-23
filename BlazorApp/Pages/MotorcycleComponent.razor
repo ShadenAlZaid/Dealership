@@ -48,7 +48,7 @@
     List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
     List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColorsEnum));
 
-    private Motorcycle motorcycle  = new Motorcycle(null,null);
+    private VehicleDTO motorcycle  = new VehicleDTO(null,null);
     string msg;
 
     void SelectColor(string value)
@@ -63,9 +63,9 @@
 
     void ValidSubmit()
     {
-        var newMotorcycle= new Motorcycle(null, null);
+        var newMotorcycle= new VehicleDTO(null, null);
         newMotorcycle.Clone(motorcycle);
-        motorcycle = new Motorcycle(null, null);
+        motorcycle = new VehicleDTO(null, null);
        // OnAdd.InvokeAsync(newMotorcycle);    
         msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");
