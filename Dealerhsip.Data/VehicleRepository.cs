@@ -40,19 +40,31 @@ namespace Dealership.Data
             return purchaseMsg;
         }
 
-        public List<LookupDto> GetColors()
+        public List<LookupDTO> GetColors()
         {
             var colors = _context.VehicleColors
-                .Select(c => new LookupDto  (c.VehicleColorId,c.Name))
+                .Select(c => new LookupDTO(c.VehicleColorId, c.Name))
                 .ToList();
 
             return colors;
-             
         }
 
-        public string RetrieveVehicleTypesFromDB()
+        public List<LookupDTO> GetModels()
         {
-            return "";
+            var models = _context.VehicleModels
+                .Select(m => new LookupDTO(m.VehicleModelId, m.Name))
+                .ToList();
+
+            return models;
+        }
+
+        public List<LookupDTO> GetTypes()
+        {
+            var types = _context.VehicleTypes
+                .Select(t => new LookupDTO(t.VehicleTypeId, t.Name))
+                .ToList();
+
+            return types;
         }
     }
 }

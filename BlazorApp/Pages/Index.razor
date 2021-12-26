@@ -18,7 +18,7 @@
 
                 @foreach (var item in vehicleTypesList)
                 {
-                    <option value="@item">@item</option>
+                    <option value="@item.Id">@item.Name</option>
                 }
             </select>
         </div>
@@ -86,14 +86,24 @@
 @code
 {
     VehicleService vehicleService;
+            private DealershipContext _context = new DealershipContext();
+
  
-    List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
+    List<LookupDTO> vehicleTypesList;
     
     public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
 
     VehicleType type = new VehicleType(null);
 
     string purchaseMsg;
+
+    protected override void OnInitialized()
+    {
+        this.vehicleTypesList = _context.VehicleTypes
+                .Select(t => new LookupDTO(t.VehicleTypeId, t.Name))
+                .ToList();
+       // this.vehicleTypesList = this.vehicleService.GetTypes();
+    }
 
     void SelectVehicle(string value)
     {

@@ -10,7 +10,8 @@ namespace DealershipLibrary
     public interface IVehicleRepository
     {
         string SubmitToDB(List<VehicleDTO> ShoppingCart);
-
-        List<LookupDto> GetColors();
+        List<LookupDTO> GetColors();
+        List<LookupDTO> GetModels();
+        List<LookupDTO> GetTypes();
     }
 }

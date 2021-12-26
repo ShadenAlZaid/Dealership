@@ -18,18 +18,24 @@ namespace DealershipLibrary
         {
             /// add validations
             /// 
-            
-           return this.vehicleRepository.SubmitToDB(ShoppingCart);
+
+            return this.vehicleRepository.SubmitToDB(ShoppingCart);
         }
 
-        public List<LookupDto> GetColors()
+        public List<LookupDTO> GetColors()
         {
             return this.vehicleRepository.GetColors();
         }
 
-        //public string GetModels()
-        //{
-        //return "";
-        //}
+        public List<LookupDTO> GetModels()
+        {
+            return this.vehicleRepository.GetModels();
+        }
+
+        public List<LookupDTO> GetTypes()
+        {
+            return this.vehicleRepository.GetTypes();
+        }
+
     }
 }

@@ -50,20 +50,18 @@
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-
-    List<LookupDto> carColorsList;
-
-    List<LookupDto> carModelsList;
-
     private VehicleDTO car = new VehicleDTO(null, null);
     string msg;
-   
+
+    List<LookupDTO> carColorsList;
+
+    List<LookupDTO> carModelsList;
+
     protected override void OnInitialized()
     {
         this.carColorsList = this.vehicleService.GetColors();
-        this.carModelsList = this.vehicleService.GetColors();
+        this.carModelsList = this.vehicleService.GetModels();
     }
-
 
     void SelectColor(string value)
     {
