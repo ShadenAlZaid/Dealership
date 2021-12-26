@@ -13,7 +13,7 @@
     <h4>Shaden's Dealership</h4>
     <div>
         <div>
-            <select id="vehicleType" @onchange="(e)=>SelectVehicle(e.Value.ToString())">
+            <select id="vehicleType" @onchange="(e)=>SelectVehicleType(e.Value.ToString())">
                 <option value="">Choose Vehicle</option>
 
                 @foreach (var item in vehicleTypesList)
@@ -23,10 +23,10 @@
             </select>
         </div>
         <div>
-            @switch (type.Name)
+            @switch (type)
             {
-                case "Car":
-                    @if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Car.ToString()) < 3)
+                case  VehicleTypesEnum.Car:
+                    @if (ShoppingCart.Count(v => v.VehicleTypeId== (int)VehicleTypesEnum.Car) < 3)
                     {
                         <CarComponent OnAdd="@vehicleAdded"></CarComponent>
                         //Car component
@@ -37,7 +37,7 @@
                     }
                     break;
 
-                case "Motorcycle":
+              @*  case VehicleTypesEnum.Motorcycle:
                     if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString()) < 3)
                     {
                         <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
@@ -49,7 +49,7 @@
                     }
                     break;
 
-                case "Truck":
+                case VehicleTypesEnum.Truck:
                     if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Truck.ToString()) < 3)
                     {
                         <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
@@ -59,7 +59,7 @@
                     {
                         <span>Max amount of Truck!</span>
                     }
-                    break;
+                    break;*@
             }
 
         </div>
@@ -69,7 +69,7 @@
             @foreach (var v in ShoppingCart)
             {
                 <ul>
-                    @v.ColorName.ToString() @v.ModelName.ToString()
+                    @((CarColorsEnum) v.VehicleColorId)
                     <button @onclick="@(() => Remove(v))">🗙</button>
                 </ul>
             }
@@ -85,34 +85,30 @@
 
 @code
 {
-    VehicleService vehicleService;
-            private DealershipContext _context = new DealershipContext();
+    [Inject]
+    VehicleService vehicleService { get; set; }
 
- 
     List<LookupDTO> vehicleTypesList;
-    
+
     public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
 
-    VehicleType type = new VehicleType(null);
+    VehicleTypesEnum type;
 
     string purchaseMsg;
 
     protected override void OnInitialized()
     {
-        this.vehicleTypesList = _context.VehicleTypes
-                .Select(t => new LookupDTO(t.VehicleTypeId, t.Name))
-                .ToList();
-       // this.vehicleTypesList = this.vehicleService.GetTypes();
+
+        this.vehicleTypesList = this.vehicleService.GetTypes();
     }
 
-    void SelectVehicle(string value)
+    void SelectVehicleType(string value)
     {
-        this.type = new VehicleType(value);
+        this.type = (VehicleTypesEnum)int.Parse(value);
     }
 
     void vehicleAdded(VehicleDTO vehicle)
     {
-        vehicle.VehicleType = type;
         this.ShoppingCart.Add(vehicle);
     }
 

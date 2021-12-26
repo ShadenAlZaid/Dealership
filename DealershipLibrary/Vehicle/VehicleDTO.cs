@@ -24,6 +24,8 @@ namespace DealershipLibrary
         public VehicleColor VehicleColor { get; set; }
         public VehicleModel VehicleModel { get; set; }
 
+        public int VehicleTypeId  { get; set; }
+
         public int VehicleDTOId { get; set; }
         public int VehicleModelId { get; set; }
         public string ModelName { get; set; }

@@ -18,7 +18,7 @@ namespace Dealership.Data
 
             foreach (var v in ShoppingCart)
             {
-                if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
+                if (v.VehicleTypeId == (int)VehicleTypesEnum.Car)
                 {
                     Car x = new Car(v);
                     _context.Cars.Add(x);

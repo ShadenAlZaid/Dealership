@@ -7,16 +7,13 @@ namespace DealershipLibrary.Vehicle.Cars
         public Car() { }
         public Car(VehicleDTO carDto)
         {
-            Car c = new Car(); 
-            c.VehicleModelId = carDto.VehicleModelId; 
-            c.CarId = carDto.VehicleDTOId;
-            c.VehicleType = carDto.VehicleType;
-            c.VehicleColorId = carDto.VehicleColorId;
+            this.VehicleModelId = carDto.VehicleModelId; 
+            this.CarId = carDto.VehicleDTOId;
+            this.VehicleType = new VehicleType("") { VehicleTypeId = carDto.VehicleTypeId };
+            this.VehicleColorId = carDto.VehicleColorId;
           
         }
-        public Car(string name, string color) : base(name, color)
-        {
-        }
+      
 
         public override string ToString()
         {
