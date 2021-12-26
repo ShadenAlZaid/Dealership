@@ -25,8 +25,8 @@
         <div>
             @switch (type)
             {
-                case  VehicleTypesEnum.Car:
-                    @if (ShoppingCart.Count(v => v.VehicleTypeId== (int)VehicleTypesEnum.Car) < 3)
+                case VehicleTypesEnum.Car:
+                    @if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Car) < 3)
                     {
                         <CarComponent OnAdd="@vehicleAdded"></CarComponent>
                         //Car component
@@ -37,8 +37,8 @@
                     }
                     break;
 
-              @*  case VehicleTypesEnum.Motorcycle:
-                    if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString()) < 3)
+                case VehicleTypesEnum.Motorcycle:
+                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Motorcycle) < 3)
                     {
                         <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
                         //Motorcycle component
@@ -50,7 +50,7 @@
                     break;
 
                 case VehicleTypesEnum.Truck:
-                    if (ShoppingCart.Count(v => v.VehicleType.Name == VehicleTypesEnum.Truck.ToString()) < 3)
+                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Truck) < 3)
                     {
                         <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
                         //Truck component
@@ -59,7 +59,7 @@
                     {
                         <span>Max amount of Truck!</span>
                     }
-                    break;*@
+                    break;
             }
 
         </div>
@@ -69,7 +69,7 @@
             @foreach (var v in ShoppingCart)
             {
                 <ul>
-                    @((CarColorsEnum) v.VehicleColorId)
+                    @((VehicleColorsEnum) v.VehicleColorId) @( (CarModelsEnum)v.VehicleModelId)
                     <button @onclick="@(() => Remove(v))">🗙</button>
                 </ul>
             }
@@ -98,7 +98,6 @@
 
     protected override void OnInitialized()
     {
-
         this.vehicleTypesList = this.vehicleService.GetTypes();
     }
 

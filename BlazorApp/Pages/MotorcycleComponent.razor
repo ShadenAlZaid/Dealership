@@ -11,45 +11,54 @@
     <h5>Motorcycle</h5>
 
     <EditForm Model="@motorcycle" OnValidSubmit="@ValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary/>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
-         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
 
             @foreach (var item in mcColorsList)
             {
-                <option value = "@item">@item</option>
+                <option value="@item.Id">@item.Name</option>
             }
-          </select>
+        </select>
 
-         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-             <option value="">Choose Model</option>
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            <option value="">Choose Model</option>
 
-             @foreach (var item in mcModelsList)            
-             {
-                <option value = "@item">@item</option>
-             }
-         </select>
+            @foreach (var item in mcModelsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
 
         <button type="submit">Add</button>
 
-        <span>  @msg</span>
+        <span>       @msg</span>
 
-    @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@   
+        @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@
     </EditForm>
 </div>
 
 
 @code {
-    [Parameter] 
+    [Inject]
+    VehicleService vehicleService { get; set; }
+
+    [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    List<string> mcModelsList = Extensions.GetEnumItems(typeof(MCModelsEnum));
-    List<string> mcColorsList = Extensions.GetEnumItems(typeof(MCColorsEnum));
+    List<LookupDTO> mcColorsList;
+    List<LookupDTO> mcModelsList;
 
-    private VehicleDTO motorcycle  = new VehicleDTO(null,null);
+    private VehicleDTO motorcycle = new VehicleDTO(null, null);
     string msg;
+
+    protected override void OnInitialized()
+    {
+        this.mcColorsList = this.vehicleService.GetColors();
+        this.mcModelsList = this.vehicleService.GetModels();
+    }
 
     void SelectColor(string value)
     {
@@ -63,10 +72,13 @@
 
     void ValidSubmit()
     {
-        var newMotorcycle= new VehicleDTO(null, null);
+        var newMotorcycle = new VehicleDTO(null, null);
+        newMotorcycle.VehicleTypeId = (int)VehicleTypesEnum.Motorcycle;
         newMotorcycle.Clone(motorcycle);
-        motorcycle = new VehicleDTO(null, null);
-       // OnAdd.InvokeAsync(newMotorcycle);    
+
+        //reset Motorcycle to null
+        motorcycle = new VehicleDTO();
+        OnAdd.InvokeAsync(newMotorcycle);
         msg = "Motorcycle Added!";
         Logger.LogInformation("ValidSubmit called");
     }
