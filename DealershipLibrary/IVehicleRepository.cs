@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DealershipLibrary.Vehicle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace DealershipLibrary
 {
     public interface IVehicleRepository
     {
-        string CheckOut(List<VehicleDTO> ShoppingCart);
+        string SubmitToDB(List<VehicleDTO> ShoppingCart);
+
+        string RetrieveVehicleColorsFromDB();
     }
 }

@@ -4,14 +4,15 @@ using DealershipLibrary.Vehicle.Trucks;
 using System.Collections.Generic;
 using DealershipLibrary;
 using DealershipLibrary.Vehicle;
+using System.Linq;
 
 namespace Dealership.Data
 {
     public class VehicleRepository : IVehicleRepository
     {
-        private static DealershipContext _context = new DealershipContext();
+        private DealershipContext _context = new DealershipContext();
 
-        public string CheckOut(List<VehicleDTO> ShoppingCart)
+        public string SubmitToDB(List<VehicleDTO> ShoppingCart)
         {
             _context.Database.EnsureCreated();
 
@@ -37,6 +38,21 @@ namespace Dealership.Data
             _context.SaveChanges();
             string purchaseMsg = "Purchase Successful!";
             return purchaseMsg;
+        }
+
+        public string RetrieveVehicleColorsFromDB()
+        {
+            var Colors = _context.VehicleColors.ToList();
+            foreach (var color in Colors)
+            {
+                return color.Name;
+            }
+            return "no colors";
+        }
+
+        public string RetrieveVehicleTypesFromDB()
+        {
+            return "";
         }
     }
 }

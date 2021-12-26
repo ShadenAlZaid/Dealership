@@ -6,7 +6,6 @@ namespace BlazorApp
 {
     public class Program
     {
- 
         public static void Main(string[] args)
         {
             //_context.Database.EnsureCreated();

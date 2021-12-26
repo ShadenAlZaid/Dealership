@@ -1,5 +1,6 @@
 ﻿@page "/car"
 @using Dealerhsip.Data
+@using Dealership.Data
 @using DealershipLibrary.Vehicle
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
@@ -44,12 +45,15 @@
 
 
 @code {
+    VehicleService vehicleService;
+    private static DealershipContext _context = new DealershipContext();
 
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
+
+    List<string> carColorsList = vehicleService.GetColors();
     List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
-    List<string> carColorsList = Extensions.GetEnumItems(typeof(CarColorsEnum));
 
     private VehicleDTO car = new VehicleDTO(null, null);
     string msg;

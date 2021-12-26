@@ -89,6 +89,7 @@
     private static DealershipContext _context = new DealershipContext();
 
     List<string> vehicleTypesList = Extensions.GetEnumItems(typeof(VehicleTypesEnum));
+    
     public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
 
     VehicleType type = new VehicleType(null);
@@ -113,33 +114,9 @@
 
     void CheckOut(List<VehicleDTO> ShoppingCart)
     {
-      var result=  vehicleService.CheckOut(ShoppingCart);
-       
+        var result = vehicleService.CheckOut(ShoppingCart);
+
         purchaseMsg = result;
-        
-        
-        //_context.Database.EnsureCreated();
-
-        //foreach (var v in ShoppingCart)
-        //{
-        //    if (v.VehicleType.Name == VehicleTypesEnum.Car.ToString())
-        //    {
-        //        Car x = new Car(v);
-        //        _context.Cars.Add(x);
-        //    }
-
-        //    else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
-        //    {
-        //        Motorcycle x = new Motorcycle(v);
-        //        _context.Motorcycles.Add(x);
-        //    }
-        //    else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
-        //    {
-        //        Truck x = new Truck(v);
-        //        _context.Trucks.Add(x);
-        //    }
-        //}
-        //_context.SaveChanges();
     }
 
     void ValidSubmit()
