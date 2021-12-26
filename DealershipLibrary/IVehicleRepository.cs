@@ -11,6 +11,6 @@ namespace DealershipLibrary
     {
         string SubmitToDB(List<VehicleDTO> ShoppingCart);
 
-        string RetrieveVehicleColorsFromDB();
+        List<LookupDto> GetColors();
     }
 }

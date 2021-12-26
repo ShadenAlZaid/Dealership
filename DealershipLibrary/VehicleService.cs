@@ -22,9 +22,9 @@ namespace DealershipLibrary
            return this.vehicleRepository.SubmitToDB(ShoppingCart);
         }
 
-        public string GetColors()
+        public List<LookupDto> GetColors()
         {
-            return this.vehicleRepository.RetrieveVehicleColorsFromDB();
+            return this.vehicleRepository.GetColors();
         }
 
         //public string GetModels()

@@ -40,14 +40,14 @@ namespace Dealership.Data
             return purchaseMsg;
         }
 
-        public string RetrieveVehicleColorsFromDB()
+        public List<LookupDto> GetColors()
         {
-            var Colors = _context.VehicleColors.ToList();
-            foreach (var color in Colors)
-            {
-                return color.Name;
-            }
-            return "no colors";
+            var colors = _context.VehicleColors
+                .Select(c => new LookupDto  (c.VehicleColorId,c.Name))
+                .ToList();
+
+            return colors;
+             
         }
 
         public string RetrieveVehicleTypesFromDB()

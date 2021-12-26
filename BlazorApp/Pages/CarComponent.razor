@@ -21,7 +21,7 @@
 
             @foreach (var item in carColorsList)
             {
-                <option value="@item">@item</option>
+                <option value="@item.Id">@item.Name</option>
             }
         </select>
 
@@ -30,7 +30,7 @@
 
             @foreach (var item in carModelsList)
             {
-                <option value="@item">@item</option>
+                <option value="@item.Id">@item.Name</option>
             }
         </select>
         <button type="submit">Add</button>
@@ -46,17 +46,24 @@
 
 @code {
     VehicleService vehicleService;
-    private static DealershipContext _context = new DealershipContext();
 
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
 
-    List<string> carColorsList = vehicleService.GetColors();
-    List<string> carModelsList = Extensions.GetEnumItems(typeof(CarModelsEnum));
+    List<LookupDto> carColorsList;
+
+    List<LookupDto> carModelsList;
 
     private VehicleDTO car = new VehicleDTO(null, null);
     string msg;
+   
+    protected override void OnInitialized()
+    {
+        this.carColorsList = this.vehicleService.GetColors();
+        this.carModelsList = this.vehicleService.GetColors();
+    }
+
 
     void SelectColor(string value)
     {
