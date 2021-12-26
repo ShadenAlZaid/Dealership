@@ -11,44 +11,53 @@
     <h5>Truck</h5>
 
     <EditForm Model="@truck" OnValidSubmit="@ValidSubmit">
-    <DataAnnotationsValidator/> 
-    <ValidationSummary/>
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
         <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
-        
-            @foreach (var item in ColorsList)
-            {
-                <option value = "@item">@item</option>
-            }
-         </select>
 
-         <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            @foreach (var item in truckColorsList)
+            {
+                <option value="@item.">@item</option>
+            }
+        </select>
+
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             <option value="">Choose Model</option>
 
-            @foreach (var item in ModelsList)            
+            @foreach (var item in truckModelsList)
             {
-                <option value = "@item">@item</option>
+                <option value="@item">@item</option>
             }
         </select>
 
         <button type="submit">Add</button>
 
-        <span>  @msg</span>
+        <span>   @msg</span>
 
-    @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
+        @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
     </EditForm>
 </div>
 
 @code {
-    [Parameter] 
+    [Inject]
+    VehicleService vehicleService { get; set; }
+
+    [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    List<string> ModelsList = Extensions.GetEnumItems(typeof(TruckModelsEnum));
-    List<string> ColorsList = Extensions.GetEnumItems(typeof(TruckColorsEnum));
+    List<LookupDTO> truckColorsList;
+    List<LookupDTO> truckModelsList;
 
-    private VehicleDTO truck  = new VehicleDTO(null,null);
+    private VehicleDTO truck = new VehicleDTO(null, null);
     string msg;
+
+    protected override void OnInitialized()
+    {
+        this.truckColorsList = this.vehicleService.GetColors();
+        this.truckModelsList = this.vehicleService.GetModels();
+    }
 
     void SelectColor(string value)
     {
@@ -63,9 +72,12 @@
     void ValidSubmit()
     {
         var newTruck = new VehicleDTO(null, null);
+        newTruck.VehicleTypeId = (int)VehicleTypesEnum.Truck;
         newTruck.Clone(truck);
-        truck = new VehicleDTO(null, null);
-        //OnAdd.InvokeAsync(newTruck);
+
+        //reset car to null
+        truck = new VehicleDTO();
+        OnAdd.InvokeAsync(newTruck);
         msg = "Truck Added!";
         Logger.LogInformation("ValidSubmit called");
     }

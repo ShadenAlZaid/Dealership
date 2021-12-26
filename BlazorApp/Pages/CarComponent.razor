@@ -1,6 +1,4 @@
 ﻿@page "/car"
-@using Dealerhsip.Data
-@using Dealership.Data
 @using DealershipLibrary.Vehicle
 @using DealershipLibrary.Vehicle.Cars
 @using DealershipLibrary
@@ -36,7 +34,7 @@
         <button type="submit">Add</button>
         @*<p>@car.GetType().Name Added!</p>*@
 
-        <span>  @msg</span>
+        <span>   @msg</span>
 
         @*<ValidationMessage For="@(()=>car.VehicleModel)"></ValidationMessage>
             <ValidationMessage For="@(()=>car.VehicleColor)"></ValidationMessage>*@
@@ -47,6 +45,7 @@
 @code {
     [Inject]
     VehicleService vehicleService { get; set; }
+
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
@@ -54,7 +53,6 @@
     string msg;
 
     List<LookupDTO> carColorsList;
-
     List<LookupDTO> carModelsList;
 
     protected override void OnInitialized()
@@ -78,6 +76,7 @@
         var newCar = new VehicleDTO(null, null);
         newCar.VehicleTypeId = (int)VehicleTypesEnum.Car;
         newCar.Clone(car);
+
         //reset car to null
         car = new VehicleDTO();
         OnAdd.InvokeAsync(newCar);
