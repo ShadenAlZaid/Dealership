@@ -23,9 +23,9 @@ namespace DealershipLibrary
             return this.vehicleRepository.GetColors();
         }
 
-        public List<LookupDTO> GetModels()
+        public List<LookupDTO> GetModels(Type x)
         {
-            return this.vehicleRepository.GetModels();
+            return this.vehicleRepository.GetModels(x);
         }
 
         public List<LookupDTO> GetTypes()

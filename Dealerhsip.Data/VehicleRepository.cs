@@ -56,7 +56,6 @@ namespace Dealership.Data
             List<LookupDTO> models;
             if (x == typeof(Car))
             {
-                models = null;
                 models = _context.VehicleModels
                .Where(m => m.VehicleTypeId == 1)
                .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
@@ -65,7 +64,6 @@ namespace Dealership.Data
             }
             else if (x == typeof(Motorcycle))
             {
-                models = null;
                 models = _context.VehicleModels
                .Where(m => m.VehicleTypeId == 1)
                .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
@@ -74,7 +72,6 @@ namespace Dealership.Data
             }
             else if (x == typeof(Truck))
             {
-                models = null;
                 models = _context.VehicleModels
                .Where(m => m.VehicleTypeId == 1)
                .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
