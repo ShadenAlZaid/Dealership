@@ -7,13 +7,12 @@ namespace DealershipLibrary.Vehicle.Cars
         public Car() { }
         public Car(VehicleDTO carDto)
         {
-            this.VehicleModelId = carDto.VehicleModelId; 
+            this.VehicleModelId = carDto.VehicleModelId;
             this.CarId = carDto.VehicleDTOId;
             this.VehicleType = new VehicleType("") { VehicleTypeId = carDto.VehicleTypeId };
             this.VehicleColorId = carDto.VehicleColorId;
-          
+
         }
-      
 
         public override string ToString()
         {

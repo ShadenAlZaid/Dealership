@@ -4,7 +4,7 @@
     {
         public int VehicleTypeId { get; set; }
         public string Name { get; set; }
-
+        public List<VehicleModel> VehicleModels { get; set; }
         public VehicleType(string name)
         {
             Name = name;

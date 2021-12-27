@@ -6,6 +6,7 @@ using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary.Vehicle.Motorcycles;
 using DealershipLibrary.Vehicle.Trucks;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Dealership.Data
 {
@@ -25,12 +26,12 @@ namespace Dealership.Data
                     _context.Cars.Add(x);
                 }
 
-                else if (v.VehicleType.Name == VehicleTypesEnum.Motorcycle.ToString())
+                else if (v.VehicleTypeId == (int)VehicleTypesEnum.Motorcycle)
                 {
                     Motorcycle x = new Motorcycle(v);
                     _context.Motorcycles.Add(x);
                 }
-                else if (v.VehicleType.Name == VehicleTypesEnum.Truck.ToString())
+                else if (v.VehicleTypeId == (int)VehicleTypesEnum.Truck)
                 {
                     Truck x = new Truck(v);
                     _context.Trucks.Add(x);
@@ -50,13 +51,38 @@ namespace Dealership.Data
             return colors;
         }
 
-        public List<LookupDTO> GetModels()
+        public List<LookupDTO> GetModels(Type x)
         {
-            var models = _context.VehicleModels
-                .Where(m => m.VehicleTypeId == 1)
-                   .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
-                .ToList();
-            return models;
+            List<LookupDTO> models;
+            if (x == typeof(Car))
+            {
+                models = null;
+                models = _context.VehicleModels
+               .Where(m => m.VehicleTypeId == 1)
+               .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
+               .ToList();
+                return models;
+            }
+            else if (x == typeof(Motorcycle))
+            {
+                models = null;
+                models = _context.VehicleModels
+               .Where(m => m.VehicleTypeId == 1)
+               .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
+               .ToList();
+                return models;
+            }
+            else if (x == typeof(Truck))
+            {
+                models = null;
+                models = _context.VehicleModels
+               .Where(m => m.VehicleTypeId == 1)
+               .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
+               .ToList();
+                return models;
+            }
+            else
+                return null;
         }
 
         public List<LookupDTO> GetTypes()

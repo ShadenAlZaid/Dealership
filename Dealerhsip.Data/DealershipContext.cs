@@ -33,19 +33,11 @@ namespace Dealership.Data
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
             modelBuilder.Entity<VehicleModel>();
-            modelBuilder.Entity<VehicleType>();
+
+            modelBuilder.Entity<VehicleType>()
+             .HasOne(m => m.VehicleType)
+             .WithMany(t => t.VehicleModel);
+
         }
-
-        //private static void InsertVehicleIntoDB()
-        //{
-        //    IVehicle car = new Car(null, null);
-        //    IVehicle motorcycle = new Motorcycle(null, null);
-        //    IVehicle truck = new Truck(null, null);
-        //    _context.Trucks.Add((Truck)truck);
-        //    _context.Cars.Add((Car)car);
-        //    _context.Motorcycles.Add((Motorcycle)motorcycle);
-        //    _context.SaveChanges();
-        //}
-
     }
 }

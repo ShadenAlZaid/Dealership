@@ -58,7 +58,7 @@
     protected override void OnInitialized()
     {
         this.carColorsList = this.vehicleService.GetColors();
-        this.carModelsList = this.vehicleService.GetModels();
+        this.carModelsList = this.vehicleService.GetModels(typeof(Car));
     }
 
     void SelectColor(string value)

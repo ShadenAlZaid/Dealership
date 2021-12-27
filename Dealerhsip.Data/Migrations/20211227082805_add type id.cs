@@ -2,22 +2,32 @@
 
 namespace Dealership.Data.Migrations
 {
-    public partial class addtypeid : Migration
+    public partial class vehicleid : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "VehicleTypeId",
+            migrationBuilder.CreateIndex(
+                name: "IX_VehicleModels_VehicleTypeId",
                 table: "VehicleModels",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+                column: "VehicleTypeId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_VehicleModels_VehicleTypes_VehicleTypeId",
+                table: "VehicleModels",
+                column: "VehicleTypeId",
+                principalTable: "VehicleTypes",
+                principalColumn: "VehicleTypeId",
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "VehicleTypeId",
+            migrationBuilder.DropForeignKey(
+                name: "FK_VehicleModels_VehicleTypes_VehicleTypeId",
+                table: "VehicleModels");
+
+            migrationBuilder.DropIndex(
+                name: "IX_VehicleModels_VehicleTypeId",
                 table: "VehicleModels");
         }
     }
