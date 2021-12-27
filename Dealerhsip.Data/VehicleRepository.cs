@@ -1,10 +1,11 @@
-﻿using DealershipLibrary.Vehicle.Cars;
-using DealershipLibrary.Vehicle.Motorcycles;
-using DealershipLibrary.Vehicle.Trucks;
+﻿using System.Linq;
 using System.Collections.Generic;
 using DealershipLibrary;
 using DealershipLibrary.Vehicle;
-using System.Linq;
+using DealershipLibrary.Vehicle.Cars;
+using DealershipLibrary.Vehicle.Motorcycles;
+using DealershipLibrary.Vehicle.Trucks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dealership.Data
 {
@@ -49,12 +50,11 @@ namespace Dealership.Data
             return colors;
         }
 
-        public List<LookupDTO> GetModels()
+        public List<VehicleModel> GetModels()
         {
             var models = _context.VehicleModels
-                .Select(m => new LookupDTO(m.VehicleModelId, m.Name))
+                .Where(m => m.VehicleTypeId == 1)
                 .ToList();
-
             return models;
         }
 
@@ -68,3 +68,4 @@ namespace Dealership.Data
         }
     }
 }
+//.Select(m => new LookupDTO(m.VehicleModelId, m.Name))

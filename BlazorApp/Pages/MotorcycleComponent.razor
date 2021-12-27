@@ -28,7 +28,7 @@
 
             @foreach (var item in mcModelsList)
             {
-                <option value="@item.Id">@item.Name</option>
+                <option value="@item.VehicleModelId">@item.Name</option>
             }
         </select>
 
@@ -49,7 +49,7 @@
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
     List<LookupDTO> mcColorsList;
-    List<LookupDTO> mcModelsList;
+    List<VehicleModel> mcModelsList;
 
     private VehicleDTO motorcycle = new VehicleDTO(null, null);
     string msg;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DealershipLibrary.Vehicle;
 
 namespace DealershipLibrary
 {
@@ -27,7 +23,7 @@ namespace DealershipLibrary
             return this.vehicleRepository.GetColors();
         }
 
-        public List<LookupDTO> GetModels()
+        public List<VehicleModel> GetModels()
         {
             return this.vehicleRepository.GetModels();
         }
@@ -36,6 +32,5 @@ namespace DealershipLibrary
         {
             return this.vehicleRepository.GetTypes();
         }
-
     }
 }

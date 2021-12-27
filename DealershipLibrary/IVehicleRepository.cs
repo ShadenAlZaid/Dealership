@@ -1,9 +1,4 @@
 ﻿using DealershipLibrary.Vehicle;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DealershipLibrary
 {
@@ -11,7 +6,7 @@ namespace DealershipLibrary
     {
         string SubmitToDB(List<VehicleDTO> ShoppingCart);
         List<LookupDTO> GetColors();
-        List<LookupDTO> GetModels();
+        List<VehicleModel> GetModels();
         List<LookupDTO> GetTypes();
     }
 }
