@@ -50,10 +50,11 @@ namespace Dealership.Data
             return colors;
         }
 
-        public List<VehicleModel> GetModels()
+        public List<LookupDTO> GetModels()
         {
             var models = _context.VehicleModels
                 .Where(m => m.VehicleTypeId == 1)
+                   .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
                 .ToList();
             return models;
         }

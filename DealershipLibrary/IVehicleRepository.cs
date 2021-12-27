@@ -6,7 +6,7 @@ namespace DealershipLibrary
     {
         string SubmitToDB(List<VehicleDTO> ShoppingCart);
         List<LookupDTO> GetColors();
-        List<VehicleModel> GetModels();
+        List<LookupDTO> GetModels();
         List<LookupDTO> GetTypes();
     }
 }
