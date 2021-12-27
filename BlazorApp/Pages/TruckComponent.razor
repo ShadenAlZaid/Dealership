@@ -19,7 +19,7 @@
 
             @foreach (var item in truckColorsList)
             {
-                <option value="@item.">@item</option>
+                <option value="@item.Id">@item.Name</option>
             }
         </select>
 
@@ -28,7 +28,7 @@
 
             @foreach (var item in truckModelsList)
             {
-                <option value="@item">@item</option>
+                <option value="@item.VehicleModelId">@item.Name</option>
             }
         </select>
 
@@ -48,7 +48,7 @@
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
     List<LookupDTO> truckColorsList;
-    List<LookupDTO> truckModelsList;
+    List<VehicleModel> truckModelsList;
 
     private VehicleDTO truck = new VehicleDTO(null, null);
     string msg;

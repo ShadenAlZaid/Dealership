@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DealershipLibrary.Vehicle
 {
     public class VehicleColor
@@ -14,8 +8,8 @@ namespace DealershipLibrary.Vehicle
             Name = name;
         }
         public string Name { get; set; }
-
     }
+
     public enum VehicleColorsEnum
     {
         Black = 1,

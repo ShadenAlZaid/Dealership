@@ -11,7 +11,6 @@ namespace Dealership.Data
 {
     public class DealershipContext : DbContext
     {
-
         public DbSet<Car> Cars { get; set; }
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Truck> Trucks { get; set; }
