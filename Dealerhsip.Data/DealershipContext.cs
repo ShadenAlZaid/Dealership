@@ -32,11 +32,9 @@ namespace Dealership.Data
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
-            modelBuilder.Entity<VehicleModel>();
+            modelBuilder.Entity<VehicleModel>().HasOne(v=>v.VehicleType).WithMany(t=>t.VehicleModels);
 
-            modelBuilder.Entity<VehicleType>()
-             .HasOne(m => m.VehicleType)
-             .WithMany(t => t.VehicleModel);
+            modelBuilder.Entity<VehicleType>();
 
         }
     }

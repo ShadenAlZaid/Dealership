@@ -5,7 +5,7 @@
         public int VehicleModelId { get; set; }
         public int VehicleTypeId { get; set; }
 
-        VehicleType VehicleType { get; set; }
+        public VehicleType VehicleType { get; set; }
 
         public VehicleModel(string name)
         {
