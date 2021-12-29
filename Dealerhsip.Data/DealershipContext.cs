@@ -28,11 +28,11 @@ namespace Dealership.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>();
+            modelBuilder.Entity<Car>(); ;
             modelBuilder.Entity<Motorcycle>();
             modelBuilder.Entity<Truck>();
             modelBuilder.Entity<VehicleColor>();
-            modelBuilder.Entity<VehicleModel>().HasOne(v=>v.VehicleType).WithMany(t=>t.VehicleModels);
+            modelBuilder.Entity<VehicleModel>().HasOne(v=>v.VehicleType).WithMany(t=>t.VehicleModels).OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<VehicleType>();
 

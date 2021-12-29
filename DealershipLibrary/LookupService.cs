@@ -4,8 +4,12 @@ namespace DealershipLibrary
 {
     public class LookupService : ILookupService
     {
-        private readonly ILookupRepository lookupRepository; 
+        private readonly ILookupRepository lookupRepository;
 
+        public LookupService(ILookupRepository lookupRepository)
+        {
+            this.lookupRepository = lookupRepository;
+        }
 
         public List<LookupDTO> GetColors()
         {

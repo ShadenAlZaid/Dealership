@@ -86,10 +86,10 @@
 @code
 {
     [Inject]
-    VehicleService vehicleService { get; set; }
+    IVehicleService vehicleService { get; set; }
 
     [Inject]
-    LookupService LookupService { get; set; }
+    ILookupService LookupService { get; set; }
 
     List<LookupDTO> vehicleTypesList;
 

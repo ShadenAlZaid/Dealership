@@ -42,7 +42,7 @@
 
 @code {
     [Inject]
-    LookupService LookupService { get; set; }
+    ILookupService LookupService { get; set; }
 
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }

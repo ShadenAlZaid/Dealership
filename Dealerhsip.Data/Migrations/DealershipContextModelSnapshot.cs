@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Dealerhsip.Data.Migrations
+namespace Dealership.Data.Migrations
 {
     [DbContext(typeof(DealershipContext))]
     partial class DealershipContextModelSnapshot : ModelSnapshot
