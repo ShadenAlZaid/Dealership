@@ -1,4 +1,5 @@
 ﻿using DealershipLibrary.Vehicle;
+using System.ComponentModel.DataAnnotations;
 
 namespace DealershipLibrary
 {
@@ -20,22 +21,23 @@ namespace DealershipLibrary
         public VehicleModel VehicleModel { get; set; }
 
         public int VehicleTypeId { get; set; }
-
         public int VehicleDTOId { get; set; }
-        public int VehicleModelId { get; set; }
-        public string ModelName { get; set; }
         public int VehicleColorId { get; set; }
+        [Required(ErrorMessage = "Select a Color")]
         public string ColorName { get; set; }
+        public int VehicleModelId { get; set; }
+        [Required(ErrorMessage = "Select a Model")]
+        public string ModelName { get; set; }
 
 
-        public void SetColor(string c)
+        public void SetColor(int c)
         {
-            this.VehicleColorId = int.Parse(c);
+            this.VehicleColorId = c;
         }
 
-        public void SetModel(string m)
+        public void SetModel(int m)
         {
-            this.VehicleModelId = int.Parse(m);
+            this.VehicleModelId = m;
         }
 
         public void Clone(VehicleDTO vehicle)

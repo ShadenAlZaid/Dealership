@@ -14,12 +14,11 @@ namespace DealershipLibrary
                 this.VehicleColor = new VehicleColor(colorName);
         }
         public VehicleType VehicleType { get; set; }
+        public int VehicleTypeId { get; set; }
 
-        [Required(ErrorMessage = "Select a Color")]
         public VehicleColor VehicleColor { get; set; }
         public int VehicleColorId { get; set; }
 
-        [Required(ErrorMessage = "Select a Model")]
         public VehicleModel VehicleModel { get; set; }
         public int VehicleModelId { get; set; }
 

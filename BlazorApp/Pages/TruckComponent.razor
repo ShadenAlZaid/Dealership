@@ -14,7 +14,7 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+        <select @onchange="(e)=>SelectColor((int)e.Value)">
             <option value="">Choose Color</option>
 
             @foreach (var item in truckColorsList)
@@ -23,7 +23,7 @@
             }
         </select>
 
-        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+        <select @onchange="(e)=>SelectModel((int)e.Value)">
             <option value="">Choose Model</option>
 
             @foreach (var item in truckModelsList)
@@ -59,12 +59,12 @@
         this.truckModelsList = this.vehicleService.GetModels(VehicleTypesEnum.Truck);
     }
 
-    void SelectColor(string value)
+    void SelectColor(int value)
     {
         this.truck.SetColor(value);
     }
 
-    void SelectModel(string value)
+    void SelectModel(int value)
     {
         this.truck.SetModel(value);
     }

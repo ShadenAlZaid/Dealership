@@ -13,7 +13,7 @@ namespace DealershipLibrary.Vehicle.Trucks
             Truck t = new Truck();
             t.VehicleModelId = truckDto.VehicleModelId;
             t.TruckId = truckDto.VehicleDTOId;
-            t.VehicleType = truckDto.VehicleType;
+            t.VehicleColorId = truckDto.VehicleColorId;
             t.VehicleColorId = truckDto.VehicleColorId;
         }
 

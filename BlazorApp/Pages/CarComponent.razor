@@ -14,7 +14,7 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <select @onchange="(e)=>SelectColor(e.Value?.ToString())">
+        <select @onchange="(e)=>SelectColor((int)e.Value)">
             <option value="">Choose Color</option>
 
             @foreach (var item in carColorsList)
@@ -23,7 +23,7 @@
             }
         </select>
 
-        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+        <select @onchange="(e)=>SelectModel((int)e.Value)">
             <option value="">Choose Model</option>
 
             @foreach (var item in carModelsList)
@@ -32,12 +32,8 @@
             }
         </select>
         <button type="submit">Add</button>
-        @*<p>@car.GetType().Name Added!</p>*@
 
         <span>   @msg</span>
-
-        @*<ValidationMessage For="@(()=>car.VehicleModel)"></ValidationMessage>
-            <ValidationMessage For="@(()=>car.VehicleColor)"></ValidationMessage>*@
     </EditForm>
 </div>
 
@@ -61,12 +57,12 @@
         this.carModelsList = this.vehicleService.GetModels(VehicleTypesEnum.Car);
     }
 
-    void SelectColor(string value)
+    void SelectColor(int value)
     {
         this.car.SetColor(value);
     }
 
-    void SelectModel(string value)
+    void SelectModel(int value)
     {
         this.car.SetModel(value);
     }
