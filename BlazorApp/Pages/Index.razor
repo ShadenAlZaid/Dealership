@@ -88,6 +88,9 @@
     [Inject]
     VehicleService vehicleService { get; set; }
 
+    [Inject]
+    LookupService LookupService { get; set; }
+
     List<LookupDTO> vehicleTypesList;
 
     public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
@@ -98,7 +101,7 @@
 
     protected override void OnInitialized()
     {
-        this.vehicleTypesList = this.vehicleService.GetTypes();
+        this.vehicleTypesList = this.LookupService.GetTypes();
     }
 
     void SelectVehicleType(string value)

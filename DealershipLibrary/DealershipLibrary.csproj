@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Vehicle\Cars\CarFactory.cs" />
+    <Compile Remove="Vehicle\IVehicleFactory.cs" />
+    <Compile Remove="Vehicle\Motorcycles\MCFactory.cs" />
+    <Compile Remove="Vehicle\Trucks\TruckFactory.cs" />
+    <Compile Remove="Vehicle\VehicleShowRoom.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DataAnnotationsExtensions" Version="5.0.1.27" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">

@@ -40,7 +40,7 @@
 
 @code {
     [Inject]
-    VehicleService vehicleService { get; set; }
+    LookupService LookupService { get; set; }
 
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
@@ -53,8 +53,8 @@
 
     protected override void OnInitialized()
     {
-        this.carColorsList = this.vehicleService.GetColors();
-        this.carModelsList = this.vehicleService.GetModels(VehicleTypesEnum.Car);
+        this.carColorsList = this.LookupService.GetColors();
+        this.carModelsList = this.LookupService.GetModels(VehicleTypesEnum.Car);
     }
 
     void SelectColor(string value)

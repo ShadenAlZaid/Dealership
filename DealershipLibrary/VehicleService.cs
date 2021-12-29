@@ -1,8 +1,6 @@
-﻿using DealershipLibrary.Vehicle;
-
-namespace DealershipLibrary
+﻿namespace DealershipLibrary
 {
-    public class VehicleService
+    public class VehicleService : IVehicleService
     {
         private readonly IVehicleRepository vehicleRepository;
 
@@ -18,19 +16,5 @@ namespace DealershipLibrary
             return this.vehicleRepository.SubmitToDB(ShoppingCart);
         }
 
-        public List<LookupDTO> GetColors()
-        {
-            return this.vehicleRepository.GetColors();
-        }
-
-        public List<LookupDTO> GetModels(VehicleTypesEnum x)
-        {
-            return this.vehicleRepository.GetModels(x);
-        }
-
-        public List<LookupDTO> GetTypes()
-        {
-            return this.vehicleRepository.GetTypes();
-        }
     }
 }

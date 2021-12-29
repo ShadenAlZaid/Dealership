@@ -23,7 +23,8 @@ namespace BlazorApp
         {
             services.AddRazorPages();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
-            services.AddScoped<VehicleService>();
+            services.AddScoped<IVehicleService, VehicleService>();
+            services.AddScoped<ILookupService, LookupService>();
             services.AddServerSideBlazor();
         }
 
