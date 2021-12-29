@@ -1,4 +1,5 @@
-﻿using DealershipLibrary.Vehicle;
+﻿using DataAnnotationsExtensions;
+using DealershipLibrary.Vehicle;
 using System.ComponentModel.DataAnnotations;
 
 namespace DealershipLibrary
@@ -20,24 +21,34 @@ namespace DealershipLibrary
         public VehicleColor VehicleColor { get; set; }
         public VehicleModel VehicleModel { get; set; }
 
-        public int VehicleTypeId { get; set; }
-        public int VehicleDTOId { get; set; }
-        public int VehicleColorId { get; set; }
-        [Required(ErrorMessage = "Select a Color")]
-        public string ColorName { get; set; }
-        public int VehicleModelId { get; set; }
         [Required(ErrorMessage = "Select a Model")]
+        [Min(1,ErrorMessage ="Select a Model")]
+        public int VehicleModelId { get; set; }
+
+        public int VehicleTypeId { get; set; }
+
+        public int VehicleDTOId { get; set; }
+
+        [Min(1, ErrorMessage = "Select a Color")]
+
+        [Required(ErrorMessage = "Select a Color")]
+        public int VehicleColorId { get; set; }
+
+        public string ColorName { get; set; }
+
         public string ModelName { get; set; }
 
 
-        public void SetColor(int c)
+        public void SetColor(string c)
         {
-            this.VehicleColorId = c;
+            if (int.TryParse(c, out int v))
+                this.VehicleColorId = v;
         }
 
-        public void SetModel(int m)
+        public void SetModel(string m)
         {
-            this.VehicleModelId = m;
+            if (int.TryParse(m, out int v))
+                this.VehicleModelId = v;
         }
 
         public void Clone(VehicleDTO vehicle)

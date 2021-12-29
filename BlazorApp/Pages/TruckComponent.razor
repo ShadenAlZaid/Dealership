@@ -10,11 +10,11 @@
 <div>
     <h5>Truck</h5>
 
-    <EditForm Model="@truck" OnValidSubmit="@ValidSubmit">
+    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <select @onchange="(e)=>SelectColor((int)e.Value)">
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
 
             @foreach (var item in truckColorsList)
@@ -23,7 +23,7 @@
             }
         </select>
 
-        <select @onchange="(e)=>SelectModel((int)e.Value)">
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             <option value="">Choose Model</option>
 
             @foreach (var item in truckModelsList)
@@ -50,7 +50,7 @@
     List<LookupDTO> truckColorsList;
     List<LookupDTO> truckModelsList;
 
-    private VehicleDTO truck = new VehicleDTO(null, null);
+    private VehicleDTO vehicle = new VehicleDTO(null, null);
     string msg;
 
     protected override void OnInitialized()
@@ -59,24 +59,24 @@
         this.truckModelsList = this.vehicleService.GetModels(VehicleTypesEnum.Truck);
     }
 
-    void SelectColor(int value)
+     void SelectColor(string value)
     {
-        this.truck.SetColor(value);
+        this.vehicle.SetColor(value);
     }
 
-    void SelectModel(int value)
+    void SelectModel(string value)
     {
-        this.truck.SetModel(value);
+        this.vehicle.SetModel(value);
     }
 
     void ValidSubmit()
     {
         var newTruck = new VehicleDTO(null, null);
         newTruck.VehicleTypeId = (int)VehicleTypesEnum.Truck;
-        newTruck.Clone(truck);
+        newTruck.Clone(vehicle);
 
         //reset car to null
-        truck = new VehicleDTO();
+        vehicle = new VehicleDTO();
         OnAdd.InvokeAsync(newTruck);
         msg = "Truck Added!";
         Logger.LogInformation("ValidSubmit called");

@@ -10,11 +10,11 @@
 <div>
     <h5>Car</h5>
 
-    <EditForm Model="@car" OnValidSubmit="@ValidSubmit">
+    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-        <select @onchange="(e)=>SelectColor((int)e.Value)">
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
             <option value="">Choose Color</option>
 
             @foreach (var item in carColorsList)
@@ -22,8 +22,7 @@
                 <option value="@item.Id">@item.Name</option>
             }
         </select>
-
-        <select @onchange="(e)=>SelectModel((int)e.Value)">
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
             <option value="">Choose Model</option>
 
             @foreach (var item in carModelsList)
@@ -31,6 +30,7 @@
                 <option value="@item.Id">@item.Name</option>
             }
         </select>
+        <ValidationMessage For="@(()=>vehicle.VehicleModelId )" ></ValidationMessage>
         <button type="submit">Add</button>
 
         <span>   @msg</span>
@@ -45,7 +45,7 @@
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    private VehicleDTO car = new VehicleDTO(null, null);
+    private VehicleDTO vehicle = new VehicleDTO(null, null);
     string msg;
 
     List<LookupDTO> carColorsList;
@@ -57,24 +57,24 @@
         this.carModelsList = this.vehicleService.GetModels(VehicleTypesEnum.Car);
     }
 
-    void SelectColor(int value)
+    void SelectColor(string value)
     {
-        this.car.SetColor(value);
+        this.vehicle.SetColor(value);
     }
 
-    void SelectModel(int value)
+    void SelectModel(string value)
     {
-        this.car.SetModel(value);
+        this.vehicle.SetModel(value);
     }
 
     void ValidSubmit()
     {
         var newCar = new VehicleDTO(null, null);
         newCar.VehicleTypeId = (int)VehicleTypesEnum.Car;
-        newCar.Clone(car);
+        newCar.Clone(vehicle);
 
         //reset car to null
-        car = new VehicleDTO();
+        vehicle = new VehicleDTO();
         OnAdd.InvokeAsync(newCar);
         msg = "Car Added!";
         Logger.LogInformation("ValidSubmit called");
