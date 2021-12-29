@@ -51,35 +51,16 @@ namespace Dealership.Data
             return colors;
         }
 
-        public List<LookupDTO> GetModels(Type x)
+        public List<LookupDTO> GetModels(VehicleTypesEnum x)
         {
             List<LookupDTO> models;
-            if (x == typeof(Car))
-            {
+       
                 models = _context.VehicleModels
-               .Where(m => m.VehicleTypeId == 1)
+               .Where(m => m.VehicleTypeId == (int)x)
                .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
                .ToList();
                 return models;
-            }
-            else if (x == typeof(Motorcycle))
-            {
-                models = _context.VehicleModels
-               .Where(m => m.VehicleTypeId == 1)
-               .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
-               .ToList();
-                return models;
-            }
-            else if (x == typeof(Truck))
-            {
-                models = _context.VehicleModels
-               .Where(m => m.VehicleTypeId == 1)
-               .Select(c => new LookupDTO(c.VehicleModelId, c.Name))
-               .ToList();
-                return models;
-            }
-            else
-                return null;
+          
         }
 
         public List<LookupDTO> GetTypes()

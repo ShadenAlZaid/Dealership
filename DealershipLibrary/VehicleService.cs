@@ -23,7 +23,7 @@ namespace DealershipLibrary
             return this.vehicleRepository.GetColors();
         }
 
-        public List<LookupDTO> GetModels(Type x)
+        public List<LookupDTO> GetModels(VehicleTypesEnum x)
         {
             return this.vehicleRepository.GetModels(x);
         }
