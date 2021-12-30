@@ -2,7 +2,7 @@
 
 namespace Dealership.Data.Migrations
 {
-    public partial class InitialDbCreation : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,8 +38,8 @@ namespace Dealership.Data.Migrations
                 {
                     VehicleModelId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VehicleTypeId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VehicleTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,19 +70,19 @@ namespace Dealership.Data.Migrations
                         column: x => x.VehicleColorId,
                         principalTable: "VehicleColors",
                         principalColumn: "VehicleColorId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Cars_VehicleModels_VehicleModelId",
                         column: x => x.VehicleModelId,
                         principalTable: "VehicleModels",
                         principalColumn: "VehicleModelId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Cars_VehicleTypes_VehicleTypeId",
                         column: x => x.VehicleTypeId,
                         principalTable: "VehicleTypes",
                         principalColumn: "VehicleTypeId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,19 +103,19 @@ namespace Dealership.Data.Migrations
                         column: x => x.VehicleColorId,
                         principalTable: "VehicleColors",
                         principalColumn: "VehicleColorId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Motorcycles_VehicleModels_VehicleModelId",
                         column: x => x.VehicleModelId,
                         principalTable: "VehicleModels",
                         principalColumn: "VehicleModelId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Motorcycles_VehicleTypes_VehicleTypeId",
                         column: x => x.VehicleTypeId,
                         principalTable: "VehicleTypes",
                         principalColumn: "VehicleTypeId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,19 +136,57 @@ namespace Dealership.Data.Migrations
                         column: x => x.VehicleColorId,
                         principalTable: "VehicleColors",
                         principalColumn: "VehicleColorId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Trucks_VehicleModels_VehicleModelId",
                         column: x => x.VehicleModelId,
                         principalTable: "VehicleModels",
                         principalColumn: "VehicleModelId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Trucks_VehicleTypes_VehicleTypeId",
                         column: x => x.VehicleTypeId,
                         principalTable: "VehicleTypes",
                         principalColumn: "VehicleTypeId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "VehicleColors",
+                columns: new[] { "VehicleColorId", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Black" },
+                    { 2, "White" },
+                    { 3, "Red" },
+                    { 4, "Blue" },
+                    { 5, "Silver" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VehicleTypes",
+                columns: new[] { "VehicleTypeId", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Car" },
+                    { 2, "Motorcycle" },
+                    { 3, "Truck" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "VehicleModels",
+                columns: new[] { "VehicleModelId", "Name", "VehicleTypeId" },
+                values: new object[,]
+                {
+                    { 1, "Taurus", 1 },
+                    { 2, "Explorer", 1 },
+                    { 3, "Expedition", 1 },
+                    { 4, "Valkryie", 2 },
+                    { 5, "GoldWing", 2 },
+                    { 6, "Hurricane", 2 },
+                    { 7, "Silverado", 3 },
+                    { 8, "Tornado", 3 },
+                    { 9, "Ranger", 3 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dealership.Data.Migrations
 {
     [DbContext(typeof(DealershipContext))]
-    [Migration("20211230112633_dataseeding")]
-    partial class dataseeding
+    [Migration("20211230123128_intial")]
+    partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

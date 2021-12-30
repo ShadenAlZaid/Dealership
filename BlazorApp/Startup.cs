@@ -2,10 +2,12 @@ using Dealership.Data;
 using DealershipLibrary;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Linq;
 
 namespace BlazorApp
 {
@@ -22,9 +24,15 @@ namespace BlazorApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<DbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-            //));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddDbContext<DbContext>((serviceProvider, dbContextBuilder) =>
+            {
+                var connectionStringPlaceHolder = Configuration.GetConnectionString("PlaceHolderConnection");
+                var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+                var dbName = httpContextAccessor.HttpContext.Request.Headers["Id"].First();
+                var connectionString = connectionStringPlaceHolder.Replace("{dbName}", dbName);
+                dbContextBuilder.UseSqlServer(connectionString);
+            });
             services.AddRazorPages();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<ILookupRepository, LookupRepository>();
