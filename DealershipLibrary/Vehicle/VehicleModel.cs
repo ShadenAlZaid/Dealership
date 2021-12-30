@@ -7,9 +7,14 @@
 
         public VehicleType VehicleType { get; set; }
 
-        public VehicleModel(string name)
+        public VehicleModel(string Name)
         {
-            Name = name;
+            this.Name = Name;
+        }
+        public VehicleModel(int VehicleModelId, string Name)
+        {
+            this.VehicleModelId = VehicleModelId;
+            this.Name = Name;
         }
         public string Name { get; set; }
     }

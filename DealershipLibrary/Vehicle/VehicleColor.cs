@@ -3,9 +3,15 @@ namespace DealershipLibrary.Vehicle
     public class VehicleColor
     {
         public int VehicleColorId { get; set; }
-        public VehicleColor(string name)
+        public VehicleColor(string Name)
         {
-            Name = name;
+            this.Name = Name;
+        }
+
+        public VehicleColor(int VehicleColorId, string Name)
+        {
+            this.VehicleColorId = VehicleColorId;
+            this.Name = Name;
         }
         public string Name { get; set; }
     }

@@ -4,10 +4,12 @@
     {
         public int VehicleTypeId { get; set; }
         public string Name { get; set; }
+
         public List<VehicleModel> VehicleModels { get; set; }
-        public VehicleType(string name)
+        public VehicleType(int VehicleTypeId, string Name)
         {
-            Name = name;
+            this.VehicleTypeId = VehicleTypeId;
+            this.Name = Name;
         }
     }
     public enum VehicleTypesEnum
