@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dealership.Data.Migrations
 {
     [DbContext(typeof(DealershipContext))]
-    [Migration("20211230103435_dataSeeding")]
-    partial class dataSeeding
+    [Migration("20211230112633_dataseeding")]
+    partial class dataseeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -169,55 +169,55 @@ namespace Dealership.Data.Migrations
                         {
                             VehicleModelId = 1,
                             Name = "Taurus",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 1
                         },
                         new
                         {
                             VehicleModelId = 2,
                             Name = "Explorer",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 1
                         },
                         new
                         {
                             VehicleModelId = 3,
                             Name = "Expedition",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 1
                         },
                         new
                         {
                             VehicleModelId = 4,
                             Name = "Valkryie",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 2
                         },
                         new
                         {
                             VehicleModelId = 5,
                             Name = "GoldWing",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 2
                         },
                         new
                         {
                             VehicleModelId = 6,
                             Name = "Hurricane",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 2
                         },
                         new
                         {
                             VehicleModelId = 7,
                             Name = "Silverado",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 3
                         },
                         new
                         {
                             VehicleModelId = 8,
                             Name = "Tornado",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 3
                         },
                         new
                         {
                             VehicleModelId = 9,
                             Name = "Ranger",
-                            VehicleTypeId = 0
+                            VehicleTypeId = 3
                         });
                 });
 
@@ -340,7 +340,7 @@ namespace Dealership.Data.Migrations
                     b.HasOne("DealershipLibrary.Vehicle.VehicleType", "VehicleType")
                         .WithMany("VehicleModels")
                         .HasForeignKey("VehicleTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("VehicleType");

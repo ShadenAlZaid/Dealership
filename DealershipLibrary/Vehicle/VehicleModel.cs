@@ -4,19 +4,21 @@
     {
         public int VehicleModelId { get; set; }
         public int VehicleTypeId { get; set; }
+        public string Name { get; set; }
 
         public VehicleType VehicleType { get; set; }
 
-        public VehicleModel(string Name)
+        public VehicleModel(string name)
         {
-            this.Name = Name;
+            this.Name = name;
         }
-        public VehicleModel(int VehicleModelId, string Name)
+        public VehicleModel(int vehicleModelId, string name, int vehicleTypeId)
         {
-            this.VehicleModelId = VehicleModelId;
-            this.Name = Name;
+            this.VehicleModelId = vehicleModelId;
+            this.Name = name;
+            this.VehicleTypeId = vehicleTypeId;
         }
-        public string Name { get; set; }
+        
     }
 
     public enum VehicleModelsEnum
