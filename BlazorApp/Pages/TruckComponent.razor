@@ -50,7 +50,7 @@
     List<LookupDTO> truckColorsList;
     List<LookupDTO> truckModelsList;
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null);
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Truck);
     string msg;
 
     protected override void OnInitialized()
@@ -71,9 +71,8 @@
 
     void ValidSubmit()
     {
-        var newTruck = new VehicleDTO(null, null);
-        newTruck.VehicleTypeId = (int)VehicleTypesEnum.Truck;
-        newTruck.Clone(vehicle);
+        var newTruck = new VehicleDTO();
+         newTruck.Clone(vehicle);
 
         //reset car to null
         vehicle = new VehicleDTO();

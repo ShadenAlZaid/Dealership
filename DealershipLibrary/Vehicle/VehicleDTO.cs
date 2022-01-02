@@ -10,12 +10,13 @@ namespace DealershipLibrary
         {
 
         }
-        public VehicleDTO(string modelName, string colorName)
+        public VehicleDTO(string modelName, string colorName,int typeId)
         {
             if (modelName != null)
                 this.ModelName = modelName;
             if (colorName != null)
                 this.ColorName = colorName;
+            this.VehicleTypeId = typeId;
         }
         public VehicleType VehicleType { get; set; }
         public VehicleColor VehicleColor { get; set; }

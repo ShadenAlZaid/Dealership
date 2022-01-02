@@ -49,7 +49,8 @@ namespace Dealership.Data
                     new List<VehicleType>() {
                         new VehicleType(VehicleTypeId : 1, Name : "Car"),
                         new VehicleType(VehicleTypeId : 2, Name : "Motorcycle"),
-                        new VehicleType(VehicleTypeId : 3, Name : "Truck")
+                        new VehicleType(VehicleTypeId : 3, Name : "Truck"),
+                        new VehicleType(VehicleTypeId : 4, Name : "Train"),
                     }
                  );
         }

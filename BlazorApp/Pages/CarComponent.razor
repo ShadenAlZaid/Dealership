@@ -44,7 +44,7 @@
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null);
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Car);
     string msg;
 
     List<LookupDTO> carColorsList;
@@ -68,9 +68,8 @@
 
     void ValidSubmit()
     {
-        var newCar = new VehicleDTO(null, null);
-        newCar.VehicleTypeId = (int)VehicleTypesEnum.Car;
-        newCar.Clone(vehicle);
+        var newCar = new VehicleDTO();
+         newCar.Clone(vehicle);
 
         //reset car to null
         vehicle = new VehicleDTO();

@@ -51,7 +51,7 @@
     List<LookupDTO> mcColorsList;
     List<LookupDTO> mcModelsList;
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null);
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Motorcycle);
     string msg;
 
     protected override void OnInitialized()
@@ -72,9 +72,8 @@
 
     void ValidSubmit()
     {
-        var newMotorcycle = new VehicleDTO(null, null);
-        newMotorcycle.VehicleTypeId = (int)VehicleTypesEnum.Motorcycle;
-        newMotorcycle.Clone(vehicle);
+        var newMotorcycle = new VehicleDTO();
+         newMotorcycle.Clone(vehicle);
 
         //reset Motorcycle to null
         vehicle = new VehicleDTO();
