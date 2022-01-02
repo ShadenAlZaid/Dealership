@@ -8,31 +8,27 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace BlazorApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public IConfigurationRoot Configuration { get; set; }
+        public static string ConnectionString { get; private set; }
 
-        public IConfiguration Configuration { get; }
+        public Startup(IHostingEnvironment env)
+        {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appSettings.json")
+                .Build();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddDbContext<DbContext>((serviceProvider, dbContextBuilder) =>
-            {
-                var connectionStringPlaceHolder = Configuration.GetConnectionString("PlaceHolderConnection");
-                var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
-                var dbName = httpContextAccessor.HttpContext.Request.Headers["Id"].First();
-                var connectionString = connectionStringPlaceHolder.Replace("{dbName}", dbName);
-                dbContextBuilder.UseSqlServer(connectionString);
-            });
             services.AddRazorPages();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<ILookupRepository, LookupRepository>();
@@ -44,6 +40,8 @@ namespace BlazorApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            ConnectionString = Configuration["ConnectionStrings:DefaultConnection"];
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -67,4 +65,5 @@ namespace BlazorApp
             });
         }
     }
+
 }

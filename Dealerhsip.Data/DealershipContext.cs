@@ -6,6 +6,7 @@ using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary.Vehicle.Motorcycles;
 using DealershipLibrary.Vehicle.Trucks;
 using Microsoft.EntityFrameworkCore;
+using Dealership.BlazorApp.Startup;
 using Microsoft.Extensions.Logging;
 
 namespace Dealership.Data
@@ -21,10 +22,19 @@ namespace Dealership.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog= DealershipData; ",
-                options => options.MaxBatchSize(100));
+            if (!optionsBuilder.IsConfigured)
+            {
+                var con = GetConnectionString();
+                optionsBuilder.UseSqlServer(con);
+            }
+            //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog= DealershipData; ",
+            //    options => options.MaxBatchSize(100));
             //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
             //.EnableSensitiveDataLogging();
+        }
+        public static string GetConnectionString()
+        {
+            return Startup.ConnectionString;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +44,7 @@ namespace Dealership.Data
             ConfigureVehicleModel(modelBuilder);
             ConfigureVehicleType(modelBuilder);
         }
+
 
         private static void ConfigureVehicleType(ModelBuilder modelBuilder)
         {
