@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using DealershipLibrary;
+using System.Collections.Generic; 
 using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary.Vehicle.Motorcycles;
 using DealershipLibrary.Vehicle.Trucks;
 using Microsoft.EntityFrameworkCore;
-using Dealership.BlazorApp.Startup;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Dealership.Data
 {
     public class DealershipContext : DbContext
     {
+        public DealershipContext(DbContextOptions<DealershipContext> options) : base(options)
+        {
+        }
+             
         public DbSet<Car> Cars { get; set; }
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<Truck> Trucks { get; set; }
@@ -22,20 +25,13 @@ namespace Dealership.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var con = GetConnectionString();
-                optionsBuilder.UseSqlServer(con);
-            }
-            //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog= DealershipData; ",
-            //    options => options.MaxBatchSize(100));
+
+            //optionsBuilder.UseSqlServer(this.configuration.GetConnectionString("DealershipConnection"),
+            //    options => options.MaxBatchSize(100))
             //.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
             //.EnableSensitiveDataLogging();
         }
-        public static string GetConnectionString()
-        {
-            return Startup.ConnectionString;
-        }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,9 +9,12 @@ namespace Dealership.Data
 {
     public class LookupRepository : ILookupRepository
     {
+        private readonly DealershipContext _context;
 
-        private DealershipContext _context = new DealershipContext();
-
+        public LookupRepository(DealershipContext dealershipContext)
+        {
+            this._context = dealershipContext;
+        }
         public List<LookupDTO> GetColors()
         {
             var colors = _context.VehicleColors

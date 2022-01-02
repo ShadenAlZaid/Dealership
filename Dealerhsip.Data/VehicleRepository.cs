@@ -12,8 +12,12 @@ namespace Dealership.Data
 {
     public class VehicleRepository : IVehicleRepository
     {
-        private DealershipContext _context = new DealershipContext();
+        private readonly DealershipContext _context;
 
+        public VehicleRepository(DealershipContext dealershipContext)
+        {
+            this._context = dealershipContext;
+        }
         public string SubmitToDB(List<VehicleDTO> ShoppingCart)
         {
             _context.Database.EnsureCreated();
