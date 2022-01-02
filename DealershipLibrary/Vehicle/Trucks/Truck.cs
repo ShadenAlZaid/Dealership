@@ -10,11 +10,10 @@ namespace DealershipLibrary.Vehicle.Trucks
         public Truck() { }
         public Truck(VehicleDTO truckDto)
         {
-            Truck t = new Truck();
-            t.VehicleModelId = truckDto.VehicleModelId;
-            t.TruckId = truckDto.VehicleDTOId;
-            t.VehicleColorId = truckDto.VehicleColorId;
-            t.VehicleColorId = truckDto.VehicleColorId;
+            this.VehicleModelId = truckDto.VehicleModelId;
+            this.TruckId = truckDto.VehicleDTOId;
+            this.VehicleTypeId = truckDto.VehicleTypeId;
+            this.VehicleColorId = truckDto.VehicleColorId;
         }
 
         public Truck(string name, string color) : base(name, color)

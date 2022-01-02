@@ -55,6 +55,7 @@ namespace DealershipLibrary
         {
             this.VehicleColorId = vehicle.VehicleColorId;
             this.VehicleModelId = vehicle.VehicleModelId;
+            this.VehicleTypeId = vehicle.VehicleTypeId;
         }
 
         public override string ToString()

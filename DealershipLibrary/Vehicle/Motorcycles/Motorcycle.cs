@@ -11,11 +11,10 @@ namespace DealershipLibrary.Vehicle.Motorcycles
 
         public Motorcycle(VehicleDTO motorcycleDto)
         {
-            Motorcycle m = new Motorcycle();
-            m.VehicleModelId = motorcycleDto.VehicleModelId;
-            m.MotorcycleId = motorcycleDto.VehicleDTOId;
-            m.VehicleColorId = motorcycleDto.VehicleColorId;
-            m.VehicleColorId = motorcycleDto.VehicleColorId;
+            this.VehicleModelId = motorcycleDto.VehicleModelId;
+            this.MotorcycleId = motorcycleDto.VehicleDTOId;
+            this.VehicleTypeId = motorcycleDto.VehicleTypeId;
+            this.VehicleColorId = motorcycleDto.VehicleColorId;
         }
         public Motorcycle(string name, string color) : base(name, color)
         {

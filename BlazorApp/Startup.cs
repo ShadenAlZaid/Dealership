@@ -28,24 +28,22 @@ namespace BlazorApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //var connection = Configuration.GetConnectionString("DealershipConnection");
+            var connectionString = Configuration["ConnectionStrings:DealershipConnection"];
+            services.AddDbContext<DealershipContext>(options => options.UseSqlServer(connectionString));
+            services.AddServerSideBlazor();
+
             services.AddRazorPages();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<ILookupRepository, LookupRepository>();
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<ILookupService, LookupService>();
-
-            //var connection = Configuration.GetConnectionString("DealershipConnection");
-
-            var connectionString = Configuration["ConnectionStrings:DealershipConnection"];
-
-            services.AddDbContext<DealershipContext>(options => options.UseSqlServer(connectionString));
-
-            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext _context)
         {
+            _context.Database.Migrate();
 
             if (env.IsDevelopment())
             {
