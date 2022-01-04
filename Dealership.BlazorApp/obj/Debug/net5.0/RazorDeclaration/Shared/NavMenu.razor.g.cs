@@ -90,7 +90,7 @@ using Dealership.BlazorApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Shared\NavMenu.razor"
+#line 37 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

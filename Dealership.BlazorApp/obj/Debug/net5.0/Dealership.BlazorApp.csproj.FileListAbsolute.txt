@@ -8,12 +8,10 @@ C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\D
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Dealership.BlazorApp.RazorComponent.input.cache
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\CarComponent.razor.g.cs
-C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\MotorcycleComponent.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\TruckComponent.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
-C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Shared\NavMenu.razor.g.cs
@@ -82,12 +80,10 @@ C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\D
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Dealership.BlazorApp.RazorCoreGenerate.cache
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\App.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\CarComponent.razor.g.cs
-C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\MotorcycleComponent.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\TruckComponent.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Shared\LoginDisplay.razor.g.cs
-C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Shared\NavMenu.razor.g.cs
@@ -113,3 +109,7 @@ C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\D
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Dealership.BlazorApp.genruntimeconfig.cache
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Dealership.BlazorApp.Properties.Resources.resources
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Dealership.BlazorApp.csproj.GenerateResource.cache
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Authorization.dll
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll

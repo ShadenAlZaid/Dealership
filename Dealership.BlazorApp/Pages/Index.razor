@@ -11,76 +11,88 @@
 
 <body>
     <h4>Shaden's Dealership</h4>
-    <div>
-        <div>
-            <select id="vehicleType" @onchange="(e)=>SelectVehicleType(e.Value.ToString())">
-                <option value="">Choose Vehicle</option>
 
-                @foreach (var item in vehicleTypesList)
-                {
-                    <option value="@item.Id">@item.Name</option>
-                }
-            </select>
-        </div>
-        <div>
-            @switch (type)
-            {
-                case VehicleTypesEnum.Car:
-                    @if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Car) < 3)
-                    {
-                        <CarComponent OnAdd="@vehicleAdded"></CarComponent>
-                        //Car component
-                    }
-                    else
-                    {
-                        <span>Max amount of Cars!</span>
-                    }
-                    break;
+    <AuthorizeView>
+        <Authorized>
+            <div>
+                <div>
+                    <select id="vehicleType" @onchange="(e)=>SelectVehicleType(e.Value.ToString())">
+                        <option value="">Choose Vehicle</option>
 
-                case VehicleTypesEnum.Motorcycle:
-                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Motorcycle) < 3)
+                        @foreach (var item in vehicleTypesList)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    @switch (type)
                     {
-                        <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
-                        //Motorcycle component
-                    }
-                    else
-                    {
-                        <span>Max amount of Motorcycle!</span>
-                    }
-                    break;
+                        case VehicleTypesEnum.Car:
+                            @if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Car) < 3)
+                            {
+                                <CarComponent OnAdd="@vehicleAdded"></CarComponent>
+                                //Car component
+                            }
+                            else
+                            {
+                                <span>Max amount of Cars!</span>
+                            }
+                            break;
 
-                case VehicleTypesEnum.Truck:
-                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Truck) < 3)
-                    {
-                        <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
-                        //Truck component
-                    }
-                    else
-                    {
-                        <span>Max amount of Truck!</span>
-                    }
-                    break;
-            }
+                        case VehicleTypesEnum.Motorcycle:
+                            if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Motorcycle) < 3)
+                            {
+                                <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
+                                //Motorcycle component
+                            }
+                            else
+                            {
+                                <span>Max amount of Motorcycle!</span>
+                            }
+                            break;
 
-        </div>
-        <div>
-            <br />
-            <h6><b>Shopping Cart</b></h6>
-            @foreach (var v in ShoppingCart)
-            {
-                <ul>
-                    @((VehicleColorsEnum) v.VehicleColorId) @((VehicleModelsEnum)v.VehicleModelId)
-                    <button @onclick="@(() => Remove(v))">🗙</button>
-                </ul>
-            }
-            @if (ShoppingCart.Count != 0)
-            {
-                <button @onclick="@(() => CheckOut(ShoppingCart))">Checkout</button>
-                <br />
-                <span>  @purchaseMsg</span>
-            }
-        </div>
-    </div>
+                        case VehicleTypesEnum.Truck:
+                            if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Truck) < 3)
+                            {
+                                <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
+                                //Truck component
+                            }
+                            else
+                            {
+                                <span>Max amount of Truck!</span>
+                            }
+                            break;
+                    }
+
+                </div>
+                <div>
+                    <br />
+                    <h6><b>Shopping Cart</b></h6>
+                    @foreach (var v in ShoppingCart)
+                    {
+                        <ul>
+                            @((VehicleColorsEnum) v.VehicleColorId) @((VehicleModelsEnum)v.VehicleModelId)
+                            <button @onclick="@(() => Remove(v))">🗙</button>
+                        </ul>
+                    }
+                    @if (ShoppingCart.Count != 0)
+                    {
+                        <button @onclick="@(() => CheckOut(ShoppingCart))">Checkout</button>
+                        <br />
+                        <span>  @purchaseMsg</span>
+                    }
+                </div>
+            </div>
+        </Authorized>
+        <NotAuthorized>
+            <p>
+                <h5>Please Login :)</h5>
+                <LoginDisplay></LoginDisplay>
+            </p>
+
+        </NotAuthorized>
+    </AuthorizeView>
 </body>
 
 @code

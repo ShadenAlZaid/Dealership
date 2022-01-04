@@ -1,4 +1,5 @@
 using Dealership.BlazorApp.Areas.Identity;
+using Dealership.BlazorApp.Data;
 using Dealership.Data;
 using DealershipLibrary;
 using Microsoft.AspNetCore.Builder;
@@ -45,11 +46,13 @@ namespace Dealership.BlazorApp
             services.AddScoped<ILookupRepository, LookupRepository>();
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<ILookupService, LookupService>();
-            services.AddDbContext<DealershipContext>(options =>
+
+
+            services.AddDbContext<UserDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("UsersConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DealershipContext>();
+                .AddEntityFrameworkStores<UserDbContext>();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
@@ -57,9 +60,10 @@ namespace Dealership.BlazorApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext _context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext dealershipDbContext, UserDbContext userDbContext)
         {
-            _context.Database.Migrate();
+            dealershipDbContext.Database.Migrate();
+            userDbContext.Database.Migrate();
 
             if (env.IsDevelopment())
             {
