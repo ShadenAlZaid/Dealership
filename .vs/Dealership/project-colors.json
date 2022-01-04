@@ -30,7 +30,12 @@
       "ProjectGuid": "1d684ae2-bde3-4053-933a-4ae47855290b",
       "DisplayName": "Dealership.Data",
       "ColorIndex": 4
+    },
+    "a297d44b-d713-4231-b8f1-5a55713910ce": {
+      "ProjectGuid": "a297d44b-d713-4231-b8f1-5a55713910ce",
+      "DisplayName": "Dealership.BlazorApp",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 6
 }

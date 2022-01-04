@@ -43,7 +43,6 @@ namespace BlazorApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext _context)
         {
-            _context.Database.Migrate();
 
             if (env.IsDevelopment())
             {

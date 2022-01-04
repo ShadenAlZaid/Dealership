@@ -1,0 +1,84 @@
+﻿@page "/motorcycle"
+@using DealershipLibrary.Vehicle.Motorcycles
+@using DealershipLibrary.Vehicle
+@using DealershipLibrary
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
+@inject ILogger<Motorcycle> Logger
+
+<div>
+    <h5>Motorcycle</h5>
+
+    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+            <option value="">Choose Color</option>
+
+            @foreach (var item in mcColorsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            <option value="">Choose Model</option>
+
+            @foreach (var item in mcModelsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+
+        <button type="submit">Add</button>
+
+        <span>       @msg</span>
+
+        @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@
+    </EditForm>
+</div>
+
+
+@code {
+    [Inject]
+    ILookupService LookupService { get; set; }
+
+    [Parameter]
+    public EventCallback<VehicleDTO> OnAdd { get; set; }
+
+    List<LookupDTO> mcColorsList;
+    List<LookupDTO> mcModelsList;
+
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Motorcycle);
+    string msg;
+
+    protected override void OnInitialized()
+    {
+        this.mcColorsList = this.LookupService.GetColors();
+        this.mcModelsList = this.LookupService.GetModels(VehicleTypesEnum.Motorcycle);
+    }
+
+    void SelectColor(string value)
+    {
+        this.vehicle.SetColor(value);
+    }
+
+    void SelectModel(string value)
+    {
+        this.vehicle.SetModel(value);
+    }
+
+    void ValidSubmit()
+    {
+        var newMotorcycle = new VehicleDTO();
+         newMotorcycle.Clone(vehicle);
+
+        //reset Motorcycle to null
+        vehicle = new VehicleDTO();
+        OnAdd.InvokeAsync(newMotorcycle);
+        msg = "Motorcycle Added!";
+        Logger.LogInformation("ValidSubmit called");
+    }
+}

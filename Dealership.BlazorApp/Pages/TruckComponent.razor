@@ -1,0 +1,83 @@
+@page "/truck"
+@using DealershipLibrary.Vehicle.Trucks
+@using DealershipLibrary.Vehicle
+@using DealershipLibrary
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
+@inject ILogger<Truck> Logger
+
+<div>
+    <h5>Truck</h5>
+
+    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+            <option value="">Choose Color</option>
+
+            @foreach (var item in truckColorsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            <option value="">Choose Model</option>
+
+            @foreach (var item in truckModelsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+
+        <button type="submit">Add</button>
+
+        <span>   @msg</span>
+
+        @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
+    </EditForm>
+</div>
+
+@code {
+    [Inject]
+    ILookupService LookupService { get; set; }
+
+    [Parameter]
+    public EventCallback<VehicleDTO> OnAdd { get; set; }
+
+    List<LookupDTO> truckColorsList;
+    List<LookupDTO> truckModelsList;
+
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Truck);
+    string msg;
+
+    protected override void OnInitialized()
+    {
+        this.truckColorsList = this.LookupService.GetColors();
+        this.truckModelsList = this.LookupService.GetModels(VehicleTypesEnum.Truck);
+    }
+
+     void SelectColor(string value)
+    {
+        this.vehicle.SetColor(value);
+    }
+
+    void SelectModel(string value)
+    {
+        this.vehicle.SetModel(value);
+    }
+
+    void ValidSubmit()
+    {
+        var newTruck = new VehicleDTO();
+         newTruck.Clone(vehicle);
+
+        //reset car to null
+        vehicle = new VehicleDTO();
+        OnAdd.InvokeAsync(newTruck);
+        msg = "Truck Added!";
+        Logger.LogInformation("ValidSubmit called");
+    }
+}

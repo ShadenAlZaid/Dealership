@@ -1,0 +1,80 @@
+﻿@page "/car"
+@using DealershipLibrary.Vehicle
+@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary
+@using System.Collections.Generic
+@using System.ComponentModel.DataAnnotations;
+@using Microsoft.Extensions.Logging
+@inject ILogger<Car> Logger
+
+<div>
+    <h5>Car</h5>
+
+    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+            <option value="">Choose Color</option>
+
+            @foreach (var item in carColorsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+            <option value="">Choose Model</option>
+
+            @foreach (var item in carModelsList)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <button type="submit">Add</button>
+
+        <span>   @msg</span>
+    </EditForm>
+</div>
+
+
+@code {
+    [Inject]
+    ILookupService LookupService { get; set; }
+
+    [Parameter]
+    public EventCallback<VehicleDTO> OnAdd { get; set; }
+
+    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Car);
+    string msg;
+
+    List<LookupDTO> carColorsList;
+    List<LookupDTO> carModelsList;
+
+    protected override void OnInitialized()
+    {
+        this.carColorsList = this.LookupService.GetColors();
+        this.carModelsList = this.LookupService.GetModels(VehicleTypesEnum.Car);
+    }
+
+    void SelectColor(string value)
+    {
+        this.vehicle.SetColor(value);
+    }
+
+    void SelectModel(string value)
+    {
+        this.vehicle.SetModel(value);
+    }
+
+    void ValidSubmit()
+    {
+        var newCar = new VehicleDTO();
+         newCar.Clone(vehicle);
+
+        //reset car to null
+        vehicle = new VehicleDTO();
+        OnAdd.InvokeAsync(newCar);
+        msg = "Car Added!";
+        Logger.LogInformation("ValidSubmit called");
+    }
+}

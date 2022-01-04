@@ -1,0 +1,133 @@
+﻿@page "/"
+@using Dealership.Data
+@using DealershipLibrary.Vehicle.Cars
+@using DealershipLibrary.Vehicle.Motorcycles
+@using DealershipLibrary.Vehicle.Trucks
+@using DealershipLibrary.Vehicle
+@using DealershipLibrary
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.Extensions.Logging
+@inject ILogger<Car> Logger
+
+<body>
+    <h4>Shaden's Dealership</h4>
+    <div>
+        <div>
+            <select id="vehicleType" @onchange="(e)=>SelectVehicleType(e.Value.ToString())">
+                <option value="">Choose Vehicle</option>
+
+                @foreach (var item in vehicleTypesList)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div>
+            @switch (type)
+            {
+                case VehicleTypesEnum.Car:
+                    @if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Car) < 3)
+                    {
+                        <CarComponent OnAdd="@vehicleAdded"></CarComponent>
+                        //Car component
+                    }
+                    else
+                    {
+                        <span>Max amount of Cars!</span>
+                    }
+                    break;
+
+                case VehicleTypesEnum.Motorcycle:
+                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Motorcycle) < 3)
+                    {
+                        <MotorcycleComponent OnAdd="@vehicleAdded"></MotorcycleComponent>
+                        //Motorcycle component
+                    }
+                    else
+                    {
+                        <span>Max amount of Motorcycle!</span>
+                    }
+                    break;
+
+                case VehicleTypesEnum.Truck:
+                    if (ShoppingCart.Count(v => v.VehicleTypeId == (int)VehicleTypesEnum.Truck) < 3)
+                    {
+                        <TruckComponent OnAdd="vehicleAdded"></TruckComponent>
+                        //Truck component
+                    }
+                    else
+                    {
+                        <span>Max amount of Truck!</span>
+                    }
+                    break;
+            }
+
+        </div>
+        <div>
+            <br />
+            <h6><b>Shopping Cart</b></h6>
+            @foreach (var v in ShoppingCart)
+            {
+                <ul>
+                    @((VehicleColorsEnum) v.VehicleColorId) @((VehicleModelsEnum)v.VehicleModelId)
+                    <button @onclick="@(() => Remove(v))">🗙</button>
+                </ul>
+            }
+            @if (ShoppingCart.Count != 0)
+            {
+                <button @onclick="@(() => CheckOut(ShoppingCart))">Checkout</button>
+                <br />
+                <span>  @purchaseMsg</span>
+            }
+        </div>
+    </div>
+</body>
+
+@code
+{
+    [Inject]
+    IVehicleService vehicleService { get; set; }
+
+    [Inject]
+    ILookupService LookupService { get; set; }
+
+    List<LookupDTO> vehicleTypesList;
+
+    public List<VehicleDTO> ShoppingCart { get; set; } = new List<VehicleDTO>();
+
+    VehicleTypesEnum type;
+
+    string purchaseMsg;
+
+    protected override void OnInitialized()
+    {
+        this.vehicleTypesList = this.LookupService.GetTypes();
+    }
+
+    void SelectVehicleType(string value)
+    {
+        this.type = (VehicleTypesEnum)int.Parse(value);
+    }
+
+    void vehicleAdded(VehicleDTO vehicle)
+    {
+        this.ShoppingCart.Add(vehicle);
+    }
+
+    void Remove(VehicleDTO v)
+    {
+        ShoppingCart.Remove(v);
+    }
+
+    void CheckOut(List<VehicleDTO> ShoppingCart)
+    {
+        var result = vehicleService.CheckOut(ShoppingCart);
+
+        purchaseMsg = result;
+    }
+
+    void ValidSubmit()
+    {
+        Logger.LogInformation("ValidSubmit called");
+    }
+}
