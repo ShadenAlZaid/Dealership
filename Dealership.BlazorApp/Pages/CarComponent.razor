@@ -9,31 +9,37 @@
 
 <div>
     <h5>Car</h5>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+            <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+                <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+                    <option value="">Choose Color</option>
 
-        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-            <option value="">Choose Color</option>
+                    @foreach (var item in carColorsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+                    <option value="">Choose Model</option>
 
-            @foreach (var item in carColorsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
-        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-            <option value="">Choose Model</option>
+                    @foreach (var item in carModelsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <button type="submit">Add</button>
 
-            @foreach (var item in carModelsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
-        <button type="submit">Add</button>
-
-        <span>   @msg</span>
-    </EditForm>
+                <span>   @msg</span>
+            </EditForm>
+        </Authorized>
+        <NotAuthorized>
+            <Redirect></Redirect>
+        </NotAuthorized>
+    </AuthorizeView>
 </div>
 
 
@@ -44,7 +50,7 @@
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Car);
+    private VehicleDTO vehicle = new VehicleDTO(null, null, (int)VehicleTypesEnum.Car);
     string msg;
 
     List<LookupDTO> carColorsList;
@@ -69,7 +75,7 @@
     void ValidSubmit()
     {
         var newCar = new VehicleDTO();
-         newCar.Clone(vehicle);
+        newCar.Clone(vehicle);
 
         //reset car to null
         vehicle = new VehicleDTO();

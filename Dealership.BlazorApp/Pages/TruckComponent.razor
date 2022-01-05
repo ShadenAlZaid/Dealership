@@ -9,35 +9,42 @@
 
 <div>
     <h5>Truck</h5>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+            <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+                <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+                    <option value="">Choose Color</option>
 
-        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-            <option value="">Choose Color</option>
+                    @foreach (var item in truckColorsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
 
-            @foreach (var item in truckColorsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
+                <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+                    <option value="">Choose Model</option>
 
-        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-            <option value="">Choose Model</option>
+                    @foreach (var item in truckModelsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
 
-            @foreach (var item in truckModelsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
+                <button type="submit">Add</button>
 
-        <button type="submit">Add</button>
+                <span>   @msg</span>
 
-        <span>   @msg</span>
+                @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
+            </EditForm>
+        </Authorized>
+        <NotAuthorized>
+            <Redirect></Redirect>
+        </NotAuthorized>
+    </AuthorizeView>
 
-        @*<ValidationMessage For="@(()=>truck.VehicleModel)" ></ValidationMessage>*@
-    </EditForm>
 </div>
 
 @code {
@@ -50,7 +57,7 @@
     List<LookupDTO> truckColorsList;
     List<LookupDTO> truckModelsList;
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Truck);
+    private VehicleDTO vehicle = new VehicleDTO(null, null, (int)VehicleTypesEnum.Truck);
     string msg;
 
     protected override void OnInitialized()
@@ -59,7 +66,7 @@
         this.truckModelsList = this.LookupService.GetModels(VehicleTypesEnum.Truck);
     }
 
-     void SelectColor(string value)
+    void SelectColor(string value)
     {
         this.vehicle.SetColor(value);
     }
@@ -72,7 +79,7 @@
     void ValidSubmit()
     {
         var newTruck = new VehicleDTO();
-         newTruck.Clone(vehicle);
+        newTruck.Clone(vehicle);
 
         //reset car to null
         vehicle = new VehicleDTO();

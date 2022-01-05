@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic; 
+﻿using System.Collections.Generic;
 using DealershipLibrary.Vehicle;
 using DealershipLibrary.Vehicle.Cars;
 using DealershipLibrary.Vehicle.Motorcycles;
 using DealershipLibrary.Vehicle.Trucks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace Dealership.Data
 {

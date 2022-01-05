@@ -132,7 +132,7 @@ using Microsoft.Extensions.Logging;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\CarComponent.razor"
+#line 46 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\CarComponent.razor"
        
     [Inject]
     ILookupService LookupService { get; set; }
@@ -140,7 +140,7 @@ using Microsoft.Extensions.Logging;
     [Parameter]
     public EventCallback<VehicleDTO> OnAdd { get; set; }
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Car);
+    private VehicleDTO vehicle = new VehicleDTO(null, null, (int)VehicleTypesEnum.Car);
     string msg;
 
     List<LookupDTO> carColorsList;
@@ -165,7 +165,7 @@ using Microsoft.Extensions.Logging;
     void ValidSubmit()
     {
         var newCar = new VehicleDTO();
-         newCar.Clone(vehicle);
+        newCar.Clone(vehicle);
 
         //reset car to null
         vehicle = new VehicleDTO();

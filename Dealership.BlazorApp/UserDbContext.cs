@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Dealership.BlazorApp.Data
 {
@@ -11,6 +10,16 @@ namespace Dealership.BlazorApp.Data
         public UserDbContext(DbContextOptions<UserDbContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            ConfigureUsers(modelBuilder);
+        }
+
+        private void ConfigureUsers(ModelBuilder modelBuilder)
+        {
+            throw new NotImplementedException();
         }
     }
 }

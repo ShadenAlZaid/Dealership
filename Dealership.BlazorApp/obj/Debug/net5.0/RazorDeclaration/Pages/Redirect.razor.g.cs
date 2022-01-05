@@ -8,6 +8,7 @@ namespace Dealership.BlazorApp.Pages
 {
     #line hidden
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
@@ -82,102 +83,20 @@ using Dealership.BlazorApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-using DealershipLibrary.Vehicle.Motorcycles;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-using DealershipLibrary.Vehicle;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-using DealershipLibrary;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-using System.Collections.Generic;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
+#line 2 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\Redirect.razor"
 using System.ComponentModel.DataAnnotations;
 
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 7 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-using Microsoft.Extensions.Logging;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/motorcycle")]
-    public partial class MotorcycleComponent : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/redirect")]
+    public partial class Redirect : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 50 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\MotorcycleComponent.razor"
-       
-    [Inject]
-    ILookupService LookupService { get; set; }
-
-    [Parameter]
-    public EventCallback<VehicleDTO> OnAdd { get; set; }
-
-    List<LookupDTO> mcColorsList;
-    List<LookupDTO> mcModelsList;
-
-    private VehicleDTO vehicle = new VehicleDTO(null, null, (int)VehicleTypesEnum.Motorcycle);
-    string msg;
-
-    protected override void OnInitialized()
-    {
-        this.mcColorsList = this.LookupService.GetColors();
-        this.mcModelsList = this.LookupService.GetModels(VehicleTypesEnum.Motorcycle);
-    }
-
-    void SelectColor(string value)
-    {
-        this.vehicle.SetColor(value);
-    }
-
-    void SelectModel(string value)
-    {
-        this.vehicle.SetModel(value);
-    }
-
-    void ValidSubmit()
-    {
-        var newMotorcycle = new VehicleDTO();
-        newMotorcycle.Clone(vehicle);
-
-        //reset Motorcycle to null
-        vehicle = new VehicleDTO();
-        OnAdd.InvokeAsync(newMotorcycle);
-        msg = "Motorcycle Added!";
-        Logger.LogInformation("ValidSubmit called");
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILogger<Motorcycle> Logger { get; set; }
     }
 }
 #pragma warning restore 1591

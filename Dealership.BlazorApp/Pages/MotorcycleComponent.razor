@@ -9,35 +9,41 @@
 
 <div>
     <h5>Motorcycle</h5>
+    <AuthorizeView Context="Auth">
+        <Authorized>
+            <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-    <EditForm Model="@vehicle" OnValidSubmit="@ValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+                <select @onchange="(e)=>SelectColor(e.Value.ToString())">
+                    <option value="">Choose Color</option>
 
-        <select @onchange="(e)=>SelectColor(e.Value.ToString())">
-            <option value="">Choose Color</option>
+                    @foreach (var item in mcColorsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
 
-            @foreach (var item in mcColorsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
+                <select @onchange="(e)=>SelectModel(e.Value.ToString())">
+                    <option value="">Choose Model</option>
 
-        <select @onchange="(e)=>SelectModel(e.Value.ToString())">
-            <option value="">Choose Model</option>
+                    @foreach (var item in mcModelsList)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
 
-            @foreach (var item in mcModelsList)
-            {
-                <option value="@item.Id">@item.Name</option>
-            }
-        </select>
+                <button type="submit">Add</button>
 
-        <button type="submit">Add</button>
+                <span>       @msg</span>
 
-        <span>       @msg</span>
-
-        @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@
-    </EditForm>
+                @*<ValidationMessage For="@(()=>motorcycle.VehicleModel)" ></ValidationMessage>*@
+            </EditForm>
+        </Authorized>
+        <NotAuthorized>
+            <Redirect></Redirect>
+        </NotAuthorized>
+    </AuthorizeView>
 </div>
 
 
@@ -51,7 +57,7 @@
     List<LookupDTO> mcColorsList;
     List<LookupDTO> mcModelsList;
 
-    private VehicleDTO vehicle = new VehicleDTO(null, null,(int)VehicleTypesEnum.Motorcycle);
+    private VehicleDTO vehicle = new VehicleDTO(null, null, (int)VehicleTypesEnum.Motorcycle);
     string msg;
 
     protected override void OnInitialized()
@@ -73,7 +79,7 @@
     void ValidSubmit()
     {
         var newMotorcycle = new VehicleDTO();
-         newMotorcycle.Clone(vehicle);
+        newMotorcycle.Clone(vehicle);
 
         //reset Motorcycle to null
         vehicle = new VehicleDTO();

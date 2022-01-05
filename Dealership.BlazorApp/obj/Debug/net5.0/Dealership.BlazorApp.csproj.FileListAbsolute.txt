@@ -113,3 +113,5 @@ C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\M
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\Redirect.razor.g.cs
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\Redirect.razor.g.cs

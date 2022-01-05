@@ -147,7 +147,7 @@ using Microsoft.Extensions.Logging;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 98 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\Index.razor"
+#line 95 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\Index.razor"
  
     [Inject]
     IVehicleService vehicleService { get; set; }
