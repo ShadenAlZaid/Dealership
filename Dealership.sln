@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dealership.Data", "Dealerhsip.Data\Dealership.Data.csproj", "{1D684AE2-BDE3-4053-933A-4AE47855290B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dealership.BlazorApp", "Dealership.BlazorApp\Dealership.BlazorApp.csproj", "{A297D44B-D713-4231-B8F1-5A55713910CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dealership.BlazorApp", "Dealership.BlazorApp\Dealership.BlazorApp.csproj", "{A297D44B-D713-4231-B8F1-5A55713910CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

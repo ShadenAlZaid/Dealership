@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Dealership.BlazorApp
 {
@@ -20,5 +21,6 @@ namespace Dealership.BlazorApp
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
