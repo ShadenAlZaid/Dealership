@@ -29,7 +29,6 @@ namespace Dealership.Data
             //.EnableSensitiveDataLogging();
         }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ConfigureMainEntities(modelBuilder);
