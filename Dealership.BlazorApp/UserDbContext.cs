@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 
-namespace Dealership.Data
+namespace Dealership.BlazorApp.Data
 {
     public class UserDbContext : IdentityDbContext<IdentityUser>
     {
@@ -13,7 +13,7 @@ namespace Dealership.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

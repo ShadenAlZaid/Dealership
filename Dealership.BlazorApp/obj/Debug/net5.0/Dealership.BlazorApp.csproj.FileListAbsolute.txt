@@ -119,3 +119,5 @@ C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\E
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNet.Identity.Core.dll
 C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\bin\Debug\net5.0\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\RazorDeclaration\Pages\AdminComponent.razor.g.cs
+C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\obj\Debug\net5.0\Razor\Pages\AdminComponent.razor.g.cs

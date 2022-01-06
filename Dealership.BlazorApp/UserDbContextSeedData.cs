@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dealership.Data
+namespace Dealership.BlazorApp.Data
 {
     public class UserDbContextSeedData
     {

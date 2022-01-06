@@ -1,4 +1,5 @@
 using Dealership.BlazorApp.Areas.Identity;
+using Dealership.BlazorApp.Data;
 using Dealership.Data;
 using DealershipLibrary;
 using Microsoft.AspNetCore.Builder;

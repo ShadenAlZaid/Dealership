@@ -4,11 +4,10 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Dealership.BlazorApp.Shared
+namespace Dealership.BlazorApp.Pages
 {
     #line hidden
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
@@ -82,28 +81,56 @@ using Dealership.BlazorApp.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using DealershipLibrary.Vehicle;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using DealershipLibrary.Vehicle.Cars;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using DealershipLibrary;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using System.Collections.Generic;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Pages\AdminComponent.razor"
+using Microsoft.Extensions.Logging;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/admin")]
+    public partial class AdminComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 60 "C:\Users\salzaid\source\repos\Dealership\Dealership.BlazorApp\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591
