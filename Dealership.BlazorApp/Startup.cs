@@ -1,5 +1,4 @@
 using Dealership.BlazorApp.Areas.Identity;
-using Dealership.BlazorApp.Data;
 using Dealership.Data;
 using DealershipLibrary;
 using Microsoft.AspNetCore.Builder;
@@ -50,13 +49,16 @@ namespace Dealership.BlazorApp
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddTransient<UserDbContextSeedData>();
 
-           // services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+            // services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext dealershipDbContext, UserDbContext userDbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DealershipContext dealershipDbContext, UserDbContext userDbContext, UserDbContextSeedData seeder)
         {
+            seeder.SeedAdminUser();
+
             dealershipDbContext.Database.Migrate();
             userDbContext.Database.Migrate();
 
