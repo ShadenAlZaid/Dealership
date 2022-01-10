@@ -34,7 +34,7 @@ namespace Dealership.BlazorApp.Data
 
             if (!_context.Roles.Any(r => r.Name == "admin"))
             {
-                await roleStore.CreateAsync(new IdentityRole { Name = "admin", NormalizedName = "admin" });
+                await roleStore.CreateAsync(new IdentityRole { Name = "admin", NormalizedName = "Admin" });
             }
 
             if (!_context.Users.Any(u => u.UserName == user.UserName))
